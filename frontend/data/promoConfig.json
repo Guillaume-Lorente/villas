@@ -1,0 +1,22 @@
+{
+  "homepage": {
+    "active": true,
+    "message": "Promo d'été : -20% sur les villas Akamapa et Iguana jusqu'au 31 août !"
+  },
+  "villas": {
+    "1": {
+      "active": true,
+      "message": "30% de réduction pour tous les séjours jusqu'au 18 octobre 2025"
+    },
+    "2": {
+      "active": true,
+      "message": "30% de réduction pour tous les séjours jusqu'au 18 octobre 2025"
+    },
+    "3": {
+      "active": false,
+      "message": "Villa Iguana : 20% de promo du 15 août au 31 août !"
+    }
+  },
+  "active": true,
+  "homeBanner": "Promo Exceptionnelle en cours pour les villas Akamapa et Tilamp Tilamp"
+}

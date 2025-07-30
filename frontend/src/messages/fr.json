@@ -1,0 +1,353 @@
+{
+  "header": {
+    "akamapa": "Akamapa",
+    "tilamp": "Tilamp Tilamp",
+    "iguana": "Iguana",
+    "infos": "Infos pratiques",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+
+  "footer": {
+  "rights": "Tous droits réservés.",
+  "mentions": "Mentions légales",
+  "contact": "Contact",
+  "cgv": "CGV"
+},
+
+"home": {
+    "heroTitle": "Location de villas de rêve à Deshaies en Guadeloupe",
+    "heroDescription": "Les villas « Grande Anse », Tilamp Tilamp, Akamapa et Iguana, vous accueillent au sein d'une magnifique propriété de 3000 m2 arborée et fleurie, à 200 m de la plage de Grande Anse, à Deshaies, 4ème village préféré des Français en 2024.\n\nDécouvrez les iguanes, colibris, mangoustes et dégustez les bananes, avocats, papayes, mangues, ananas de la propriété suivant la saison. Réservez dès maintenant pour vivre une expérience unique & des vacances inoubliables dans un cadre tropical paradisiaque.",
+    "villasTitle": "Nos villas en location à Deshaies",
+    "discoverTitle": "Découvrez la Guadeloupe depuis Deshaies",
+    "discoverDescription": "Nos villas « Grande Anse » sont au cœur même de la « Côte sous le Vent », appelée aussi la Côte Caraïbes, qui est une région à part de la Guadeloupe où se situent les plus belles plages dans un rayon de 15 kilomètres : La Perle, Gadet, Leroux, Tillet, Petite Anse, Cluny et bien sûr Grande Anse. C'est la destination Nature par excellence entre mer & montagne. Venez découvrir les bassins et cascades en rivière, les plus belles plages et les sources chaudes, vous trouverez ici votre bonheur. Havre de paix, la côte sous le vent n'a pas connu l'urbanisation et l'industrialisation de la Guadeloupe. Elle saura vous séduire car elle demeure très authentique et abrite de très nombreuses activités.",
+    "blogButton": "Explorer le blog"
+  },
+
+  "map": {
+  "title": "Grande Anse : La plus belle plage de Guadeloupe",
+  "description": "À seulement 200 mètres de nos villas, la plage de Grande Anse vous invite à profiter de ses eaux cristallines et de son sable doré. Découvrez des couchers de soleil magiques et un cadre exotique idéal pour se détendre ou explorer la nature environnante."
+},
+
+"infos": {
+  "title": "Infos Pratiques",
+  "howTo": {
+    "title": "Comment se rendre aux villas",
+    "gpsLabel": "Coordonnées GPS :",
+    "gpsValue": "16°19'16.6\"N 61°47'07.0\"W",
+    "fromAirport": "Depuis l’aéroport :",
+    "duration": "comptez environ 45 minutes de trajet.",
+    "step1": "Suivre DESHAIES via la N2 sur 43 km jusqu’au rond-point de la plage de Grande Anse.",
+    "step2": "Tourner à gauche (station Total) sur la D18 direction Caféière.",
+    "step3": "80m plus loin, entrez au 133 sur votre gauche."
+  },
+  "welcome": {
+    "title": "Votre accueil",
+    "text1": "Les coordonnées de Joanna vous seront transmises après la confirmation de votre séjour.",
+    "text2": "Elle vous réservera un accueil chaleureux 🌴",
+    "text3": "📞 Pensez à la contacter dès votre sortie de l'aéroport pour prévenir de votre arrivée même tardive."
+  },
+  "services": {
+    "title": "Les services",
+    "text1": "Notre villa se trouve à seulement 50 mètres d’un commerce de proximité — parfait pour vos courses du quotidien sans avoir à prendre la voiture.",
+    "text2": "Et pour découvrir l’ambiance authentique de la région, le charmant bourg de Deshaies n’est qu’à 1,5 km. Commerces, restaurants et balades en bord de mer vous y attendent !"
+  }
+},
+
+"contact": {
+  "title": "Formulaire de contact",
+  "description": "Vous êtes intéressé par nos villas à Deshaies ? Laissez-nous votre message ci-dessous :",
+  "name": "Nom",
+  "firstname": "Prénom",
+  "email": "Email",
+  "message": "Votre message",
+  "submit": "Envoyer le message",
+  "loading": "Envoi en cours...",
+  "recaptchaError": "Veuillez valider le reCAPTCHA.",
+  "success": "✅ Message envoyé avec succès !",
+  "error": "❌ Une erreur est survenue. Veuillez réessayer."
+},
+
+"legal": {
+  "title": "Mentions légales",
+  "publisherTitle": "Éditeur et propriétaire du site",
+  "publisher": "Le site villas-grande-anse.com est édité par :\nSCI REVES ALPES IMMO (435 317 557 R.C.S Chambéry)\nSiège Social : Résidence le Thabor 590 Rue des Bettets Valfréjus 73500 Modane\nEmail : villasgrandeanse@hotmail.com\nNuméro d'identification à la TVA : FR 70 435 317 557\nResponsable de la publication : Christophe Lorente\nCapital Social : 1738,50€",
+  "hostingTitle": "Hébergement",
+  "hosting": "Le site est hébergé par :\nIONOS SARL\n7 Place de la Gare, BP 70109\n57200 Sarreguemines Cedex\nFrance\nNuméro de téléphone : 09 70 80 89 11\nAdresse e-mail : info@ionos.fr",
+  "creatorTitle": "Créateur du site",
+  "creator": "Le site a été créé par :\nGuillaume Lorente\n225 rue du Petit Arrondaz\n73500 Modane\nFrance\nNuméro de téléphone : 06 19 95 04 99\nAdresse e-mail : guillaumelorente@orange.fr",
+  "changesTitle": "Modifications",
+  "changes": "En accédant et en naviguant sur ce site, l'utilisateur est informé de ses droits et obligations et accepte pleinement de se conformer aux présentes conditions d'utilisations du site. L'éditeur du site se réserve la possibilité de modifier ces conditions. Il appartient à l'utilisateur de vérifier périodiquement le contenu des documents concernés. L'éditeur se réserve la possibilité de supprimer ou de modifier en tout ou partie le « site ».",
+  "dataTitle": "Données personnelles",
+  "data": "Le site ne collecte des informations personnelles relatives à l’utilisateur que pour le besoin de certains services proposés (formulaire de contact ou réservation). Aucune information personnelle de l’utilisateur du site n’est publiée, échangée, transférée ou vendue à l’insu de l’utilisateur.",
+  "accessTitle": "Accessibilité",
+  "access": "Le site est par principe accessible aux utilisateurs 24/24h et 7/7j, sauf interruption, programmée ou non, pour des besoins de maintenance ou en cas de force majeure. En cas d'indisponibilité d'accès au site, celui-ci s'engage à faire son maximum afin de rétablir l'accès. Le site ne saurait être tenu pour responsable de tout dommage, quelle qu'en soit la nature, résultant de son indisponibilité.",
+  "backHome": "Retour à l'accueil"
+},
+
+"cgv": {
+    "title": "Conditions Générales de Vente",
+
+    "article1Title": "Article 1",
+    "article1": "Ce contrat de location saisonnière est réservé à l'usage exclusif de la location d'hébergements par la Sci Rêves Alpes Immo.\nEn aucun cas la Sci Rêves Alpes Immo ne saurait voir sa responsabilité engagée en cas d'utilisation de ses contrats par des tiers ou à des fins autres que touristiques.",
+
+    "article2Title": "Article 2 - Durée du séjour",
+    "article2": "Le locataire signataire du présent contrat conclu pour une durée déterminée ne pourra en aucune circonstance se prévaloir d'un quelconque droit au maintien dans les lieux à l'issue du séjour.",
+
+    "article3Title": "Article 3 - Conclusion du contrat",
+    "article3": "La réservation devient effective dès lors que le locataire aura fait parvenir au propriétaire un acompte de 30% du montant total de la location et un exemplaire du contrat signé avant la date indiquée.\nUn deuxième exemplaire est à conserver par le locataire.\nLa location conclue entre les parties au présent acte ne peut en aucun cas bénéficier, même partiellement, à des tiers, personnes physiques ou morales, sauf accord écrit du propriétaire.\nToute infraction à ce dernier alinéa serait susceptible d'entraîner la résiliation immédiate de la location aux torts du locataire, le produit de la location restant définitivement acquis au propriétaire.",
+
+    "article4Title": "Article 4 - Le règlement du solde",
+    "article4": "Le solde de la location est versé au plus tard 30 jours avant la date d'arrivée.",
+
+    "article5Title": "Article 5 - Absence de rétractation",
+    "article5": "Pour les réservations effectuées par courrier, par téléphone ou par internet, le locataire ne bénéficie pas du délai de rétractation, conformément à l'article L121-21-8 du code de la consommation relatif notamment aux prestations de services d'hébergements fournies à une date ou selon une périodicité déterminée.",
+
+    "article6Title": "Article 6 - Annulation par le locataire",
+    "article6": "Toute annulation doit être notifiée par lettre recommandée au propriétaire.\n\na) Annulation plus de 30 jours avant l'arrivée : l'acompte reste acquis au propriétaire. Le solde est restitué s'il a déjà été versé.\n\nb) Annulation à 30 jours ou moins avant l'arrivée : l'acompte et le solde restent acquis au propriétaire.\n\nc) Si le locataire ne se manifeste pas dans les 24h suivant la date d'arrivée, le contrat devient nul et le propriétaire peut disposer du bien. Aucun remboursement ne sera effectué.\n\nSi le séjour est écourté, le montant total de la location reste dû. Aucun remboursement ne sera effectué.",
+
+    "article7Title": "Article 7 - Annulation par le propriétaire",
+    "article7": "Le propriétaire reverse au locataire l'intégralité des sommes versées.",
+
+    "article8Title": "Article 8 - Arrivée",
+    "article8": "Le locataire doit se présenter à la date et à l'heure indiquées dans le contrat.\nEn cas d'arrivée tardive ou différée, il doit prévenir le propriétaire.",
+
+    "article9Title": "Article 9 - Etat des lieux",
+    "article9": "Un inventaire est établi et signé par le locataire et le propriétaire (ou son représentant) à l'arrivée et au départ.\nIl constitue la seule référence en cas de litige.\nLa propreté des lieux à l'arrivée est également constatée.\nLe nettoyage est à la charge du locataire pendant le séjour.\nLe ménage de fin de séjour est inclus.\nDes frais supplémentaires pourront être facturés (sur justificatif) si l'état du bien le nécessite, au tarif horaire de 40€ TTC.",
+
+    "article10Title": "Article 10 - Dépôt de garantie ou caution",
+    "article10": "Un dépôt de garantie est demandé à l'arrivée (montant précisé dans le contrat).\nIl est restitué après l'état des lieux de sortie, déduction faite des éventuelles dégradations.\nEn cas de départ anticipé, le dépôt est renvoyé dans un délai d’une semaine, après évaluation éventuelle des dommages.",
+
+    "article11Title": "Article 11 - Utilisation des lieux",
+    "article11": "Le locataire devra assurer le caractère paisible de la location et en faire usage conformément à la destination des lieux.",
+
+    "article12Title": "Article 12 - Capacité",
+    "article12": "Le présent contrat est établi pour une capacité maximum de personnes.\nSi le nombre de locataires dépasse cette capacité, le propriétaire peut refuser les personnes supplémentaires.\nToute modification ou rupture du contrat sera considérée à l'initiative du client.",
+
+    "article13Title": "Article 13 - Accueil des animaux",
+    "article13": "Les animaux ne sont pas admis.\nEn cas de non-respect, le propriétaire peut refuser le séjour sans remboursement.",
+
+    "article14Title": "Article 14 - Assurances",
+    "article14": "Le locataire est responsable de tout dommage causé.\nIl doit être assuré par un contrat type villégiature pour ces risques.",
+
+    "article15Title": "Article 15 - Paiement des charges",
+    "article15": "En début de séjour, le locataire doit régler les charges non incluses dans le prix de la location.\nLeur montant est précisé dans le contrat et un justificatif est remis par le propriétaire.",
+
+    "article16Title": "Article 16 - Litiges",
+    "article16": "Toute réclamation liée à l’état des lieux ou au descriptif doit être adressée à la Sci Rêves Alpes Immo dans les 3 jours suivant l’entrée dans les lieux.\nToute autre réclamation doit être formulée dans les meilleurs délais.",
+
+    "backHome": "Retour à l'accueil"
+  },
+
+  "akamapa": {
+  "name": "Villa Akamapa",
+  "description": "Akamapa que l'on peut traduire par «la case à maman et à papa »... Les nombreux atouts de cette villa typiquement guadeloupéenne de plain-pied avec sa piscine au centre vous séduiront. Elle bénéficie d'un cadre idéal, d'une grande piscine, d'une grande terrasse en L, et d'un carbet pour le farniente à l'ombre. Laissez-vous emporter par la sérénité des lieux dans un écrin de verdure.",
+  "info": {
+    "capacity": "2/6 pers.",
+    "bedrooms": "2 chambres",
+    "bathrooms": "2 salles de bain",
+    "parking": "Parking privé"
+  },
+  "galleryTitle": "Votre séjour en images",
+  "equipmentTitle": "Équipements",
+  "equipments": {
+    "ac": "Climatisation",
+    "bbq": "Barbecue",
+    "kitchen": "Cuisine équipée",
+    "pool": "Piscine privée",
+    "wifi": "Wi-Fi",
+    "beach": "Plage à pied",
+    "washer": "Machine à laver",
+    "tv": "Télévision",
+    "net": "Moustiquaires",
+    "dryer": "Sèche-linge",
+    "safe": "Coffre-fort",
+    "fan": "Brasseur d'air",
+    "outdoorShower": "Douche extérieure",
+    "games": "Jeux de société",
+    "shops": "Commerce de proximité"
+  },
+  "descriptionTitle": "Descriptif",
+  "descriptionText": "D'une superficie totale de 190 m² (dont 100 m² de terrasse), cette villa traditionnelle de plain-pied peut accueillir jusqu'à 6 personnes. Les chambres sont équipées de moustiquaire.",
+  "features": [
+    "1 suite climatisée et munie d'un brasseur d'air, équipée de deux lits simples (90 cm) pouvant être rapprochés, avec bureau, salle de bain & wc attenants - accès direct à la piscine et entrée indépendante",
+    "1 suite climatisée et munie d'un brasseur d'air, équipée d'un lit double King Size (180 cm), avec bureau, salle de bain & wc attenants - accès direct à la piscine",
+    "1 grande cuisine entièrement équipée et munie d'un brasseur d'air et une arrière cuisine",
+    "1 salon climatisé et muni d'un brasseur d'air, équipé de deux canapés-lits simples (90cm)",
+    "1 wc invité indépendant",
+    "1 grande terrasse aménagée, munie de brasseurs d'air et meublée : bar, grande table pour les repas, canapés, hamac",
+    "1 deck avec une grande piscine 4,5m x 9m entourée de canapés, de transats, d'un carbet, d'une douche extérieure"
+  ],
+  "includedTitle": "Services inclus",
+  "included": [
+    "Accueil sur place",
+    "Taxe de séjour",
+    "Produits de bienvenue",
+    "Internet à très haut débit (Fibre Optique)",
+    "Linge de maison fourni & renouvelé selon durée",
+    "Ménage de fin de séjour inclus",
+    "Lits faits à l’arrivée",
+    "Lit et chaise bébé sur demande à la réservation"
+  ],
+  "availabilityTitle": "Disponibilités & Réservation"
+},
+
+"tilamp": {
+  "name": "Villa Tilamp-Tilamp",
+  "description": "Tilamp Tilamp signifie prendre son temps. Cette villa est unique de part son style colonial très rare en Guadeloupe. Sa configuration exceptionnelle vous offre un espace de terrasses tout autour de la villa qui est extrêmement bien ventilée. Alliant élégance et charme, elle peut accueillir jusqu'à 11 personnes. Dès votre arrivée, sa décoration particulièrement soignée vous séduira. Elle dispose d'une grande piscine, de nombreux espaces pour le farniente, en somme c'est le lieu idéal pour vous retrouver en famille ou entre amis, et passer des vacances inoubliables en Guadeloupe !",
+  "info": {
+    "capacity": "2/11 pers.",
+    "bedrooms": "4 chambres",
+    "bathrooms": "3 salles de bain",
+    "parking": "Parking privé"
+  },
+  "galleryTitle": "Votre séjour en images",
+  "equipmentTitle": "Équipements",
+  "equipments": {
+    "ac": "Climatisation",
+    "bbq": "Barbecue",
+    "kitchen": "Cuisine équipée",
+    "pool": "Piscine privée",
+    "wifi": "Wi-Fi",
+    "beach": "Plage à pied",
+    "washer": "Machine à laver",
+    "tv": "Télévision",
+    "net": "Moustiquaires",
+    "dryer": "Sèche-linge",
+    "safe": "Coffre-fort",
+    "fan": "Brasseur d'air",
+    "outdoorShower": "Douche extérieure",
+    "games": "Jeux de société",
+    "shops": "Commerce de proximité"
+  },
+  "descriptionTitle": "Descriptif",
+  "descriptionText": "D'une superficie totale de 290 m² (dont 160 m² de terrasse), cette villa peut accueillir jusqu'à 11 personnes. Toutes les chambres sont équipées de moustiquaires.",
+  "features": [
+    "1 suite climatisée, munie d'un brasseur d'air et équipée d'un lit double Queen Size (160 cm), salle de bain attenante et wc séparé, accès direct à la piscine",
+    "2 chambres climatisées, munies d'un brasseur d'air et équipée chacune d'un lit double Queen Size (160 cm) et d'un lit simple (90 cm), accès direct à la piscine",
+    "1 salle de bain & wc indépendant commune aux deux chambres",
+    "1 chambre climatisée à l'étage, munie d'un brasseur d'air et équipée d'un lit double Queen Size (160 cm) et d'un lit simple (90 cm), avec sa salle de bain attenante et wc privatif",
+    "1 cuisine entièrement équipée, avec bar attenant",
+    "1 salon ouvert sur la terrasse",
+    "1 grande terrasse aménagée et meublée munie de brasseurs d'air, d'une grande table à manger, salons zen, hamacs, espaces de jeux (table de ping pong, baby foot, jeu d'échec, jeux de fléchettes)",
+    "1 deck avec une grande piscine 5m x 10m entourée de canapés, de transats, d'une douche extérieure"
+  ],
+  "includedTitle": "Services inclus",
+  "included": [
+    "Accueil sur place",
+    "Taxe de séjour",
+    "Produits de bienvenue",
+    "Internet à très haut débit (Fibre Optique)",
+    "Linge de maison fourni & renouvelé selon durée",
+    "Ménage de fin de séjour inclus",
+    "Lits faits à l’arrivée",
+    "Lit et chaise bébé sur demande à la réservation"
+  ],
+  "availabilityTitle": "Disponibilités & Réservation"
+},
+
+"iguana": {
+  "name": "Villa Iguana",
+  "description": "La villa Iguana est originale dans sa disposition et elle bénéficie d'un cadre idéal car elle est au plus près de la nature et jouxte la rivière Ziotte. Vous y verrez très certainement des iguanes (parfaitement inoffensif puisque herbivore) d'où le nom de la villa, des mangoustes, des colibris, et autres oiseaux typiques de la Guadeloupe. Elle dispose d'une grande piscine à débordement avec un bassin adapté aux plus petits (ou pour les apéritifs), de deux grandes terrasses, d'une maison annexe et peut accueillir jusqu'à 8 personnes. Un véritable havre de paix vous attend pour des vacances uniques en Guadeloupe.",
+  "info": {
+    "capacity": "2/8 pers.",
+    "bedrooms": "3 chambres",
+    "bathrooms": "3 salles de bain",
+    "parking": "Parking privé"
+  },
+  "galleryTitle": "Votre séjour en images",
+  "equipmentTitle": "Équipements",
+  "equipments": {
+    "ac": "Climatisation",
+    "bbq": "Barbecue",
+    "kitchen": "Cuisine équipée",
+    "pool": "Piscine privée",
+    "wifi": "Wi-Fi",
+    "beach": "Plage à pied",
+    "washer": "Machine à laver",
+    "tv": "Télévision",
+    "net": "Moustiquaires",
+    "dryer": "Sèche-linge",
+    "safe": "Coffre-fort",
+    "fan": "Brasseur d'air",
+    "outdoorShower": "Douche extérieure",
+    "games": "Jeux de société",
+    "shops": "Commerce de proximité"
+  },
+  "descriptionTitle": "Descriptif",
+  "descriptionText": "D'une superficie totale de 180 m² (dont 70 m² de terrasse), cette villa de plain-pied peut accueillir jusqu'à 8 personnes. Toutes les chambres sont équipées de moustiquaire.",
+  "features": [
+    "1 suite climatisée et munie d'un brasseur d'air, équipée d'un lit double King Size (180 cm), d'un lit simple (90 cm), salle de bain & wc attenants - accès direct à la piscine",
+    "1 suite climatisée et munie d'un brasseur d'air, équipée de deux lits simples (90 cm) pouvant être rapprochés, d'un lit simple (90 cm) salle de bain & wc attenants",
+    "1 cuisine entièrement équipée et une arrière cuisine munies de brasseurs d'air",
+    "1 salon muni d'un brasseur d'air",
+    "1 wc invité indépendant",
+    "2 grandes terrasses aménagées, munie de brasseurs d'air et meublée : salle à manger, salons,, bar, hamac",
+    "1 deck avec une grande piscine à débordement 5,5m x 9m dont un bassin enfant 2m x 2m, entourée de transats, d'une douche extérieure",
+    "1 maison annexe disposant d'une mezzanine ouverte avec un lit double Queen Size (160 cm) climatisée et munie d'un brasseur d'air, au rez de chaussé une salle de bain & wc, un petit salon avec canapé, avec un accès direct à la piscine"
+  ],
+  "includedTitle": "Services inclus",
+  "included": [
+    "Accueil sur place",
+    "Taxe de séjour",
+    "Produits de bienvenue",
+    "Internet à très haut débit (Fibre Optique)",
+    "Linge de maison fourni & renouvelé selon durée",
+    "Ménage de fin de séjour inclus",
+    "Lits faits à l’arrivée",
+    "Lit et chaise bébé sur demande à la réservation"
+  ],
+  "availabilityTitle": "Disponibilités & Réservation"
+},
+
+"reservation": {
+  "title": "Demande de réservation",
+  "villa": "Villa",
+  "dates": "Dates",
+  "fromTo": "du {{start}} au {{end}}",
+  "rooms": "Chambres",
+  "guests": "Nombre de personnes",
+  "price": "Prix",
+  "submit": "Envoyer la demande",
+  "disclaimer": "* Prix avec services inclus",
+  "privacy": "Votre adresse email et votre numéro de téléphone sont strictement confidentiels et ne seront pas communiqués à des tiers. Ils nous permettront uniquement de correspondre avec vous.",
+  "form": {
+    "lastname": "Nom",
+    "firstname": "Prénom",
+    "email": "Adresse email",
+    "phone": "Numéro de téléphone",
+    "message": "Message (facultatif)"
+  },
+  "recaptchaError": "Veuillez valider le reCAPTCHA.",
+  "toastSuccess": "✅ Demande envoyée avec succès !",
+  "toastError": "❌ Une erreur est survenue, veuillez réessayer."
+},
+
+"calendar": {
+  "roomLabel": "Nombre de chambres / personnes :",
+  "selectedRange": "Réservation du",
+  "to": "au",
+  "errorMessage": "Les tarifs ne sont pas encore disponibles pour certaines des dates sélectionnées. Veuillez nous contacter via le",
+  "contactLink": "formulaire",
+  "promoBadge": "Promo en cours",
+  "night": "nuit",
+  "nights": "nuits",
+  "reserveNow": "Réserver maintenant",
+  "v1": {
+    "option1": "1 chambre (2 personnes) + 1 salle de bain",
+    "option2": "2 chambres (4 personnes) + 2 salles de bain",
+    "option3": "2 chambres + salon (6 personnes) + 2 salles de bain"
+  },
+  "v2": {
+    "option1": "2 chambres (6 personnes) + 1 salle de bain",
+    "option2": "3 chambres (9 personnes) + 2 salles de bain",
+    "option3": "4 chambres (11 personnes) + 3 salles de bain"
+  },
+  "v3": {
+    "option1": "1 chambre (3 personnes) + 1 salle de bain",
+    "option2": "2 chambres (6 personnes) + 2 salles de bain",
+    "option3": "3 chambres (8 personnes) + 3 salles de bain"
+  }
+}
+
+}

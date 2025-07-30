@@ -1,0 +1,353 @@
+{
+  "header": {
+    "akamapa": "Akamapa",
+    "tilamp": "Tilamp Tilamp",
+    "iguana": "Iguana",
+    "infos": "Useful Info",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+
+  "footer": {
+  "rights": "All rights reserved.",
+  "mentions": "Legal notice",
+  "contact": "Contact",
+  "cgv": "Terms & Conditions"
+},
+
+"home": {
+    "heroTitle": "Dream villa rentals in Deshaies, Guadeloupe",
+    "heroDescription": "The 'Grande Anse' villas — Tilamp Tilamp, Akamapa, and Iguana — welcome you to a lush 3000 m² property just 200 m from Grande Anse beach in Deshaies, voted 4th favorite village in France in 2024.\n\nMeet iguanas, hummingbirds, mongooses, and taste bananas, avocados, papayas, mangoes, and pineapples from the property depending on the season. Book now to enjoy a unique experience and unforgettable holidays in a tropical paradise.",
+    "villasTitle": "Our villas",
+    "discoverTitle": "Discover the Côte sous le vent",
+    "discoverDescription": "Our 'Grande Anse' villas lie at the heart of the Côte sous le Vent, also known as the Caribbean Coast, a special region of Guadeloupe featuring the most beautiful beaches within 15 km: La Perle, Gadet, Leroux, Tillet, Petite Anse, Cluny, and of course, Grande Anse. It is the ultimate Nature destination between sea and mountains. Discover natural pools, waterfalls, hot springs, and the most beautiful beaches. This peaceful haven, untouched by urbanization and industry, is authentic and full of activities to enjoy.",
+    "blogButton": "Explore the blog (FR)"
+  },
+
+  "map": {
+  "title": "Grande Anse: The Most Beautiful Beach in Guadeloupe",
+  "description": "Just 200 meters from our villas, Grande Anse beach invites you to enjoy its crystal-clear waters and golden sand. Discover magical sunsets and an exotic setting ideal for relaxing or exploring the surrounding nature."
+},
+
+"infos": {
+  "title": "Useful Information",
+  "howTo": {
+    "title": "How to Get to the Villas",
+    "gpsLabel": "GPS Coordinates:",
+    "gpsValue": "16°19'16.6\"N 61°47'07.0\"W",
+    "fromAirport": "From the airport:",
+    "duration": "around 45 minutes by car.",
+    "step1": "Follow DESHAIES via the N2 for 43 km until the Grande Anse beach roundabout.",
+    "step2": "Turn left (Total station) onto D18 toward Caféière.",
+    "step3": "80m further, enter at number 133 on your left."
+  },
+  "welcome": {
+    "title": "Your Welcome",
+    "text1": "Joanna's contact details will be provided after your booking is confirmed.",
+    "text2": "She will give you a warm welcome 🌴",
+    "text3": "📞 Contact her as soon as you leave the airport to notify her of your arrival, even if it's late."
+  },
+  "services": {
+    "title": "Services",
+    "text1": "Our villa is just 50 meters from a convenience store — perfect for your daily shopping without needing a car.",
+    "text2": "To experience the local charm, the village of Deshaies is just 1.5 km away with shops, restaurants, and seaside walks!"
+  }
+},
+
+"contact": {
+  "title": "Contact Form",
+  "description": "Interested in our villas in Deshaies? Leave us a message below:",
+  "name": "Last Name",
+  "firstname": "First Name",
+  "email": "Email",
+  "message": "Your message",
+  "submit": "Send Message",
+  "loading": "Sending...",
+  "recaptchaError": "Please validate the reCAPTCHA.",
+  "success": "✅ Message sent successfully!",
+  "error": "❌ An error occurred. Please try again."
+},
+
+"legal": {
+  "title": "Legal Notice",
+  "publisherTitle": "Site Publisher and Owner",
+  "publisher": "The website villas-grande-anse.com is published by:\nSCI REVES ALPES IMMO (435 317 557 R.C.S Chambéry)\nHead Office: Résidence le Thabor 590 Rue des Bettets Valfréjus 73500 Modane\nEmail: villasgrandeanse@hotmail.com\nVAT ID: FR 70 435 317 557\nPublishing Manager: Christophe Lorente\nCapital: €1738.50",
+  "hostingTitle": "Hosting",
+  "hosting": "The website is hosted by:\nIONOS SARL\n7 Place de la Gare, BP 70109\n57200 Sarreguemines Cedex\nFrance\nPhone: 09 70 80 89 11\nEmail: info@ionos.fr",
+  "creatorTitle": "Site Creator",
+  "creator": "The website was created by:\nGuillaume Lorente\n225 rue du Petit Arrondaz\n73500 Modane\nFrance\nPhone: 06 19 95 04 99\nEmail: guillaumelorente@orange.fr",
+  "changesTitle": "Changes",
+  "changes": "By accessing and browsing this site, the user is informed of their rights and obligations and fully agrees to comply with the site’s terms of use. The site editor reserves the right to modify these conditions. It is the user’s responsibility to check the content periodically. The editor may delete or modify all or part of the site at any time.",
+  "dataTitle": "Personal Data",
+  "data": "The site only collects personal information necessary for certain services (contact form or reservation). No personal information is published, exchanged, transferred or sold without the user’s knowledge.",
+  "accessTitle": "Accessibility",
+  "access": "The site is generally accessible 24/7, except for maintenance or force majeure. In case of unavailability, the site will do its best to restore access. It cannot be held liable for any resulting damages.",
+  "backHome": "Back to home"
+},
+
+"cgv": {
+    "title": "Terms and Conditions of Sale",
+
+    "article1Title": "Article 1",
+    "article1": "This seasonal rental agreement is reserved exclusively for the rental of accommodations by Sci Rêves Alpes Immo.\nUnder no circumstances may Sci Rêves Alpes Immo be held liable in the event of use of its contracts by third parties or for purposes other than tourism.",
+
+    "article2Title": "Article 2 - Duration of stay",
+    "article2": "The tenant signing this contract for a fixed duration may not, under any circumstances, claim any right to remain in the premises after the end of the stay.",
+
+    "article3Title": "Article 3 - Conclusion of the contract",
+    "article3": "The reservation becomes effective as soon as the tenant has sent the owner a 30% deposit of the total rental amount and a signed copy of the contract before the indicated date.\nA second copy is to be kept by the tenant.\nThe rental agreed between the parties to this document may not be transferred, even partially, to third parties—whether individuals or legal entities—without written consent from the owner.\nAny breach of this clause may result in the immediate termination of the rental at the tenant’s expense, with the rental amount remaining definitively acquired by the owner.",
+
+    "article4Title": "Article 4 - Balance payment",
+    "article4": "The rental balance must be paid no later than 30 days before the arrival date.",
+
+    "article5Title": "Article 5 - No right of withdrawal",
+    "article5": "For bookings made by mail, phone, or online, the tenant is not entitled to a withdrawal period in accordance with Article L121-21-8 of the French Consumer Code, which applies notably to accommodation services provided at a specific date or frequency.",
+
+    "article6Title": "Article 6 - Cancellation by the tenant",
+    "article6": "All cancellations must be sent to the owner by registered letter.\n\na) Cancellation more than 30 days before arrival: the deposit remains with the owner. The balance is refunded if already paid.\n\nb) Cancellation 30 days or less before arrival: both deposit and balance are retained by the owner.\n\nc) If the tenant does not show up within 24 hours of the scheduled arrival time, the contract becomes void, and the owner may dispose of the property. No refund will be made.\n\nIf the stay is shortened, the full rental price remains with the owner. No refund will be given.",
+
+    "article7Title": "Article 7 - Cancellation by the owner",
+    "article7": "The owner will refund the tenant the full amount paid.",
+
+    "article8Title": "Article 8 - Arrival",
+    "article8": "The tenant must arrive on the specified date and time stated in the contract.\nIn case of late or delayed arrival, the tenant must inform the owner.",
+
+    "article9Title": "Article 9 - Inventory and condition of premises",
+    "article9": "An inventory is drawn up and signed by both tenant and owner (or representative) upon arrival and departure.\nThis inventory is the only reference in case of dispute.\nThe cleanliness of the premises must be confirmed at check-in.\nCleaning is the tenant’s responsibility during the stay.\nFinal cleaning is included in the rental price.\nHowever, if extra cleaning is required (with photo evidence), it will be charged at €40/hour including taxes.",
+
+    "article10Title": "Article 10 - Security deposit",
+    "article10": "Upon arrival, a security deposit (amount specified in the contract) will be requested by the owner or representative.\nAfter the final inspection, the deposit will be refunded, less the cost of any damages.\nIf the tenant leaves early (before the agreed time), making the inspection impossible, the deposit will be returned within one week—possibly reduced by damage costs.",
+
+    "article11Title": "Article 11 - Use of the premises",
+    "article11": "The tenant agrees to ensure peaceful use of the property and to use it according to its intended purpose.",
+
+    "article12Title": "Article 12 - Occupancy limit",
+    "article12": "This contract is issued for a maximum number of occupants.\nIf the number of tenants exceeds the allowed capacity, the owner may refuse additional persons.\nAny change or cancellation will be considered as initiated by the tenant.",
+
+    "article13Title": "Article 13 - Pets",
+    "article13": "Pets are not allowed.\nIf this clause is not respected, the owner may refuse the stay. No refund will be made.",
+
+    "article14Title": "Article 14 - Insurance",
+    "article14": "The tenant is responsible for any damage caused.\nThe tenant must be insured with a holiday rental policy to cover such risks.",
+
+    "article15Title": "Article 15 - Utility charges",
+    "article15": "At the beginning of the stay, the tenant must pay for any charges not included in the rental price.\nThese charges are calculated as indicated in the contract, and a receipt will be provided by the owner.",
+
+    "article16Title": "Article 16 - Disputes",
+    "article16": "Any claim related to the condition of the property must be reported to Sci Rêves Alpes Immo within three days of arrival.\nAny other complaint should be sent as soon as possible.",
+
+    "backHome": "Back to homepage"
+  },
+
+  "akamapa": {
+  "name": "Villa Akamapa",
+  "description": "Akamapa, which can be translated as \"mom and dad’s home\"... You'll fall in love with the many assets of this traditional one-story Guadeloupean villa, centered around its pool. It offers an ideal setting, a large swimming pool, an L-shaped terrace, and a shaded gazebo for relaxation. Let yourself be carried away by the serenity of this green haven.",
+   "info": {
+    "capacity": "2/6 guests",
+    "bedrooms": "2 bedrooms",
+    "bathrooms": "2 bathrooms",
+    "parking": "Private parking"
+  },
+  "galleryTitle": "Your stay in pictures",
+  "equipmentTitle": "Amenities",
+  "equipments": {
+    "ac": "Air conditioning",
+    "bbq": "Barbecue",
+    "kitchen": "Fully equipped kitchen",
+    "pool": "Private pool",
+    "wifi": "Wi-Fi",
+    "beach": "Walking distance to the beach",
+    "washer": "Washing machine",
+    "tv": "Television",
+    "net": "Mosquito nets",
+    "dryer": "Clothes dryer",
+    "safe": "Safe",
+    "fan": "Ceiling fan",
+    "outdoorShower": "Outdoor shower",
+    "games": "Board games",
+    "shops": "Nearby shops"
+  },
+  "descriptionTitle": "Description",
+  "descriptionText": "With a total area of 190 m² (including 100 m² of terrace), this single-story traditional villa can accommodate up to 6 people. Bedrooms are equipped with mosquito nets.",
+  "features": [
+    "1 air-conditioned suite with ceiling fan, equipped with two single beds (90 cm) that can be combined, a desk, en-suite bathroom & WC – direct access to the pool and private entrance",
+    "1 air-conditioned suite with ceiling fan, equipped with a King Size bed (180 cm), a desk, en-suite bathroom & WC – direct access to the pool",
+    "1 fully equipped kitchen with ceiling fan and a utility room",
+    "1 air-conditioned living room with ceiling fan, equipped with two single sofa beds (90 cm)",
+    "1 separate guest WC",
+    "1 large furnished terrace with ceiling fans: bar, dining table, sofas, hammock",
+    "1 deck with a large 4.5m x 9m pool surrounded by sofas, loungers, gazebo, and outdoor shower"
+  ],
+  "includedTitle": "Included Services",
+  "included": [
+    "Personal welcome on site",
+    "Tourist tax",
+    "Welcome products",
+    "High-speed internet (Fiber)",
+    "Household linens provided and renewed depending on length of stay",
+    "Final cleaning included",
+    "Beds made upon arrival",
+    "Baby bed and chair upon request when booking"
+  ],
+  "availabilityTitle": "Availability & Booking"
+},
+
+"tilamp": {
+  "name": "Villa Tilamp-Tilamp",
+  "description": "Tilamp Tilamp means 'taking your time'. This villa is unique due to its rare colonial style in Guadeloupe. Its exceptional layout offers wraparound terraces and excellent natural ventilation. Combining elegance and charm, it can host up to 11 guests. From the moment you arrive, you’ll be charmed by its refined decor. The villa includes a large pool and numerous relaxation spaces – it’s the perfect spot to gather with family or friends and enjoy unforgettable holidays in Guadeloupe!",
+   "info": {
+    "capacity": "2/11 guests",
+    "bedrooms": "4 bedrooms",
+    "bathrooms": "3 bathrooms",
+    "parking": "Private parking"
+  },
+  "galleryTitle": "Your stay in pictures",
+  "equipmentTitle": "Amenities",
+  "equipments": {
+    "ac": "Air conditioning",
+    "bbq": "Barbecue",
+    "kitchen": "Fully equipped kitchen",
+    "pool": "Private pool",
+    "wifi": "Wi-Fi",
+    "beach": "Walking distance to the beach",
+    "washer": "Washing machine",
+    "tv": "Television",
+    "net": "Mosquito nets",
+    "dryer": "Clothes dryer",
+    "safe": "Safe",
+    "fan": "Ceiling fan",
+    "outdoorShower": "Outdoor shower",
+    "games": "Board games",
+    "shops": "Nearby shops"
+  },
+  "descriptionTitle": "Description",
+  "descriptionText": "With a total surface area of 290 m² (including 160 m² of terraces), this villa can accommodate up to 11 guests. All bedrooms are equipped with mosquito nets.",
+  "features": [
+    "1 air-conditioned suite with a ceiling fan and a Queen Size bed (160 cm), ensuite bathroom and separate toilet, direct access to the pool",
+    "2 air-conditioned bedrooms with ceiling fans, each with a Queen Size bed (160 cm) and a single bed (90 cm), direct access to the pool",
+    "1 shared bathroom & toilet for the two bedrooms",
+    "1 air-conditioned upstairs bedroom with a ceiling fan, a Queen Size bed (160 cm) and a single bed (90 cm), ensuite bathroom and private toilet",
+    "1 fully equipped kitchen with a bar area",
+    "1 living room opening onto the terrace",
+    "1 large furnished terrace with ceiling fans, a large dining table, zen lounges, hammocks, and play areas (ping pong table, foosball, chess board, darts)",
+    "1 deck with a large pool (5m x 10m) surrounded by sofas, sunbeds, and an outdoor shower"
+  ],
+  "includedTitle": "Included Services",
+  "included": [
+    "Personal welcome on site",
+    "Tourist tax",
+    "Welcome products",
+    "High-speed internet (Fiber)",
+    "Household linens provided and renewed depending on length of stay",
+    "Final cleaning included",
+    "Beds made upon arrival",
+    "Baby bed and chair upon request when booking"
+  ],
+  "availabilityTitle": "Availability & Booking"
+},
+
+"iguana": {
+  "name": "Villa Iguana",
+  "description": "Villa Iguana has a unique layout and enjoys an ideal setting, nestled close to nature and right next to the Ziotte River. You’ll likely spot iguanas (completely harmless as they’re herbivores)—hence the villa’s name—along with mongooses, hummingbirds, and other typical Guadeloupean birds. It features a large infinity pool with a shallow area perfect for kids (or for aperitifs), two spacious terraces, an annex house, and can accommodate up to 8 guests. A true haven of peace awaits you for a one-of-a-kind holiday in Guadeloupe.",
+   "info": {
+    "capacity": "2/8 guests",
+    "bedrooms": "3 bedrooms",
+    "bathrooms": "3 bathrooms",
+    "parking": "Private parking"
+  },
+  "galleryTitle": "Your stay in pictures",
+  "equipmentTitle": "Amenities",
+  "equipments": {
+    "ac": "Air conditioning",
+    "bbq": "Barbecue",
+    "kitchen": "Fully equipped kitchen",
+    "pool": "Private pool",
+    "wifi": "Wi-Fi",
+    "beach": "Walking distance to the beach",
+    "washer": "Washing machine",
+    "tv": "Television",
+    "net": "Mosquito nets",
+    "dryer": "Clothes dryer",
+    "safe": "Safe",
+    "fan": "Ceiling fan",
+    "outdoorShower": "Outdoor shower",
+    "games": "Board games",
+    "shops": "Nearby shops"
+  },
+  "descriptionTitle": "Description",
+  "descriptionText": "With a total surface area of 180 m² (including 70 m² of terrace space), this single-storey villa can accommodate up to 8 guests. All bedrooms are equipped with mosquito nets.",
+  "features": [
+    "1 air-conditioned suite with a ceiling fan, furnished with a King Size bed (180 cm) and a single bed (90 cm), with ensuite bathroom & toilet – direct access to the pool",
+    "1 air-conditioned suite with a ceiling fan, furnished with two single beds (90 cm) that can be joined together, plus an additional single bed (90 cm), with ensuite bathroom & toilet",
+    "1 fully equipped kitchen and a pantry, both with ceiling fans",
+    "1 living room with a ceiling fan",
+    "1 separate guest toilet",
+    "2 large furnished terraces, equipped with ceiling fans: dining area, lounges, bar, hammock",
+    "1 deck with a large infinity pool (5.5 m x 9 m) and a shallow kids’ pool (2 m x 2 m), surrounded by loungers and an outdoor shower",
+    "1 annex house with an open mezzanine featuring an air-conditioned Queen Size bed (160 cm) and ceiling fan, plus a ground floor bathroom & toilet, a small lounge with a sofa, and direct access to the pool"
+  ],
+  "includedTitle": "Included Services",
+  "included": [
+    "Personal welcome on site",
+    "Tourist tax",
+    "Welcome products",
+    "High-speed internet (Fiber)",
+    "Household linens provided and renewed depending on length of stay",
+    "Final cleaning included",
+    "Beds made upon arrival",
+    "Baby bed and chair upon request when booking"
+  ],
+  "availabilityTitle": "Availability & Booking"
+},
+
+"reservation": {
+  "title": "Booking Request",
+  "villa": "Villa",
+  "dates": "Dates",
+  "fromTo": "from {{start}} to {{end}}",
+  "rooms": "Bedrooms",
+  "guests": "Number of guests",
+  "price": "Price",
+  "submit": "Send request",
+  "disclaimer": "* Price with included services",
+  "privacy": "Your email address and phone number are strictly confidential and will not be shared. We’ll only use them to contact you regarding your booking.",
+  "form": {
+    "lastname": "Last name",
+    "firstname": "First name",
+    "email": "Email address",
+    "phone": "Phone number",
+    "message": "Message (optional)"
+  },
+  "recaptchaError": "Please validate the reCAPTCHA.",
+  "toastSuccess": "✅ Request sent successfully!",
+  "toastError": "❌ An error occurred, please try again."
+},
+
+"calendar": {
+  "roomLabel": "Number of bedrooms / guests:",
+  "selectedRange": "Booking from",
+  "to": "to",
+  "errorMessage": "Rates are not yet available for some of the selected dates. Please contact us via the",
+  "contactLink": "form",
+  "promoBadge": "Ongoing offer",
+  "night": "night",
+  "nights": "nights",
+  "reserveNow": "Book now",
+  "v1": {
+    "option1": "1 bedroom (2 guests) + 1 bathroom",
+    "option2": "2 bedrooms (4 guests) + 2 bathrooms",
+    "option3": "2 bedrooms + living room (6 guests) + 2 bathrooms"
+  },
+  "v2": {
+    "option1": "2 bedrooms (6 guests) + 1 bathroom",
+    "option2": "3 bedrooms (9 guests) + 2 bathrooms",
+    "option3": "4 bedrooms (11 guests) + 3 bathrooms"
+  },
+  "v3": {
+    "option1": "1 bedroom (3 guests) + 1 bathroom",
+    "option2": "2 bedrooms (6 guests) + 2 bathrooms",
+    "option3": "3 bedrooms (8 guests) + 3 bathrooms"
+  }
+}
+
+}

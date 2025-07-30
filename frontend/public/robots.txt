@@ -1,0 +1,14 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /reservation
+Disallow: /mentions-legales
+Disallow: /cgv
+
+# Host
+Host: https://www.villas-grande-anse.com
+
+# Sitemaps
+Sitemap: https://www.villas-grande-anse.com/sitemap.xml

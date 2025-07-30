@@ -1,0 +1,28 @@
+# Ignore global env
+.env
+.env.local
+
+# Ignore backend-specific env
+/backend/.env
+/backend/.env.local
+
+# Ignore frontend-specific env
+/frontend/.env.local
+
+# Logs
+*.log
+logs/
+
+# Node
+node_modules/
+backend/node_modules/
+frontend/node_modules/
+
+# Build/next
+.next/
+dist/
+out/
+
+# OS files
+.DS_Store
+Thumbs.db
