@@ -6,7 +6,6 @@ import HomeGallery from "../components/HomeGallery";
 import FadeUp from "../components/FadeUp";
 import { useEffect, useState } from "react";
 import PromoBanner from "../components/PromoBanner";
-import promoConfig from "../../data/promoConfig.json";
 import { useLanguage } from "../context/LanguageContext";
 import StructuredData from "../components/StructuredData";
 
@@ -23,11 +22,30 @@ const villas = [
 export default function HomePage() {
   const { t } = useLanguage();
   const [homepagePromo, setHomepagePromo] = useState(null);
+  const [promoConfig, setPromoConfig] = useState(null);
 
   useEffect(() => {
+    if (!promoConfig) return;
+
     if (promoConfig.active && promoConfig.homeBanner) {
       setHomepagePromo(promoConfig.homeBanner);
     }
+  }, [promoConfig]);
+
+  useEffect(() => {
+    const fetchPromo = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`
+        );
+        const data = await res.json();
+        setPromoConfig(data);
+      } catch (error) {
+        console.error("Erreur chargement promoConfig:", error);
+      }
+    };
+
+    fetchPromo();
   }, []);
 
   return (
@@ -35,7 +53,9 @@ export default function HomePage() {
       <StructuredData />
 
       {/* Promo Banner */}
-      {homepagePromo && <PromoBanner message={homepagePromo} />}
+      {promoConfig?.homeBanner && (
+        <PromoBanner message={promoConfig.homeBanner} />
+      )}
 
       {/* Hero */}
       <section

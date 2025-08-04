@@ -69,7 +69,11 @@ export default function BlogListClient({ posts }) {
             >
               {post.image && (
                 <img
-                  src={post.image}
+                  src={
+                    post.image.startsWith("http")
+                      ? post.image
+                      : `${process.env.NEXT_PUBLIC_API_BASE_URL}${post.image}`
+                  }
                   alt={post.title}
                   className="w-full h-48 object-cover"
                 />

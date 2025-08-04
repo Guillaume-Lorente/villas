@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const reservationController = require("../controllers/reservationController");
 
+router.get("/by-villa", reservationController.getReservationsByVillaQuery);
 router.get("/", reservationController.getAllReservations);
 router.get("/villa/:villa_id", reservationController.getReservationsByVilla);
 router.post("/", reservationController.createReservation);

@@ -108,23 +108,26 @@ export default function ReservationPage() {
     const telephone = form.get("Téléphone");
     const message = form.get("Message");
 
-    const res = await fetch("/api/reservation", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        villaName,
-        start: formattedStart,
-        end: formattedEnd,
-        rooms,
-        guests,
-        price,
-        nom: `${prenom} ${nom}`,
-        email,
-        telephone,
-        message,
-        token: recaptchaToken,
-      }),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/reservation`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          villaName,
+          start: formattedStart,
+          end: formattedEnd,
+          rooms,
+          guests,
+          price,
+          nom: `${prenom} ${nom}`,
+          email,
+          telephone,
+          message,
+          token: recaptchaToken,
+        }),
+      }
+    );
 
     grecaptcha.reset();
     setRecaptchaToken("");

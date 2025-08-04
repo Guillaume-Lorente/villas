@@ -1,11 +1,14 @@
-import { getAllPosts } from "@/lib/blog";
 import BlogListClient from "./blogListClient";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const POSTS_PER_PAGE = 6;
 
-export default function BlogHomePage() {
-  const allPosts = getAllPosts();
+export default async function BlogHomePage() {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`, {
+    cache: "no-store",
+  });
+
+  const allPosts = await res.json();
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const currentPage = 1;
 

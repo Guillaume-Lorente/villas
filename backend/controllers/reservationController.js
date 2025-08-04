@@ -1,4 +1,5 @@
 const reservationModel = require("../models/reservationModel");
+const db = require("../db");
 
 const getAllReservations = async (req, res) => {
   try {
@@ -50,10 +51,32 @@ const deleteReservation = async (req, res) => {
   }
 };
 
+// ✅ Nouvelle route /api/reservations/by-villa?villaId=1
+const getReservationsByVillaQuery = (req, res) => {
+  const villaId = req.query.villaId;
+
+  if (!villaId) {
+    return res.status(400).json({ error: "villaId requis" });
+  }
+
+  db.query(
+    "SELECT * FROM reservations WHERE villa_id = ?",
+    [villaId],
+    (err, results) => {
+      if (err) {
+        console.error("Erreur DB:", err);
+        return res.status(500).json({ error: "Erreur serveur DB" });
+      }
+      res.json(results);
+    }
+  );
+};
+
 module.exports = {
   getAllReservations,
   getReservationsByVilla,
   createReservation,
   updateReservation,
   deleteReservation,
+  getReservationsByVillaQuery,
 };

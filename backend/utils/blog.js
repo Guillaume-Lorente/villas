@@ -1,12 +1,12 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
-import { remark } from "remark";
-import html from "remark-html";
+const fs = require("fs");
+const path = require("path");
+const matter = require("gray-matter");
+const { remark } = require("remark");
+const html = require("remark-html");
 
 const postsDirectory = path.join(process.cwd(), "content/blog");
 
-export async function getPostBySlug(slug) {
+async function getPostBySlug(slug) {
   const fullPath = path.join(postsDirectory, `${slug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
 
@@ -20,7 +20,7 @@ export async function getPostBySlug(slug) {
   };
 }
 
-export function getAllPosts() {
+function getAllPosts() {
   const fileNames = fs.readdirSync(postsDirectory);
 
   return fileNames.map((fileName) => {
@@ -30,7 +30,6 @@ export function getAllPosts() {
 
     const { data, content } = matter(fileContents);
 
-    // Si pas d'excerpt défini, on génère les 250 premiers caractères du contenu brut
     const excerpt = data.excerpt
       ? data.excerpt
       : content
@@ -45,3 +44,8 @@ export function getAllPosts() {
     };
   });
 }
+
+module.exports = {
+  getPostBySlug,
+  getAllPosts,
+};

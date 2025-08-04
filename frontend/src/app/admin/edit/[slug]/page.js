@@ -2,11 +2,15 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { resizeAndConvertImage } from "@/utils/image"; // ✅ Nouvelle importation
+import { resizeAndConvertImage } from "@/utils/image";
+import { useParams } from "next/navigation";
 
-export default function EditArticle({ params }) {
+const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
+
+export default function EditArticle() {
   const router = useRouter();
-  const { slug } = params;
+  const params = useParams();
+  const slug = params.slug;
 
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -18,13 +22,15 @@ export default function EditArticle({ params }) {
   const fileInputRef = useRef();
 
   useEffect(() => {
-    fetch(`/api/posts/${slug}`)
+    fetch(`${API_BASE}/api/posts/${slug}`, {
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         setTitle(data.title);
         setCategory(data.category);
         setDate(data.date);
-        setBody(data.body);
+        setBody(data.content);
         setExistingImage(data.image);
       });
   }, [slug]);
@@ -61,9 +67,10 @@ export default function EditArticle({ params }) {
     formData.append("body", body);
     if (image) formData.append("image", image);
 
-    const res = await fetch(`/api/posts/${slug}`, {
+    const res = await fetch(`${API_BASE}/api/posts/${slug}`, {
       method: "PUT",
       body: formData,
+      credentials: "include",
     });
 
     if (res.ok) {

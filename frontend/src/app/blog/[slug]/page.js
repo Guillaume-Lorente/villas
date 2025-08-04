@@ -1,17 +1,25 @@
-import { getPostBySlug, getAllPosts } from "@/lib/blog";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 
-export async function generateStaticParams() {
-  const posts = getAllPosts();
-  return posts.map((post) => ({ slug: post.slug }));
-}
-
 export async function generateMetadata({ params }) {
-  const post = await getPostBySlug(params.slug);
-  if (!post) return {};
+  const { slug } = params;
+  if (!slug) return {};
 
-  const pageUrl = `https://villas-grande-anse.com/blog/${params.slug}`;
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/${slug}`,
+    { cache: "no-store" }
+  );
+
+  if (!res.ok) return {};
+
+  const post = await res.json();
+
+  // ✅ Fix chemin image
+  if (post.image && !post.image.startsWith("http")) {
+    post.image = `${process.env.NEXT_PUBLIC_API_BASE_URL}${post.image}`;
+  }
+
+  const pageUrl = `https://villas-grande-anse.com/blog/${slug}`;
   const defaultImage = {
     url: "https://villas-grande-anse.com/hero.jpg",
     width: 1200,
@@ -44,20 +52,45 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogArticlePage({ params }) {
-  const post = await getPostBySlug(params.slug);
-  if (!post) return notFound();
+  const { slug } = params;
+  if (!slug) return notFound();
 
-  const allPosts = getAllPosts();
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/${slug}`,
+    { cache: "no-store" }
+  );
+
+  if (!res.ok) return notFound();
+  const post = await res.json();
+
+  // ✅ Fix chemin image article principal
+  if (post.image && !post.image.startsWith("http")) {
+    post.image = `${process.env.NEXT_PUBLIC_API_BASE_URL}${post.image}`;
+  }
+
+  const resAll = await fetch(
+    `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
+    { cache: "no-store" }
+  );
+
+  const allPosts = resAll.ok ? await resAll.json() : [];
+
   const related = allPosts
-    .filter((p) => p.slug !== params.slug)
+    .filter((p) => p.slug !== slug)
     .sort(() => 0.5 - Math.random())
     .slice(0, 2);
 
-  const pageUrl = `https://villas-grande-anse.com/blog/${post.slug}`;
+  // ✅ Fix chemin image pour les articles liés
+  related.forEach((p) => {
+    if (p.image && !p.image.startsWith("http")) {
+      p.image = `${process.env.NEXT_PUBLIC_API_BASE_URL}${p.image}`;
+    }
+  });
+
+  const pageUrl = `https://villas-grande-anse.com/blog/${slug}`;
 
   return (
     <main className="bg-[#223e50] text-white min-h-screen">
-      {/* Hero */}
       {post.image && (
         <section
           className="h-[300px] md:h-[450px] bg-cover bg-center relative"
@@ -71,7 +104,6 @@ export default async function BlogArticlePage({ params }) {
         </section>
       )}
 
-      {/* Contenu principal */}
       <section className="max-w-4xl mx-auto px-4 py-12">
         <div className="text-sm text-white/70 mb-6 text-center md:text-left">
           {post.category && <span>{post.category}</span>}
@@ -84,7 +116,7 @@ export default async function BlogArticlePage({ params }) {
         />
       </section>
 
-      {/* Bloc Partage */}
+      {/* Partage */}
       <section className="max-w-4xl mx-auto px-4 py-8 border-t border-white/20">
         <h2 className="text-xl text-jaune font-bold mb-4">
           Partager cet article
@@ -117,35 +149,35 @@ export default async function BlogArticlePage({ params }) {
         </div>
       </section>
 
-      {/* Bloc Lire aussi */}
+      {/* Suggestions */}
       {related.length > 0 && (
         <section className="max-w-7xl mx-auto px-4 py-12 border-t border-white/10">
           <h2 className="text-2xl text-jaune font-bold mb-8 text-center">
             Lire aussi
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {related.map((post) => (
+            {related.map((p) => (
               <Link
-                key={post.slug}
-                href={`/blog/${post.slug}`}
+                key={p.slug}
+                href={`/blog/${p.slug}`}
                 className="bg-white/10 backdrop-blur-md border border-white/10 rounded-lg overflow-hidden hover:scale-[1.02] transition-transform duration-300 shadow-lg"
               >
-                {post.image && (
+                {p.image && (
                   <img
-                    src={post.image}
-                    alt={post.title}
+                    src={p.image}
+                    alt={p.title}
                     className="w-full h-48 object-cover"
                   />
                 )}
                 <div className="p-5">
                   <h3 className="text-xl font-bold text-[#eeb868] mb-1">
-                    {post.title}
+                    {p.title}
                   </h3>
                   <p className="text-white/70 text-sm mb-2">
-                    {post.category} • {post.date}
+                    {p.category} • {p.date}
                   </p>
                   <p className="text-white/90 text-sm line-clamp-3">
-                    {post.excerpt || "Lire l'article"}
+                    {p.excerpt || "Lire l'article"}
                   </p>
                 </div>
               </Link>
@@ -153,7 +185,8 @@ export default async function BlogArticlePage({ params }) {
           </div>
         </section>
       )}
-      {/* Bouton retour au blog */}
+
+      {/* Retour blog */}
       <section className="max-w-4xl mx-auto px-4 pb-16 pt-4 text-center">
         <Link
           href="/blog"

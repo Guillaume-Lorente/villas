@@ -8,7 +8,12 @@ export default function PromoAdminPage() {
 
   useEffect(() => {
     const fetchConfig = async () => {
-      const res = await fetch("/api/promo");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`,
+        {
+          credentials: "include",
+        }
+      );
       const data = await res.json();
       setConfig(data);
       setLoading(false);
@@ -35,11 +40,16 @@ export default function PromoAdminPage() {
 
   const handleSave = async () => {
     setSaving(true);
-    const res = await fetch("/api/promo", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(config),
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`,
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(config),
+        credentials: "include",
+      }
+    );
+
     if (res.ok) {
       alert("✅ Bannières mises à jour !");
     } else {

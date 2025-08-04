@@ -9,7 +9,12 @@ export default function AdminDashboard() {
         <h1 className="text-3xl font-bold text-[#eeb868]">Tableau de bord</h1>
         <button
           onClick={async () => {
-            await fetch("/api/admin-logout");
+            await fetch(
+              `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/admin-logout`,
+              {
+                credentials: "include",
+              }
+            );
             window.location.href = "/admin/login";
           }}
           className="text-sm text-red-400 hover:text-red-600 underline"

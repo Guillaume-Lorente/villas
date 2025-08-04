@@ -1,10 +1,17 @@
-import { getAllPosts } from "@/lib/blog";
+export const dynamic = "force-dynamic";
+
 import BlogListClient from "../../blogListClient";
 
 const POSTS_PER_PAGE = 6;
 
 export async function generateStaticParams() {
-  const posts = getAllPosts();
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`, {
+    cache: "no-store",
+  });
+
+  if (!res.ok) return [];
+
+  const posts = await res.json();
   const totalPages = Math.ceil(posts.length / POSTS_PER_PAGE);
 
   return Array.from({ length: totalPages }, (_, i) => ({
@@ -12,9 +19,14 @@ export async function generateStaticParams() {
   }));
 }
 
-export default function BlogPaginatedPage({ params }) {
+export default async function BlogPaginatedPage({ params }) {
   const page = parseInt(params.page || "1", 10);
-  const allPosts = getAllPosts();
+
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`, {
+    cache: "no-store",
+  });
+
+  const allPosts = res.ok ? await res.json() : [];
 
   const start = (page - 1) * POSTS_PER_PAGE;
   const paginated = allPosts.slice(start, start + POSTS_PER_PAGE);
@@ -70,7 +82,7 @@ export default function BlogPaginatedPage({ params }) {
         <div className="flex justify-center gap-2 mt-12 flex-wrap items-center">
           {page > 1 && (
             <a
-              href={page === 2 ? "/blog" : `/blog/page/${page - 1}`}
+              href={page === 2 ? "/blog" : `/blog/page-${page - 1}`}
               className="px-5 py-2 rounded-full bg-[#eeb868] text-[#223e50] font-semibold hover:bg-[#c78f34]"
             >
               ← Précédent
@@ -82,7 +94,7 @@ export default function BlogPaginatedPage({ params }) {
             return (
               <a
                 key={current}
-                href={current === 1 ? "/blog" : `/blog/page/${current}`}
+                href={current === 1 ? "/blog" : `/blog/page-${current}`}
                 className={`px-5 py-2 rounded-full font-semibold border transition ${
                   current === page
                     ? "bg-[#eeb868] text-[#223e50]"
@@ -96,7 +108,7 @@ export default function BlogPaginatedPage({ params }) {
 
           {page < totalPages && (
             <a
-              href={`/blog/page/${page + 1}`}
+              href={`/blog/page-${page + 1}`}
               className="px-5 py-2 rounded-full bg-[#eeb868] text-[#223e50] font-semibold hover:bg-[#c78f34]"
             >
               Suivant →

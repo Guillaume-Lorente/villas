@@ -9,7 +9,12 @@ export default function BlogAdminPage() {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      const res = await fetch("/api/posts");
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
+        {
+          credentials: "include",
+        }
+      );
       const data = await res.json();
       setPosts(data);
       setLoading(false);
@@ -21,9 +26,13 @@ export default function BlogAdminPage() {
   const handleDelete = async (slug) => {
     if (!confirm("Supprimer cet article ?")) return;
 
-    const res = await fetch(`/api/posts/${slug}`, {
-      method: "DELETE",
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/${slug}`,
+      {
+        method: "DELETE",
+        credentials: "include",
+      }
+    );
 
     if (res.ok) {
       setPosts(posts.filter((post) => post.slug !== slug));

@@ -17,10 +17,10 @@ import {
   ShowerHead,
 } from "lucide-react";
 
+import { useState, useEffect } from "react";
 import VillaGallery from "@/components/VillaGallery";
 import Calendar from "@/components/Calendar";
 import PromoBanner from "@/components/PromoBanner";
-import promoConfig from "../../../../data/promoConfig.json";
 import MobileReservationModal from "@/components/MobileReservationModal";
 import { useLanguage } from "@/context/LanguageContext";
 import StructuredData from "@/components/StructuredData";
@@ -151,14 +151,35 @@ export default function AkamapaPage() {
     },
   ];
 
-  const showPromo = promoConfig.villas?.["1"]?.active;
-  const promoMessage = promoConfig.villas?.["1"]?.message;
   const { t } = useLanguage();
+  const [promoConfig, setPromoConfig] = useState(null);
+
+  useEffect(() => {
+    const fetchPromo = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`
+        );
+        const data = await res.json();
+        setPromoConfig(data);
+      } catch (err) {
+        console.error("Erreur chargement promoConfig:", err);
+      }
+    };
+
+    fetchPromo();
+  }, []);
+
+  const showPromo = promoConfig?.villas?.["1"]?.active;
+  const promoMessage = promoConfig?.villas?.["1"]?.message;
 
   return (
     <main className="bg-[#223e50] text-white pt-24">
       <StructuredData />
-      {showPromo && <PromoBanner message={promoMessage} />}
+      {promoConfig?.villas?.["1"]?.active && (
+        <PromoBanner message={promoConfig.villas["1"].message} />
+      )}
+
       {/* Hero */}
       <section
         className="relative h-[700px] bg-cover bg-center"

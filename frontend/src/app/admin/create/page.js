@@ -47,10 +47,14 @@ export default function CreateArticle() {
     formData.append("body", body);
     if (image) formData.append("image", image);
 
-    const res = await fetch("/api/posts", {
-      method: "POST",
-      body: formData,
-    });
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
+      {
+        method: "POST",
+        body: formData,
+        credentials: "include",
+      }
+    );
 
     if (res.ok) {
       alert("Article créé avec succès !");
