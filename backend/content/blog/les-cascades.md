@@ -1,0 +1,8 @@
+---
+title: Les cascades
+slug: les-cascades
+category: Découverte Nature
+date: '2025-08-08'
+image: /uploads/les-cascades.webp
+---
+La Guadeloupe, paradis des cascades. Tous les locaux vous le diront, c'est sur Basse-Terre que se trouvent les plus belles chutes d'eau. Avec un nombre impressionnant (près d'une centaine), souvent cachées au beau milieu d'une forêt dense et humide, les cascades de Guadeloupe savent se faire désirer. Si certains sentiers ont été aménagés et rendus accessibles, d'autres offrent un environnement plus sauvage, où racines et humidité ralentissent la progression. Petits conseils, ne jamais partir lorsqu'il y a eu de l'orage ou des pluies les jours précédents. Les sentiers sont vites boueux, glissants et difficiles.  Même si le parcours est présenté comme facile, opter toujours pour de bonnes chaussures, les tongs sont à proscrire. Prendre un sac à dos avec suffisamment d'eau,  une petite gourmandise pour vous restaurer si besoin, lunettes de soleil, casquettes, un gilet ou un sweat (il peut faire frais en altitude), éviter les manches courtes et les shorts (moustiques), ne jamais partir seul. Un départ le matin est préférable car il fait moins chaud et le soleil se couche tôt en Guadeloupe. Préparez votre itinéraire, demandez conseils auprès des locaux, ne pas hésiter à renoncer en cas de fatigue ou si le parcours vous paraît finalement plus difficile que prévu. Les secours ne peuvent pas forcément accéder sur tous les sites donc il est important de ne pas aller sur les lieux interdits même si vous voyez des personnes s'y engager. C'est à leur risque et péril. Ceci vous évitera des déconvenues. Bonne découverte !
