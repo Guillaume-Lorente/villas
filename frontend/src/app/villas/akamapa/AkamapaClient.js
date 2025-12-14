@@ -48,7 +48,7 @@ export default function AkamapaPage() {
       },
       {
         src: "/abordpisc.jpg",
-        alt: "Cocotier au bord de la piscine avec vue sur la villa",
+        alt: "Petit salon au bord de la piscine",
       },
       {
         src: "/salonextaka.jpg",
@@ -60,19 +60,19 @@ export default function AkamapaPage() {
       },
       {
         src: "/chambre1aka.jpg",
-        alt: "Première suite avec lit King Size et déco moderne",
+        alt: "Première suite 'Orchidée' climatisée avec lit King Size, accès terrasse & piscine",
       },
       {
         src: "/sdb1aka.jpg",
-        alt: "Salle de bain attenante à la première suite",
+        alt: "Salle de bain attenante à la suite 'Orchidée'",
       },
       {
         src: "/chambre2aka.jpg",
-        alt: "Deuxième suite avec deux lits simples et accès terrasse",
+        alt: "Deuxième suite 'Hibiscus' climatisée avec lit King size pouvant être séparé en deux lits, accès terrasse & piscine",
       },
       {
         src: "/sdb2aka.jpg",
-        alt: "Salle d’eau privative de la seconde chambre",
+        alt: "Salle de bain attenante à la suite 'Hibiscus'",
       },
       {
         src: "/salonaka.jpg",
@@ -170,15 +170,13 @@ export default function AkamapaPage() {
     fetchPromo();
   }, []);
 
-  const showPromo = promoConfig?.villas?.["1"]?.active;
-  const promoMessage = promoConfig?.villas?.["1"]?.message;
-
+  
   return (
     <main className="bg-[#223e50] text-white pt-24">
       <StructuredData />
-      {promoConfig?.villas?.["1"]?.active && (
-        <PromoBanner message={promoConfig.villas["1"].message} />
-      )}
+      {promoConfig?.villas?.[1]?.active && (
+  <PromoBanner message={promoConfig.villas[1].message || ""} />
+)}
 
       {/* Hero */}
       <section
@@ -297,7 +295,7 @@ export default function AkamapaPage() {
           <p>
             Idéale pour des vacances en famille ou entre amis, elle peut
             accueillir jusqu’à 6 personnes grâce à ses 2 chambres climatisées et
-            son salon convertible. Vous profitez d’un{" "}
+            son salon avec deux lits simples. Vous profitez d’un{" "}
             <strong>logement tout équipé</strong> : cuisine aménagée, Wi‑Fi,
             parking privé, moustiquaires, coffre‑fort, lave‑linge, barbecue et
             plus encore.

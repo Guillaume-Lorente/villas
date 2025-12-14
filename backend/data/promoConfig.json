@@ -1,22 +1,21 @@
 {
   "homepage": {
     "active": true,
-    "message": "Promo d'été : -20% sur les villas Akamapa et Iguana jusqu'au 31 août !"
+    "message": "Promo exceptionnelles en cours!!! - Exceptional promotion in progress!!!"
   },
   "villas": {
     "1": {
       "active": true,
-      "message": "30% de réduction pour tous les séjours jusqu'au 18 octobre 2025"
+      "message": "20% de réduction pour tous les séjours du 7 septembre 2025 au 28 décembre 2025 - 20% off for all stays from September 7, 2025 to December 28, 2025!"
     },
     "2": {
       "active": true,
-      "message": "30% de réduction pour tous les séjours jusqu'au 18 octobre 2025"
+      "message": "20% de réduction pour tous les séjours du 4 octobre 2025 au 8 février 2026 - 20% off for all stays from October 4, 2025 to February 8, 2026!"
     },
     "3": {
-      "active": false,
-      "message": "Villa Iguana : 20% de promo du 15 août au 31 août !"
+      "active": true,
+      "message": "Promo ouverture Nouvelle villa : 20% de réduction pour tous les séjours du 13 décembre 2025 au 8 février 2026 ! 20% off for all stays from December 13, 2025 to February 8, 2026!"
     }
   },
-  "active": true,
-  "homeBanner": "Promotions exceptionnelles jusqu'au 18 octobre 2025"
+  "active": true
 }

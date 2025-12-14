@@ -26,7 +26,10 @@ const PORT = process.env.PORT || 3001;
 
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: [
+      "http://localhost:3000",
+      "https://www.villas-grande-anse.com"
+    ],
     credentials: true,
   })
 );
@@ -50,7 +53,7 @@ app.use("/api/reservation", reservationEmailRoute);
 
 // Routes protégées
 app.use("/api/posts", verifyAdminToken, postsRoutes);
-app.use("/api/promo", verifyAdminToken, promoRoutes);
+app.use("/api/promo", promoRoutes);
 
 app.use("/uploads", express.static(path.join(__dirname, "public/uploads")));
 

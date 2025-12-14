@@ -22,7 +22,22 @@ router.get("/", (req, res) => {
 router.post("/", verifyAdminToken, (req, res) => {
   try {
     const body = req.body;
-    fs.writeFileSync(promoPath, JSON.stringify(body, null, 2), "utf-8");
+
+    // Lire l’existant
+    let currentData = {};
+    try {
+      currentData = JSON.parse(fs.readFileSync(promoPath, "utf-8"));
+    } catch (e) {
+      console.warn("promoConfig.json introuvable ou invalide, création d'un nouveau.");
+    }
+
+    // Fusionner les nouvelles données avec l’existant
+    const updatedData = {
+      ...currentData,
+      ...body
+    };
+
+    fs.writeFileSync(promoPath, JSON.stringify(updatedData, null, 2), "utf-8");
     res.json({ success: true });
   } catch (err) {
     console.error("Erreur écriture promoConfig:", err);

@@ -13,6 +13,7 @@ import {
   isWithinInterval,
   startOfDay,
   endOfDay,
+  parseISO
 } from "date-fns";
 import { useEffect, useState } from "react";
 
@@ -61,12 +62,21 @@ export default function AdminCalendar({ villaId }) {
   }
 
   const getReservation = (date) =>
-    reservations.find((r) =>
-      isWithinInterval(date, {
-        start: startOfDay(new Date(r.start_date)),
-        end: endOfDay(new Date(r.end_date)),
-      })
-    );
+  reservations.find((r) => {
+    // dates en base = [start, end) (checkout exclusif)
+    // On bloque l’occupation visuelle sur les NUITS : [start+1 .. end-1]
+    const startNight = addDays(parseISO(r.start_date), 1); // lendemain du check-in
+    const endNight   = addDays(parseISO(r.end_date), -1);  // veille du check-out
+
+    // Si la plage ne contient aucune nuit (ex: séjour 1 nuit start→start+1),
+    // on ne colore aucun jour (mais c’est OK pour l’enchaînement back-to-back).
+    if (endNight < startNight) return false;
+
+    return isWithinInterval(date, {
+      start: startOfDay(startNight),
+      end: endOfDay(endNight),
+    });
+  });
 
   return (
     <div className="text-sm text-white select-none">

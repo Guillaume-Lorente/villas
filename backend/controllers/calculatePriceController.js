@@ -24,61 +24,73 @@ exports.calculatePrice = async (req, res) => {
     }
 
     // 2. Récupération des promotions actives
-    const promoResult = await pool.query(
-      `
-      SELECT start_date, end_date, discount_percent
-      FROM promotions
-      WHERE villa_id = $1 AND active = true
-      `,
-      [villaId]
-    );
-    const promotions = promoResult.rows;
+const promoResult = await pool.query(
+  `
+  SELECT start_date, end_date, discount_percent
+  FROM promotions
+  WHERE villa_id = $1 AND active = true
+  `,
+  [villaId]
+);
+const promotions = promoResult.rows;
 
-    const start = new Date(startDate);
-    const end = new Date(endDate);
+const start = new Date(startDate);
+const end = new Date(endDate);
+start.setHours(0, 0, 0, 0);
+end.setHours(0, 0, 0, 0);
 
-    let totalBeforeDiscount = 0;
-    let totalAfterDiscount = 0;
-    let countNights = 0;
-    let maxDiscountPercent = 0;
-    let current = new Date(start);
+let totalBeforeDiscount = 0;
+let totalAfterDiscount = 0;
+let countNights = 0;
+let maxDiscountPercent = 0;
 
-    while (current < end) {
-      const matchedPrice = priceMap.find((entry) => {
-        const periodStart = new Date(entry.start_date);
-        const periodEnd = new Date(entry.end_date);
-        return current >= periodStart && current <= periodEnd;
-      });
+let current = new Date(start);
+current.setHours(0, 0, 0, 0);
 
-      if (!matchedPrice) {
-        return res.status(400).json({
-          error:
-            "Les tarifs ne sont pas encore disponibles pour certaines des dates sélectionnées. Veuillez nous contacter via le formulaire.",
-        });
-      }
+while (current < end) {
+  const matchedPrice = priceMap.find((entry) => {
+    const periodStart = new Date(entry.start_date);
+    const periodEnd = new Date(entry.end_date);
+    periodStart.setHours(0, 0, 0, 0);
+    periodEnd.setHours(0, 0, 0, 0);
 
-      const basePrice = parseFloat(matchedPrice.price_per_night);
+    return current >= periodStart && current <= periodEnd;
+  });
 
-      const applicablePromo = promotions.find((promo) => {
-        const promoStart = new Date(promo.start_date);
-        const promoEnd = new Date(promo.end_date);
-        return current >= promoStart && current <= promoEnd;
-      });
+  if (!matchedPrice) {
+    return res.status(400).json({
+      error:
+        "Les tarifs ne sont pas encore disponibles pour certaines des dates sélectionnées. Veuillez nous contacter via le formulaire.",
+    });
+  }
 
-      let finalPrice = basePrice;
-      if (applicablePromo) {
-        finalPrice = basePrice * (1 - applicablePromo.discount_percent / 100);
-        if (applicablePromo.discount_percent > maxDiscountPercent) {
-          maxDiscountPercent = applicablePromo.discount_percent;
-        }
-      }
+  const basePrice = parseFloat(matchedPrice.price_per_night);
 
-      totalBeforeDiscount += basePrice;
-      totalAfterDiscount += finalPrice;
-      countNights += 1;
+  const applicablePromo = promotions.find((promo) => {
+    const promoStart = new Date(promo.start_date);
+    const promoEnd = new Date(promo.end_date);
+    promoStart.setHours(0, 0, 0, 0);
+    promoEnd.setHours(0, 0, 0, 0);
 
-      current.setDate(current.getDate() + 1);
+    return current >= promoStart && current <= promoEnd;
+  });
+
+  let finalPrice = basePrice;
+  if (applicablePromo) {
+    finalPrice = basePrice * (1 - applicablePromo.discount_percent / 100);
+    if (applicablePromo.discount_percent > maxDiscountPercent) {
+      maxDiscountPercent = applicablePromo.discount_percent;
     }
+  }
+
+  totalBeforeDiscount += basePrice;
+  totalAfterDiscount += finalPrice;
+  countNights += 1;
+
+  // jour suivant
+  current.setDate(current.getDate() + 1);
+  current.setHours(0, 0, 0, 0);
+}
 
     // 3. Appliquer minimum 7 nuits
     if (countNights < 7 && countNights > 0) {

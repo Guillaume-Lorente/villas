@@ -13,6 +13,8 @@ import {
   isBefore,
   isWithinInterval,
   startOfDay,
+  differenceInCalendarDays,
+  parseISO
 } from "date-fns";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
@@ -102,34 +104,37 @@ export default function Calendar({ villaId, villaName }) {
   });
 
   useEffect(() => {
-    const fetchReservations = async () => {
-      try {
-        const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/reservations/villa/${villaId}`,
-          { next: { revalidate: 0 } },
-          { cache: "no-store" }
-        );
-        const data = await res.json();
+  const fetchReservations = async () => {
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/reservations/villa/${villaId}`,
+        { cache: "no-store" }
+      );
+      const data = await res.json();
 
-        const allDates = data.flatMap(({ start_date, end_date }) => {
-          const dates = [];
-          let current = new Date(start_date);
-          const end = new Date(end_date);
-          while (current <= end) {
-            dates.push(new Date(current));
-            current.setDate(current.getDate() + 1);
-          }
-          return dates;
-        });
+      const allDates = data.flatMap(({ start_date, end_date }) => {
+        const dates = [];
 
-        setReservedDates(allDates.map((d) => new Date(d)));
-      } catch (err) {
-        console.error("Erreur chargement réservations:", err);
-      }
-    };
+        // Ignorer la journée d’arrivée (start) et la journée de départ (end)
+        let current = addDays(parseISO(start_date), 1);
+        const end = parseISO(end_date);
 
-    fetchReservations();
-  }, [villaId]);
+        while (current < end) {
+          dates.push(new Date(current));
+          current = addDays(current, 1);
+        }
+
+        return dates;
+      });
+
+      setReservedDates(allDates);
+    } catch (err) {
+      console.error("Erreur chargement réservations:", err);
+    }
+  };
+
+  fetchReservations();
+}, [villaId]);
 
   const isReserved = (date) =>
     reservedDates.some((reserved) => isSameDay(reserved, date));
@@ -147,46 +152,47 @@ export default function Calendar({ villaId, villaName }) {
   }
 
   const handleDateClick = (clickedDate) => {
-    if (isBefore(clickedDate, startOfDay(today)) || isReserved(clickedDate))
-      return;
+  const normalized = startOfDay(clickedDate);
+  if (isBefore(normalized, startOfDay(today)) || isReserved(normalized)) return;
 
-    if (startDate && isSameDay(clickedDate, startDate)) {
-      setStartDate(null);
-      setEndDate(null);
+  if (startDate && isSameDay(normalized, startDate)) {
+    setStartDate(null);
+    setEndDate(null);
+    setSelectingStart(true);
+    setErrorMessage("");
+    return;
+  }
+
+  if (selectingStart || (startDate && endDate)) {
+    setStartDate(normalized);
+    setEndDate(null);
+    setSelectingStart(false);
+    setErrorMessage("");
+    setPriceDetails(null);
+  } else {
+    if (isAfter(normalized, startDate)) {
+      const rangeHasReserved = reservedDates.some((reserved) =>
+        isWithinInterval(reserved, { start: startDate, end: normalized })
+      );
+      if (rangeHasReserved) {
+        setErrorMessage(
+          "Cette plage inclut des dates déjà réservées. Veuillez choisir une autre période."
+        );
+        return;
+      }
+      setEndDate(normalized);
       setSelectingStart(true);
-      setErrorMessage("");
-      return;
-    }
-
-    if (selectingStart || (startDate && endDate)) {
-      setStartDate(clickedDate);
-      setEndDate(null);
-      setSelectingStart(false);
       setErrorMessage("");
       setPriceDetails(null);
     } else {
-      if (isAfter(clickedDate, startDate)) {
-        const rangeHasReserved = reservedDates.some((reserved) =>
-          isWithinInterval(reserved, { start: startDate, end: clickedDate })
-        );
-        if (rangeHasReserved) {
-          setErrorMessage(
-            "Cette plage inclut des dates déjà réservées. Veuillez choisir une autre période."
-          );
-          return;
-        }
-        setEndDate(clickedDate);
-        setSelectingStart(true);
-        setErrorMessage("");
-        setPriceDetails(null);
-      } else {
-        setStartDate(clickedDate);
-        setEndDate(null);
-        setErrorMessage("");
-        setPriceDetails(null);
-      }
+      setStartDate(normalized);
+      setEndDate(null);
+      setErrorMessage("");
+      setPriceDetails(null);
     }
-  };
+  }
+};
+
 
   const isInRange = (day) =>
     startDate &&
@@ -197,12 +203,9 @@ export default function Calendar({ villaId, villaName }) {
     isBefore(day, startOfDay(today)) || isReserved(day);
 
   const getNights = () => {
-    if (!startDate || !endDate) return 0;
-    return (
-      (new Date(endDate).getTime() - new Date(startDate).getTime()) /
-        (1000 * 60 * 60 * 24) || 0
-    );
-  };
+  if (!startDate || !endDate) return 0;
+  return Math.max(0, differenceInCalendarDays(endDate, startDate));
+};
 
   function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);

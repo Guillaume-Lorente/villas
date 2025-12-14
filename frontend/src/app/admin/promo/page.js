@@ -8,21 +8,29 @@ export default function PromoAdminPage() {
 
   useEffect(() => {
     const fetchConfig = async () => {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`,
-        {
-          credentials: "include",
-        }
-      );
-      const data = await res.json();
-      setConfig(data);
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`,
+          { credentials: "include" }
+        );
+        const data = await res.json();
+        setConfig(data);
+      } catch (err) {
+        console.error("Erreur chargement promoConfig:", err);
+      }
       setLoading(false);
     };
     fetchConfig();
   }, []);
 
-  const handleChange = (field, value) => {
-    setConfig((prev) => ({ ...prev, [field]: value }));
+  const handleHomepageChange = (field, value) => {
+    setConfig((prev) => ({
+      ...prev,
+      homepage: {
+        ...prev.homepage,
+        [field]: value,
+      },
+    }));
   };
 
   const handleVillaChange = (villaId, field, value) => {
@@ -40,19 +48,24 @@ export default function PromoAdminPage() {
 
   const handleSave = async () => {
     setSaving(true);
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`,
-      {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(config),
-        credentials: "include",
-      }
-    );
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(config),
+          credentials: "include",
+        }
+      );
 
-    if (res.ok) {
-      alert("✅ Bannières mises à jour !");
-    } else {
+      if (res.ok) {
+        alert("✅ Bannières mises à jour !");
+      } else {
+        alert("❌ Une erreur est survenue.");
+      }
+    } catch (err) {
+      console.error("Erreur sauvegarde promoConfig:", err);
       alert("❌ Une erreur est survenue.");
     }
     setSaving(false);
@@ -67,21 +80,27 @@ export default function PromoAdminPage() {
       </h1>
 
       <div className="bg-white/10 p-6 rounded-lg space-y-4">
+        {/* Bannière accueil */}
         <label className="flex items-center gap-2">
           <input
             type="checkbox"
-            checked={config.active}
-            onChange={(e) => handleChange("active", e.target.checked)}
+            checked={config.homepage?.active || false}
+            onChange={(e) =>
+              handleHomepageChange("active", e.target.checked)
+            }
           />
           Activer la bannière d’accueil
         </label>
         <textarea
-          className="w-full px-4 py-2 rounded text-[#ee3e50]"
-          value={config.homeBanner}
-          onChange={(e) => handleChange("homeBanner", e.target.value)}
+          className="w-full px-4 py-2 rounded text-[#eeb868]"
+          value={config.homepage?.message || ""}
+          onChange={(e) =>
+            handleHomepageChange("message", e.target.value)
+          }
           placeholder="Texte de la bannière d’accueil"
         />
 
+        {/* Bannières villas */}
         {[1, 2, 3].map((id) => (
           <div key={id} className="border-t border-white/30 pt-4">
             <h2 className="font-bold text-[#eeb868] mb-2">Villa {id}</h2>
@@ -96,9 +115,11 @@ export default function PromoAdminPage() {
               Activer la bannière
             </label>
             <textarea
-              className="w-full px-4 py-2 rounded text-[#ee3e50]"
+              className="w-full px-4 py-2 rounded text-[#eeb868]"
               value={config.villas?.[id]?.message || ""}
-              onChange={(e) => handleVillaChange(id, "message", e.target.value)}
+              onChange={(e) =>
+                handleVillaChange(id, "message", e.target.value)
+              }
               placeholder={`Message promo pour Villa ${id}`}
             />
           </div>
@@ -112,6 +133,7 @@ export default function PromoAdminPage() {
           {saving ? "Enregistrement..." : "Enregistrer les modifications"}
         </button>
       </div>
+
       <div className="mt-10 text-center">
         <a
           href="/admin"

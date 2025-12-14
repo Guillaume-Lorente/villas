@@ -32,7 +32,7 @@ export default function IguanaPage() {
     images: [
       {
         src: "/iguana.jpg",
-        alt: "Vue de la villa Iguana et de sa piscine privée",
+        alt: "Villa Iguana et sa piscine privée",
       },
       {
         src: "/piscineIguana.jpg",
@@ -48,15 +48,15 @@ export default function IguanaPage() {
       },
       {
         src: "/exterieurIguana2.jpg",
-        alt: "Extérieur de la dépendance de la villa Iguana",
+        alt: "Maison annexe 'Antilles' à la Villa Iguana",
       },
       {
         src: "/terrasseIguana.jpg",
-        alt: "Terrasse extérieure",
+        alt: "Terrasse extérieure avec accès piscine",
       },
       {
         src: "/tableIguana.jpg",
-        alt: "Salon extérieur",
+        alt: "Salon extérieur et espace repas",
       },
       {
         src: "/salonIguana.jpg",
@@ -64,51 +64,51 @@ export default function IguanaPage() {
       },
       {
         src: "/chambreIguana1.jpg",
-        alt: "Première suite climatisée et munie d'un brasseur d'air, équipée d'un lit double King Size (180 cm)",
+        alt: "Suite 'Afrique' climatisée et munie d'un brasseur d'air avec lit King Size et lit simple",
       },
       {
         src: "/chambreIguana1-2.jpg",
-        alt: "Photo de l'intérieur de la première suite",
+        alt: "Suite 'Afrique'",
       },
       {
         src: "/chambreIguana1-3.jpg",
-        alt: "Lit simple (90 cm) de la première suite",
+        alt: "Lit simple de la suite 'Afrique'",
       },
       {
         src: "/sdbIguana1-2.jpg",
-        alt: "Salle de bain & wc attenants de la premiere suite",
+        alt: "Salle de bain & wc attenants à la suite 'Afrique'",
       },
       {
         src: "/chambreIguana2.jpg",
-        alt: "Seconde suite climatisée et munie d'un brasseur d'air, équipée de deux lits simples (90 cm)",
+        alt: "Suite 'Asie' climatisée et munie d'un brasseur d'air avec lit King size (pouvant être séparé en deux lits), lit simple",
       },
       {
         src: "/chambreIguana2-2.jpg",
-        alt: "Lit simple (90 cm) de la seconde suite",
+        alt: "Lit simple de la suite 'Asie'",
       },
       {
         src: "/chambreIguana2-3.jpg",
-        alt: "Photo de l'intérieur de la deuxième suite",
+        alt: "Suite 'Asie'",
       },
       {
         src: "/sdbIguana2.jpg",
-        alt: "Salle de bain & wc attenants de la seconde suite",
+        alt: "Salle de bain & wc attenants de la suite 'Asie'",
       },
       {
         src: "/salonIguana2-3.jpg",
-        alt: "Salon intérieur de la dépendance",
+        alt: "Petit salon de la maison annexe 'Antilles'",
       },
       {
         src: "/chambreIguana3.jpg",
-        alt: "Chambre en mezzanine de la dépendance",
+        alt: "Chambre en mezzanine maison annexe 'Antilles'",
       },
       {
         src: "/sdbIguana3.jpg",
-        alt: "Salle de bain & wc de la dépendance",
+        alt: "Salle de bain & wc de la maison annexe 'Antilles'",
       },
       {
         src: "/cuisineIguana.jpg",
-        alt: "1 cuisine entièrement équipée et une arrière cuisine munies de brasseurs d'air dans la villa Iguana",
+        alt: "Grande cuisine entièrement équipée et une arrière cuisine munies de brasseurs d'air, de la villa Iguana",
       },
     ],
   };
@@ -202,16 +202,15 @@ export default function IguanaPage() {
     fetchPromo();
   }, []);
 
-  const showPromo = promoConfig?.villas?.["3"]?.active;
-  const promoMessage = promoConfig?.villas?.["3"]?.message;
-
+  
   return (
     <main className="bg-[#223e50] text-white pt-24">
       <StructuredData />
-      {promoConfig?.villas?.["3"]?.active && (
-        <PromoBanner message={promoConfig.villas["3"].message} />
-      )}
-      {/* Hero */}
+      {promoConfig?.villas?.[3]?.active && (
+  <PromoBanner message={promoConfig.villas[3].message || ""} />
+)}
+
+     {/* Hero */}
       <section
         className="relative h-[700px] bg-cover bg-center"
         style={{ backgroundImage: `url('${villa.images[1].src}')` }}

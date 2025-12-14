@@ -1,6 +1,6 @@
 "use client";
 
-import { Facebook, Instagram } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
 
 export default function Footer() {
@@ -33,6 +33,15 @@ export default function Footer() {
             className="hover-jaune transition"
           >
             <Instagram size={28} />
+          </a>
+	  <a
+            href="https://www.youtube.com/@villasgrandeanse"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Youtube Villas Grande Anse"
+            className="hover-jaune transition"
+          >
+            <Youtube size={28} />
           </a>
         </div>
 

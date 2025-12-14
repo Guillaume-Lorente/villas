@@ -25,12 +25,13 @@ export default function HomePage() {
   const [promoConfig, setPromoConfig] = useState(null);
 
   useEffect(() => {
-    if (!promoConfig) return;
+  if (!promoConfig) return;
 
-    if (promoConfig.active && promoConfig.homeBanner) {
-      setHomepagePromo(promoConfig.homeBanner);
-    }
-  }, [promoConfig]);
+  if (promoConfig.homepage?.active && promoConfig.homepage?.message) {
+    setHomepagePromo(promoConfig.homepage.message);
+  }
+}, [promoConfig]);
+
 
   useEffect(() => {
     const fetchPromo = async () => {
@@ -53,9 +54,9 @@ export default function HomePage() {
       <StructuredData />
 
       {/* Promo Banner */}
-      {promoConfig?.homeBanner && (
-        <PromoBanner message={promoConfig.homeBanner} />
-      )}
+      {promoConfig?.homepage?.active && (
+  <PromoBanner message={promoConfig.homepage.message} />
+)}
 
       {/* Hero */}
       <section

@@ -20,7 +20,7 @@
     "heroDescription": "Les villas « Grande Anse », Tilamp Tilamp, Akamapa et Iguana, vous accueillent au sein d'une magnifique propriété de 3000 m2 arborée et fleurie, à 200 m de la plage de Grande Anse, à Deshaies, 4ème village préféré des Français en 2024.\n\nDécouvrez les iguanes, colibris, mangoustes et dégustez les bananes, avocats, papayes, mangues, ananas de la propriété suivant la saison. Réservez dès maintenant pour vivre une expérience unique & des vacances inoubliables dans un cadre tropical paradisiaque.",
     "villasTitle": "Nos villas en location à Deshaies",
     "discoverTitle": "Découvrez la Guadeloupe depuis Deshaies",
-    "discoverDescription": "Nos villas « Grande Anse » sont au cœur même de la « Côte sous le Vent », appelée aussi la Côte Caraïbes, qui est une région à part de la Guadeloupe où se situent les plus belles plages dans un rayon de 15 kilomètres : La Perle, Gadet, Leroux, Tillet, Petite Anse, Cluny et bien sûr Grande Anse. C'est la destination Nature par excellence entre mer & montagne. Venez découvrir les bassins et cascades en rivière, les plus belles plages et les sources chaudes, vous trouverez ici votre bonheur. Havre de paix, la côte sous le vent n'a pas connu l'urbanisation et l'industrialisation de la Guadeloupe. Elle saura vous séduire car elle demeure très authentique et abrite de très nombreuses activités.",
+    "discoverDescription": "Nos villas « Grande Anse » sont au cœur même de la « Côte sous le Vent », appelée aussi la Côte Caraïbes, qui est une région à part de la Guadeloupe où se situent les plus belles plages dans un rayon de 15 kilomètres : La Perle, Gadet, Leroux, Tillet, Petite Anse, Cluny et bien sûr Grande Anse. C'est la destination Nature par excellence entre mer & montagne. Venez découvrir les bassins et cascades en rivière, les plages et les sources chaudes, vous trouverez ici votre bonheur. Havre de paix, la côte sous le vent n'a pas connu l'urbanisation et l'industrialisation de la Guadeloupe. Elle saura vous séduire car elle demeure très authentique et abrite de très nombreuses activités.",
     "blogButton": "Explorer le blog"
   },
 
@@ -45,11 +45,11 @@
     "title": "Votre accueil",
     "text1": "Les coordonnées de Joanna vous seront transmises après la confirmation de votre séjour.",
     "text2": "Elle vous réservera un accueil chaleureux 🌴",
-    "text3": "📞 Pensez à la contacter dès votre sortie de l'aéroport pour prévenir de votre arrivée même tardive."
+    "text3": "📞 Pensez à la contacter dès votre sortie de l'aéroport pour prévenir de votre arrivée, car même tardive, elle sera là pour vous réserver le meilleur accueil."
   },
   "services": {
     "title": "Les services",
-    "text1": "Notre villa se trouve à seulement 50 mètres d’un commerce de proximité — parfait pour vos courses du quotidien sans avoir à prendre la voiture.",
+    "text1": "Notre villa se trouve à seulement 50 mètres d’un commerce de proximité, sans avoir à prendre la voiture.",
     "text2": "Et pour découvrir l’ambiance authentique de la région, le charmant bourg de Deshaies n’est qu’à 1,5 km. Commerces, restaurants et balades en bord de mer vous y attendent !"
   }
 },
@@ -170,10 +170,10 @@
   "descriptionTitle": "Descriptif",
   "descriptionText": "D'une superficie totale de 190 m² (dont 100 m² de terrasse), cette villa traditionnelle de plain-pied peut accueillir jusqu'à 6 personnes. Les chambres sont équipées de moustiquaire.",
   "features": [
-    "1 suite climatisée et munie d'un brasseur d'air, équipée de deux lits simples (90 cm) pouvant être rapprochés, avec bureau, salle de bain & wc attenants - accès direct à la piscine et entrée indépendante",
-    "1 suite climatisée et munie d'un brasseur d'air, équipée d'un lit double King Size (180 cm), avec bureau, salle de bain & wc attenants - accès direct à la piscine",
+    "1 suite climatisée et munie d'un brasseur d'air, équipée d'un lit King Size (180 cm) pouvant être séparés en deux lits, avec bureau, salle de bain & wc attenants - accès direct à la piscine et entrée indépendante",
+    "1 suite climatisée et munie d'un brasseur d'air, équipée d'un lit King Size (180 cm), avec bureau, salle de bain & wc attenants - accès direct à la piscine",
     "1 grande cuisine entièrement équipée et munie d'un brasseur d'air et une arrière cuisine",
-    "1 salon climatisé et muni d'un brasseur d'air, équipé de deux canapés-lits simples (90cm)",
+    "1 salon climatisé et muni d'un brasseur d'air, équipé de deux lits simples (90cm)",
     "1 wc invité indépendant",
     "1 grande terrasse aménagée, munie de brasseurs d'air et meublée : bar, grande table pour les repas, canapés, hamac",
     "1 deck avec une grande piscine 4,5m x 9m entourée de canapés, de transats, d'un carbet, d'une douche extérieure"
@@ -182,7 +182,7 @@
   "included": [
     "Accueil sur place",
     "Taxe de séjour",
-    "Produits de bienvenue",
+    "Panier d'accueil et kit salle de bain",
     "Internet à très haut débit (Fibre Optique)",
     "Linge de maison fourni & renouvelé selon durée",
     "Ménage de fin de séjour inclus",
@@ -193,7 +193,7 @@
 },
 
 "tilamp": {
-  "name": "Villa Tilamp-Tilamp",
+  "name": "Villa Tilamp Tilamp",
   "description": "Tilamp Tilamp signifie prendre son temps. Cette villa est unique de part son style colonial très rare en Guadeloupe. Sa configuration exceptionnelle vous offre un espace de terrasses tout autour de la villa qui est extrêmement bien ventilée. Alliant élégance et charme, elle peut accueillir jusqu'à 11 personnes. Dès votre arrivée, sa décoration particulièrement soignée vous séduira. Elle dispose d'une grande piscine, de nombreux espaces pour le farniente, en somme c'est le lieu idéal pour vous retrouver en famille ou entre amis, et passer des vacances inoubliables en Guadeloupe !",
   "info": {
     "capacity": "2/11 pers.",
@@ -226,7 +226,7 @@
     "1 suite climatisée, munie d'un brasseur d'air et équipée d'un lit double Queen Size (160 cm), salle de bain attenante et wc séparé, accès direct à la piscine",
     "2 chambres climatisées, munies d'un brasseur d'air et équipée chacune d'un lit double Queen Size (160 cm) et d'un lit simple (90 cm), accès direct à la piscine",
     "1 salle de bain & wc indépendant commune aux deux chambres",
-    "1 chambre climatisée à l'étage, munie d'un brasseur d'air et équipée d'un lit double Queen Size (160 cm) et d'un lit simple (90 cm), avec sa salle de bain attenante et wc privatif",
+    "1 suite climatisée à l'étage, munie d'un brasseur d'air et équipée d'un lit double Queen Size (160 cm) et d'un lit simple (90 cm), avec sa salle de bain attenante et wc privatif",
     "1 cuisine entièrement équipée, avec bar attenant",
     "1 salon ouvert sur la terrasse",
     "1 grande terrasse aménagée et meublée munie de brasseurs d'air, d'une grande table à manger, salons zen, hamacs, espaces de jeux (table de ping pong, baby foot, jeu d'échec, jeux de fléchettes)",
@@ -236,7 +236,7 @@
   "included": [
     "Accueil sur place",
     "Taxe de séjour",
-    "Produits de bienvenue",
+    "Panier d'accueil et kit salle de bain",
     "Internet à très haut débit (Fibre Optique)",
     "Linge de maison fourni & renouvelé selon durée",
     "Ménage de fin de séjour inclus",
@@ -277,20 +277,20 @@
   "descriptionTitle": "Descriptif",
   "descriptionText": "D'une superficie totale de 180 m² (dont 70 m² de terrasse), cette villa de plain-pied peut accueillir jusqu'à 8 personnes. Toutes les chambres sont équipées de moustiquaire.",
   "features": [
-    "1 suite climatisée et munie d'un brasseur d'air, équipée d'un lit double King Size (180 cm), d'un lit simple (90 cm), salle de bain & wc attenants - accès direct à la piscine",
-    "1 suite climatisée et munie d'un brasseur d'air, équipée de deux lits simples (90 cm) pouvant être rapprochés, d'un lit simple (90 cm) salle de bain & wc attenants",
+    "1 suite climatisée et munie d'un brasseur d'air, équipée d'un lit King Size (180 cm), d'un lit simple (90 cm), salle de bain & wc attenants - accès direct à la piscine",
+    "1 suite climatisée et munie d'un brasseur d'air, équipée d'un lit King Size (180 cm) pouvant être séparé en deux lits simples (90 cm), d'un lit simple (90 cm) salle de bain & wc attenants",
     "1 cuisine entièrement équipée et une arrière cuisine munies de brasseurs d'air",
     "1 salon muni d'un brasseur d'air",
     "1 wc invité indépendant",
-    "2 grandes terrasses aménagées, munie de brasseurs d'air et meublée : salle à manger, salons,, bar, hamac",
+    "2 grandes terrasses aménagées, munie de brasseurs d'air et meublée : salle à manger, salons, bar, hamac",
     "1 deck avec une grande piscine à débordement 5,5m x 9m dont un bassin enfant 2m x 2m, entourée de transats, d'une douche extérieure",
-    "1 maison annexe disposant d'une mezzanine ouverte avec un lit double Queen Size (160 cm) climatisée et munie d'un brasseur d'air, au rez de chaussé une salle de bain & wc, un petit salon avec canapé, avec un accès direct à la piscine"
+    "1 maison annexe climatisée et munie d'un brasseur d'air, disposant d'une mezzanine ouverte avec un lit double Queen Size (160 cm), au rez de chaussée une salle de bain & wc, un petit salon avec canapé, avec accès direct à la piscine"
   ],
   "includedTitle": "Services inclus",
   "included": [
     "Accueil sur place",
     "Taxe de séjour",
-    "Produits de bienvenue",
+    "Panier d'accueil et kit salle de bain",
     "Internet à très haut débit (Fibre Optique)",
     "Linge de maison fourni & renouvelé selon durée",
     "Ménage de fin de séjour inclus",

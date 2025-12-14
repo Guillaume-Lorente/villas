@@ -1,11 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const { SignJWT } = require("jose");
+const jwt = require("jsonwebtoken");
 
-// Clé secrète JWT depuis .env
-const secret = new TextEncoder().encode(process.env.JWT_SECRET);
+const secret = process.env.JWT_SECRET;
 
-router.post("/admin-login", async (req, res) => {
+router.post("/admin-login", (req, res) => {
   const { password } = req.body;
 
   if (password !== process.env.ADMIN_PASSWORD) {
@@ -13,18 +12,14 @@ router.post("/admin-login", async (req, res) => {
   }
 
   try {
-    const token = await new SignJWT({ admin: true })
-      .setProtectedHeader({ alg: "HS256" })
-      .setExpirationTime("7d")
-      .sign(secret);
+    const token = jwt.sign({ admin: true }, secret, { expiresIn: "7d" });
 
-    // Définir le cookie
     res.cookie("admin-auth", token, {
       httpOnly: true,
-      maxAge: 1000 * 60 * 60 * 24 * 7, // 7 jours
+      maxAge: 1000 * 60 * 60 * 24 * 7,
       path: "/",
       sameSite: "lax",
-      secure: true, // désactive en dev local si besoin
+      secure: true
     });
 
     return res.json({ success: true });

@@ -27,12 +27,12 @@ import StructuredData from "@/components/StructuredData";
 
 export default function TilampTilampPage() {
   const villa = {
-    name: "Villa Tilamp-Tilamp",
+    name: "Villa Tilamp Tilamp",
     description: `Tilamp Tilamp signifie prendre son temps. Cette villa est unique de part son style colonial très rare en Guadeloupe. Sa configuration exceptionnelle vous offre un espace de terrasses tout au tour de la villa qui est extrêmement bien ventilée. Alliant élégance et charme, elle peut accueillir jusqu'à 11 personnes. Dès votre arrivée, sa décoration particulièrement soignée vous séduira. Elle dispose d'une grande piscine, de nombreux espaces pour le farniente, en somme c'est le lieu idéal pour vous retrouver en famille ou entre amis, et passer des vacances inoubliables en Guadeloupe !`,
     images: [
       {
         src: "/tilamp-tilamp.jpg",
-        alt: "Vue aérienne de la villa Akamapa et de sa piscine privée",
+        alt: "Villa Tilamp Tilamp et sa piscine privée",
       },
       {
         src: "/piscinetilamp.jpg",
@@ -40,51 +40,51 @@ export default function TilampTilampPage() {
       },
       {
         src: "/terrassetilamp.jpg",
-        alt: "Vue de la terrasse de la villa Tilamp-Tilamp",
+        alt: "Terrasse de la villa Tilamp Tilamp",
       },
       {
         src: "/cuisinetilamp.jpg",
-        alt: "Cuisine moderne et équipée de la villa",
+        alt: "Cuisine équipée avec bar extérieur",
       },
       {
         src: "/cuisinetilamp2.jpg",
-        alt: "Deuxième photo de la cuisine",
+        alt: "Cuisine moderne et équipée",
       },
       {
         src: "/salontilamp.jpg",
-        alt: "Salon intérieur avec TV",
+        alt: "Salon intérieur avec accès aux terrasses",
       },
       {
         src: "/salontilamp2.jpg",
-        alt: "Deuxième photo du salon intérieur",
+        alt: "Salon intérieur avec TV",
       },
       {
         src: "/chambre1tilamp.jpg",
-        alt: "Première chambre avec un lit Queen Size et un lit simple",
+        alt: "Chambre 'Tropical' climatisée avec lit Queen Size et lit simple",
       },
       {
         src: "/chambre2tilamp.jpg",
-        alt: "Deuxième chambre avec un lit Queen Size et un lit simple",
+        alt: "Chambre 'Caraïbes' climatisée avec lit Queen Size et lit simple",
       },
       {
         src: "/chambre3tilamp.jpg",
-        alt: "Chambre climatisée à l'étage, avec un lit Queen Size et un lit simple, avec salle de bain attenante et wc privatif",
+        alt: "Suite 'Rivage' climatisée à l'étage, avec lit Queen Size et lit simple",
       },
       {
         src: "/chambre4tilamp.jpg",
-        alt: "Suite avec lit Queen Size, avec salle de bain attenante et wc séparé",
+        alt: "Suite 'Exotique' climatisée avec lit Queen Size",
       },
       {
         src: "/sdb1tilamp.jpg",
-        alt: "Salle de bain & wc indépendant commune aux deux chambres",
+        alt: "Salle de bain & wc indépendant commune aux chambres 'Tropical' et 'Caraïbes'",
       },
       {
         src: "/sdb2tilamp.jpg",
-        alt: "Salle de bain attenante et wc privatif de la chambre à l'étage",
+        alt: "Salle de bain attenante et wc privatif de la suite 'Rivage'",
       },
       {
         src: "/sdb3tilamp.jpg",
-        alt: "Salle de bain et wc privatif de la chambre suite",
+        alt: "Salle de bain attenante & wc privatif de la suite 'Exotique'",
       },
     ],
   };
@@ -178,15 +178,14 @@ export default function TilampTilampPage() {
     fetchPromo();
   }, []);
 
-  const showPromo = promoConfig?.villas?.["2"]?.active;
-  const promoMessage = promoConfig?.villas?.["2"]?.message;
-
+  
   return (
     <main className="bg-[#223e50] text-white pt-24">
       <StructuredData />
-      {promoConfig?.villas?.["2"]?.active && (
-        <PromoBanner message={promoConfig.villas["2"].message} />
-      )}
+      {promoConfig?.villas?.[2]?.active && (
+  <PromoBanner message={promoConfig.villas[2].message || ""} />
+)}
+
       {/* Hero */}
       <section
         className="relative h-[700px] bg-cover bg-center"
@@ -304,12 +303,12 @@ export default function TilampTilampPage() {
           <p>
             Entourée de végétation luxuriante, elle dispose de vastes terrasses
             ventilées, d’une grande piscine privée et d’espaces de détente
-            parfaitement aménagés. Grâce à ses 3 chambres et ses nombreux
+            parfaitement aménagés. Grâce à ses 4 chambres et ses nombreux
             couchages, elle peut accueillir confortablement jusqu’à 11 personnes
             – idéale pour des vacances en famille ou entre amis.
           </p>
           <p>
-            Louer la villa Tilamp‑Tilamp, c’est choisir une villa d’exception à
+            Louer la villa Tilamp Tilamp, c’est choisir une villa d’exception à
             Deshaies, avec tout le confort moderne, à proximité immédiate de la
             plage, des sentiers de randonnée, du jardin botanique et des
             meilleurs restaurants de Basse‑Terre.
