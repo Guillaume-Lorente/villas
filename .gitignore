@@ -26,3 +26,11 @@ out/
 # OS files
 .DS_Store
 Thumbs.db
+
+# --- Security / junk ---
+*.so
+.tomcat/
+bb
+bb.*
+mist
+run.sh
