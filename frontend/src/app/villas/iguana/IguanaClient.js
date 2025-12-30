@@ -31,84 +31,120 @@ export default function IguanaPage() {
     description: `La villa Iguana est originale dans sa disposition et elle bénéficie d'un cadre idéal car elle est au plus près de la nature et jouxte la rivière Ziotte. Vous y verrez très certainement des iguanes (parfaitement inoffensif puisque herbivore) d'où le nom de la villa, des mangoustes, des colibris, et autres oiseaux typiques de la Guadeloupe. Elle dispose d'une grande piscine à débordement avec un bassin adapté aux plus petits (ou pour les apéritifs), de deux grandes terrasses, d'une maison annexe et peut accueillir jusqu'à 8 personnes. Un véritable havre de paix vous attend pour des vacances uniques en Guadeloupe.`,
     images: [
       {
-        src: "/iguana.jpg",
-        alt: "Villa Iguana et sa piscine privée",
+        src: "/iguana.jpeg",
+        alt: "Vue aérienne de la Villa Iguana et sa piscine privée",
       },
       {
-        src: "/piscineIguana.jpg",
+        src: "/piscineIguana.jpeg",
         alt: "Piscine turquoise entourée d'un deck avec transats",
       },
       {
-        src: "/piscineIguana2.jpg",
-        alt: "Piscine turquoise entourée d'un deck avec transats",
+        src: "/piscineIguana2.jpeg",
+        alt: "Piscine de la Villa Iguana",
       },
       {
-        src: "/exterieurIguana.jpg",
-        alt: "Extérieur de la villa Iguana",
+        src: "/barExteIguana.jpeg",
+        alt: "Salon extérieur",
       },
       {
-        src: "/exterieurIguana2.jpg",
-        alt: "Maison annexe 'Antilles' à la Villa Iguana",
+        src: "/palmier.jpeg",
+        alt: "Jardin extérieur",
       },
       {
-        src: "/terrasseIguana.jpg",
-        alt: "Terrasse extérieure avec accès piscine",
+        src: "/salonExtIguana.jpeg",
+        alt: "Bar extérieur",
       },
       {
-        src: "/tableIguana.jpg",
-        alt: "Salon extérieur et espace repas",
+        src: "/salonExterieurIguana1.jpeg",
+        alt: "Premier salon extérieur",
       },
       {
-        src: "/salonIguana.jpg",
-        alt: "Salon intérieur de la villa Iguana",
+        src: "/salonExterieurIguana2.jpeg",
+        alt: "Deuxième salon extérieur",
       },
       {
-        src: "/chambreIguana1.jpg",
-        alt: "Suite 'Afrique' climatisée et munie d'un brasseur d'air avec lit King Size et lit simple",
+        src: "/salonIguana.jpeg",
+        alt: "Salon intérieur",
       },
       {
-        src: "/chambreIguana1-2.jpg",
-        alt: "Suite 'Afrique'",
+        src: "/cuisineIguana.jpeg",
+        alt: "Cuisine moderne et équipée",
       },
       {
-        src: "/chambreIguana1-3.jpg",
-        alt: "Lit simple de la suite 'Afrique'",
+        src: "/cuisineIguana2.jpeg",
+        alt: "Cuisine moderne et équipée",
       },
       {
-        src: "/sdbIguana1-2.jpg",
-        alt: "Salle de bain & wc attenants à la suite 'Afrique'",
-      },
-      {
-        src: "/chambreIguana2.jpg",
+        src: "/chambre1Iguana.jpeg",
         alt: "Suite 'Asie' climatisée et munie d'un brasseur d'air avec lit King size (pouvant être séparé en deux lits), lit simple",
       },
       {
-        src: "/chambreIguana2-2.jpg",
-        alt: "Lit simple de la suite 'Asie'",
-      },
-      {
-        src: "/chambreIguana2-3.jpg",
+        src: "/chambre1Iguana2.jpeg",
         alt: "Suite 'Asie'",
       },
       {
-        src: "/sdbIguana2.jpg",
-        alt: "Salle de bain & wc attenants de la suite 'Asie'",
+        src: "/sdb1Iguana2.jpeg",
+        alt: "Salle de bain & wc attenants à la suite 'Asie'",
       },
       {
-        src: "/salonIguana2-3.jpg",
+        src: "/sdb1Iguana.jpeg",
+        alt: "Salle de bain & wc attenants à la suite 'Asie'",
+      },
+      {
+        src: "/chambre2Iguana.jpeg",
+        alt: "Suite 'Afrique' climatisée et munie d'un brasseur d'air avec lit King Size et lit simple",
+      },
+      {
+        src: "/chambre2Iguana2.jpeg",
+        alt: "Suite 'Afrique' avec salle de bain & wc attenants",
+      },
+      {
+        src: "/sdb2Iguana.jpeg",
+        alt: "Salle de bain & wc attenants de la suite 'Afrique'",
+      },
+      {
+        src: "/sdb2Iguana2.jpeg",
+        alt: "Salle de bain de la suite 'Afrique'",
+      },
+      {
+        src: "/salonDependanceIguana.jpeg",
         alt: "Petit salon de la maison annexe 'Antilles'",
       },
       {
-        src: "/chambreIguana3.jpg",
-        alt: "Chambre en mezzanine maison annexe 'Antilles'",
+        src: "/salonDependanceIguana2.jpeg",
+        alt: "Maison annexe 'Antilles'",
       },
       {
-        src: "/sdbIguana3.jpg",
-        alt: "Salle de bain & wc de la maison annexe 'Antilles'",
+        src: "/chambre3Iguana.jpeg",
+        alt: "Chambre en mezzanine de la maison annexe 'Antilles'",
       },
       {
-        src: "/cuisineIguana.jpg",
-        alt: "Grande cuisine entièrement équipée et une arrière cuisine munies de brasseurs d'air, de la villa Iguana",
+        src: "/sdbIguana.jpeg",
+        alt: "Salle de bain de la maison annexe 'Antilles'",
+      },
+      {
+        src: "/panierAccueil.jpg",
+        alt: "Panier d'accueil offert à votre arrivée",
+      },
+      {
+        src: "/kitSDB.jpg",
+        alt: "Kit de salle de bain à disposition à votre arrivée",
+      },
+      {
+        src: "/colibri.jpeg",
+        alt: "Vous pourrez souvent observer les sucriers, ce sont des oiseaux typiques de la Guadeloupe",
+      },
+      {
+        src: "/leveDeSoleil.jpeg",
+        alt: "Lever de soleil sur le domaine des Villas Grande Anse",
+      },
+      {
+        src: "/bananes.jpg",
+        alt: "Vous pourrez trouver les régimes de bananes directement dans le jardin !",
+      },
+      {
+        src: "/iguane.jpg",
+        alt: "La villa porte bien son nom, vous pourrez sûrement voir des iguanes",
       },
     ],
   };
@@ -202,18 +238,17 @@ export default function IguanaPage() {
     fetchPromo();
   }, []);
 
-  
   return (
     <main className="bg-[#223e50] text-white pt-24">
       <StructuredData />
       {promoConfig?.villas?.[3]?.active && (
-  <PromoBanner message={promoConfig.villas[3].message || ""} />
-)}
+        <PromoBanner message={promoConfig.villas[3].message || ""} />
+      )}
 
-     {/* Hero */}
+      {/* Hero */}
       <section
         className="relative h-[700px] bg-cover bg-center"
-        style={{ backgroundImage: `url('${villa.images[1].src}')` }}
+        style={{ backgroundImage: `url('${villa.images[0].src}')` }}
       >
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 flex items-end justify-center md:justify-start h-full px-4 pb-8">

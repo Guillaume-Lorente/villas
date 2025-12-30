@@ -40,7 +40,11 @@ export default function TilampTilampPage() {
       },
       {
         src: "/terrassetilamp.jpg",
-        alt: "Terrasse de la villa Tilamp Tilamp",
+        alt: "Terrasse de la villa",
+      },
+      {
+        src: "/baby.jpg",
+        alt: "Babyfoot disponible sur la terrasse",
       },
       {
         src: "/cuisinetilamp.jpg",
@@ -55,8 +59,8 @@ export default function TilampTilampPage() {
         alt: "Salon intérieur avec accès aux terrasses",
       },
       {
-        src: "/salontilamp2.jpg",
-        alt: "Salon intérieur avec TV",
+        src: "/salonTilamp.jpeg",
+        alt: "Salon intérieur",
       },
       {
         src: "/chambre1tilamp.jpg",
@@ -67,24 +71,48 @@ export default function TilampTilampPage() {
         alt: "Chambre 'Caraïbes' climatisée avec lit Queen Size et lit simple",
       },
       {
-        src: "/chambre3tilamp.jpg",
-        alt: "Suite 'Rivage' climatisée à l'étage, avec lit Queen Size et lit simple",
-      },
-      {
-        src: "/chambre4tilamp.jpg",
-        alt: "Suite 'Exotique' climatisée avec lit Queen Size",
-      },
-      {
         src: "/sdb1tilamp.jpg",
         alt: "Salle de bain & wc indépendant commune aux chambres 'Tropical' et 'Caraïbes'",
+      },
+      {
+        src: "/chambre3tilamp2.jpeg",
+        alt: "Suite 'Rivage' climatisée à l'étage, avec lit Queen Size et lit simple",
       },
       {
         src: "/sdb2tilamp.jpg",
         alt: "Salle de bain attenante et wc privatif de la suite 'Rivage'",
       },
       {
+        src: "/chambre4tilamp.jpg",
+        alt: "Suite 'Exotique' climatisée avec lit Queen Size",
+      },
+      {
+        src: "/chambre4tilamp2.jpg",
+        alt: "Suite 'Exotique' climatisée avec lit Queen Size",
+      },
+      {
         src: "/sdb3tilamp.jpg",
         alt: "Salle de bain attenante & wc privatif de la suite 'Exotique'",
+      },
+      {
+        src: "/panierAccueil.jpg",
+        alt: "Panier d'accueil offert à votre arrivée",
+      },
+      {
+        src: "/kitSDB.jpg",
+        alt: "Kit de salle de bain à disposition à votre arrivée",
+      },
+      {
+        src: "/jardinTilamp.jpeg",
+        alt: "Les jardins de la villa",
+      },
+      {
+        src: "/extTilamp.jpeg",
+        alt: "Villa Tilamp Tilamp",
+      },
+      {
+        src: "/ananas.jpg",
+        alt: "Ananas du jardin",
       },
     ],
   };
@@ -178,13 +206,12 @@ export default function TilampTilampPage() {
     fetchPromo();
   }, []);
 
-  
   return (
     <main className="bg-[#223e50] text-white pt-24">
       <StructuredData />
       {promoConfig?.villas?.[2]?.active && (
-  <PromoBanner message={promoConfig.villas[2].message || ""} />
-)}
+        <PromoBanner message={promoConfig.villas[2].message || ""} />
+      )}
 
       {/* Hero */}
       <section

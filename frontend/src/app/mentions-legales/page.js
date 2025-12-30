@@ -45,6 +45,14 @@ export default function MentionsLegales() {
             {renderParagraphs(t("legal.creator"))}
           </div>
 
+          {/* Crédit photos */}
+          <div>
+            <h2 className="text-[#eeb868] font-semibold text-lg mb-2">
+              {t("legal.photoTitle")}
+            </h2>
+            {renderParagraphs(t("legal.photograph"))}
+          </div>
+
           {/* Modifications */}
           <div>
             <h2 className="text-[#eeb868] font-semibold text-lg mb-2">

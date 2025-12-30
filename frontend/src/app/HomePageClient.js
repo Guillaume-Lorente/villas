@@ -10,13 +10,13 @@ import { useLanguage } from "../context/LanguageContext";
 import StructuredData from "../components/StructuredData";
 
 const villas = [
-  { slug: "akamapa", name: "Villa Akamapa", image: "/akamapa.jpg" },
+  { slug: "akamapa", name: "Villa Akamapa", image: "/akamapa.jpeg" },
   {
     slug: "tilamp-tilamp",
-    name: "Villa Tilamp‑Tilamp",
+    name: "Villa Tilamp Tilamp",
     image: "/tilamp-tilamp.jpg",
   },
-  { slug: "iguana", name: "Villa Iguana", image: "/iguana.jpg" },
+  { slug: "iguana", name: "Villa Iguana", image: "/iguana.jpeg" },
 ];
 
 export default function HomePage() {
@@ -25,13 +25,12 @@ export default function HomePage() {
   const [promoConfig, setPromoConfig] = useState(null);
 
   useEffect(() => {
-  if (!promoConfig) return;
+    if (!promoConfig) return;
 
-  if (promoConfig.homepage?.active && promoConfig.homepage?.message) {
-    setHomepagePromo(promoConfig.homepage.message);
-  }
-}, [promoConfig]);
-
+    if (promoConfig.homepage?.active && promoConfig.homepage?.message) {
+      setHomepagePromo(promoConfig.homepage.message);
+    }
+  }, [promoConfig]);
 
   useEffect(() => {
     const fetchPromo = async () => {
@@ -55,8 +54,8 @@ export default function HomePage() {
 
       {/* Promo Banner */}
       {promoConfig?.homepage?.active && (
-  <PromoBanner message={promoConfig.homepage.message} />
-)}
+        <PromoBanner message={promoConfig.homepage.message} />
+      )}
 
       {/* Hero */}
       <section

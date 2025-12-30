@@ -76,6 +76,8 @@
   "hosting": "Le site est hébergé par :\nIONOS SARL\n7 Place de la Gare, BP 70109\n57200 Sarreguemines Cedex\nFrance\nNuméro de téléphone : 09 70 80 89 11\nAdresse e-mail : info@ionos.fr",
   "creatorTitle": "Créateur du site",
   "creator": "Le site a été créé par :\nGuillaume Lorente\n225 rue du Petit Arrondaz\n73500 Modane\nFrance\nNuméro de téléphone : 06 19 95 04 99\nAdresse e-mail : guillaumelorente@orange.fr",
+  "photoTitle": "Crédit photos",
+  "photograph": "Les photos du site ont été prises par :\nAlexandre Lorente",
   "changesTitle": "Modifications",
   "changes": "En accédant et en naviguant sur ce site, l'utilisateur est informé de ses droits et obligations et accepte pleinement de se conformer aux présentes conditions d'utilisations du site. L'éditeur du site se réserve la possibilité de modifier ces conditions. Il appartient à l'utilisateur de vérifier périodiquement le contenu des documents concernés. L'éditeur se réserve la possibilité de supprimer ou de modifier en tout ou partie le « site ».",
   "dataTitle": "Données personnelles",
@@ -180,7 +182,7 @@
   ],
   "includedTitle": "Services inclus",
   "included": [
-    "Accueil sur place",
+    "Accueil sur place (même tardif)",
     "Taxe de séjour",
     "Panier d'accueil et kit salle de bain",
     "Internet à très haut débit (Fibre Optique)",
@@ -234,7 +236,7 @@
   ],
   "includedTitle": "Services inclus",
   "included": [
-    "Accueil sur place",
+    "Accueil sur place (même tardif)",
     "Taxe de séjour",
     "Panier d'accueil et kit salle de bain",
     "Internet à très haut débit (Fibre Optique)",
@@ -288,7 +290,7 @@
   ],
   "includedTitle": "Services inclus",
   "included": [
-    "Accueil sur place",
+    "Accueil sur place (même tardif)",
     "Taxe de séjour",
     "Panier d'accueil et kit salle de bain",
     "Internet à très haut débit (Fibre Optique)",

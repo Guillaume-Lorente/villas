@@ -31,12 +31,12 @@ export default function AkamapaPage() {
     description: `Akamapa que l'on peut traduire par «la case à maman et à papa »... Les nombreux atouts de cette villa typiquement guadeloupéenne de plain-pied avec sa piscine au centre vous séduiront. Elle bénéficie d'un cadre idéal, d'une grande piscine, d'une grande terrasse en L, et d'un carbet pour le farniente à l'ombre. Laisser vous emporter par la sérénité des lieux dans un écrin de verdure.`,
     images: [
       {
-        src: "/akamapa.jpg",
-        alt: "Vue aérienne de la villa Akamapa et de sa piscine privée",
+        src: "/akamapa.jpeg",
+        alt: "Vue aérienne de la villa Akamapa et sa piscine privée",
       },
       {
         src: "/piscine2aka.jpg",
-        alt: "Piscine turquoise entourée de transats sous les cocotiers",
+        alt: "Piscine turquoise entourée de transats",
       },
       {
         src: "/piscineaka.jpg",
@@ -77,6 +77,18 @@ export default function AkamapaPage() {
       {
         src: "/salonaka.jpg",
         alt: "Salon intérieur avec TV et deux lits simples",
+      },
+      {
+        src: "/panierAccueil.jpg",
+        alt: "Panier d'accueil offert à votre arrivée",
+      },
+      {
+        src: "/kitSDB.jpg",
+        alt: "Kit de salle de bain à disposition à votre arrivée",
+      },
+      {
+        src: "/palmier2.jpg",
+        alt: "Palmier à l'entrée de la Villa",
       },
     ],
   };
@@ -170,13 +182,12 @@ export default function AkamapaPage() {
     fetchPromo();
   }, []);
 
-  
   return (
     <main className="bg-[#223e50] text-white pt-24">
       <StructuredData />
       {promoConfig?.villas?.[1]?.active && (
-  <PromoBanner message={promoConfig.villas[1].message || ""} />
-)}
+        <PromoBanner message={promoConfig.villas[1].message || ""} />
+      )}
 
       {/* Hero */}
       <section
