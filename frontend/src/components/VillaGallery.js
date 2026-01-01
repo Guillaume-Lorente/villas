@@ -69,7 +69,7 @@ export default function VillaGallery({ images }) {
                 className="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#223e50]/90 text-[#eeb868] text-sm px-4 py-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition duration-300">
-                Cliquer pour agrandir
+                Cliquer pour ouvrir la galerie de photos
               </div>
             </div>
           </SwiperSlide>
@@ -82,8 +82,8 @@ export default function VillaGallery({ images }) {
         role="button"
         tabIndex={0}
       >
-        <div className="w-12 h-full bg-[#223e50]/80 border-r-2 border-[#eeb868] flex items-center justify-center hover:bg-[#2e5063] group">
-          <div className="swiper-button-prev !static !text-[#eeb868] group-hover:scale-125 transition-transform duration-300" />
+        <div className="w-12 h-full flex items-center justify-center group">
+          <div className="swiper-button-prev !static !text-[#ffffff] group-hover:scale-125 transition-transform duration-300" />
         </div>
       </div>
 
@@ -93,8 +93,8 @@ export default function VillaGallery({ images }) {
         role="button"
         tabIndex={0}
       >
-        <div className="w-12 h-full bg-[#223e50]/80 border-l-2 border-[#eeb868] flex items-center justify-center hover:bg-[#2e5063] group">
-          <div className="swiper-button-next !static !text-[#eeb868] group-hover:scale-125 transition-transform duration-300" />
+        <div className="w-12 h-full flex items-center justify-center group">
+          <div className="swiper-button-next !static !text-[#ffffff] group-hover:scale-125 transition-transform duration-300" />
         </div>
       </div>
 

@@ -14,15 +14,19 @@ import {
   isWithinInterval,
   startOfDay,
   differenceInCalendarDays,
-  parseISO
+  parseISO,
 } from "date-fns";
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import Select from "react-select";
 import dynamic from "next/dynamic";
 import { cache } from "react";
 import { fr } from "date-fns/locale";
 import { useLanguage } from "@/context/LanguageContext";
+
+const RoomSelect = dynamic(() => import("./RoomSelectClient"), {
+  ssr: false,
+});
 
 export default function Calendar({ villaId, villaName }) {
   const today = new Date();
@@ -99,42 +103,48 @@ export default function Calendar({ villaId, villaName }) {
   };
 
   const options = roomOptionsByVilla[villaId] || [];
-  const RoomSelect = dynamic(() => import("./RoomSelectClient"), {
-    ssr: false,
-  });
+  const { t } = useLanguage();
+
+  /* ✅ OPTIONS MÉMORISÉES */
+  const translatedOptions = useMemo(() => {
+    return options.map((option) => ({
+      ...option,
+      label: t(`calendar.${option.labelKey}`),
+    }));
+  }, [options, t]);
 
   useEffect(() => {
-  const fetchReservations = async () => {
-    try {
-      const res = await fetch(
-        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/reservations/villa/${villaId}`,
-        { cache: "no-store" }
-      );
-      const data = await res.json();
+    const fetchReservations = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/reservations/villa/${villaId}`,
+          { cache: "no-store" }
+        );
+        const data = await res.json();
 
-      const allDates = data.flatMap(({ start_date, end_date }) => {
-        const dates = [];
+        const allDates = data.flatMap(({ start_date, end_date }) => {
+          const dates = [];
 
-        // Ignorer la journée d’arrivée (start) et la journée de départ (end)
-        let current = addDays(parseISO(start_date), 1);
-        const end = parseISO(end_date);
+          // Ignorer la journée d’arrivée (start) et la journée de départ (end)
+          let current = addDays(parseISO(start_date), 1);
+          const end = parseISO(end_date);
 
-        while (current < end) {
-          dates.push(new Date(current));
-          current = addDays(current, 1);
-        }
+          while (current < end) {
+            dates.push(new Date(current));
+            current = addDays(current, 1);
+          }
 
-        return dates;
-      });
+          return dates;
+        });
 
-      setReservedDates(allDates);
-    } catch (err) {
-      console.error("Erreur chargement réservations:", err);
-    }
-  };
+        setReservedDates(allDates);
+      } catch (err) {
+        console.error("Erreur chargement réservations:", err);
+      }
+    };
 
-  fetchReservations();
-}, [villaId]);
+    fetchReservations();
+  }, [villaId]);
 
   const isReserved = (date) =>
     reservedDates.some((reserved) => isSameDay(reserved, date));
@@ -152,47 +162,47 @@ export default function Calendar({ villaId, villaName }) {
   }
 
   const handleDateClick = (clickedDate) => {
-  const normalized = startOfDay(clickedDate);
-  if (isBefore(normalized, startOfDay(today)) || isReserved(normalized)) return;
+    const normalized = startOfDay(clickedDate);
+    if (isBefore(normalized, startOfDay(today)) || isReserved(normalized))
+      return;
 
-  if (startDate && isSameDay(normalized, startDate)) {
-    setStartDate(null);
-    setEndDate(null);
-    setSelectingStart(true);
-    setErrorMessage("");
-    return;
-  }
-
-  if (selectingStart || (startDate && endDate)) {
-    setStartDate(normalized);
-    setEndDate(null);
-    setSelectingStart(false);
-    setErrorMessage("");
-    setPriceDetails(null);
-  } else {
-    if (isAfter(normalized, startDate)) {
-      const rangeHasReserved = reservedDates.some((reserved) =>
-        isWithinInterval(reserved, { start: startDate, end: normalized })
-      );
-      if (rangeHasReserved) {
-        setErrorMessage(
-          "Cette plage inclut des dates déjà réservées. Veuillez choisir une autre période."
-        );
-        return;
-      }
-      setEndDate(normalized);
+    if (startDate && isSameDay(normalized, startDate)) {
+      setStartDate(null);
+      setEndDate(null);
       setSelectingStart(true);
+      setErrorMessage("");
+      return;
+    }
+
+    if (selectingStart || (startDate && endDate)) {
+      setStartDate(normalized);
+      setEndDate(null);
+      setSelectingStart(false);
       setErrorMessage("");
       setPriceDetails(null);
     } else {
-      setStartDate(normalized);
-      setEndDate(null);
-      setErrorMessage("");
-      setPriceDetails(null);
+      if (isAfter(normalized, startDate)) {
+        const rangeHasReserved = reservedDates.some((reserved) =>
+          isWithinInterval(reserved, { start: startDate, end: normalized })
+        );
+        if (rangeHasReserved) {
+          setErrorMessage(
+            "Cette plage inclut des dates déjà réservées. Veuillez choisir une autre période."
+          );
+          return;
+        }
+        setEndDate(normalized);
+        setSelectingStart(true);
+        setErrorMessage("");
+        setPriceDetails(null);
+      } else {
+        setStartDate(normalized);
+        setEndDate(null);
+        setErrorMessage("");
+        setPriceDetails(null);
+      }
     }
-  }
-};
-
+  };
 
   const isInRange = (day) =>
     startDate &&
@@ -203,9 +213,9 @@ export default function Calendar({ villaId, villaName }) {
     isBefore(day, startOfDay(today)) || isReserved(day);
 
   const getNights = () => {
-  if (!startDate || !endDate) return 0;
-  return Math.max(0, differenceInCalendarDays(endDate, startDate));
-};
+    if (!startDate || !endDate) return 0;
+    return Math.max(0, differenceInCalendarDays(endDate, startDate));
+  };
 
   function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
@@ -246,8 +256,6 @@ export default function Calendar({ villaId, villaName }) {
 
     autoCalculate();
   }, [startDate, endDate, selectedOption, villaId]);
-
-  const { t } = useLanguage();
 
   return (
     <div
@@ -349,10 +357,7 @@ export default function Calendar({ villaId, villaName }) {
           selectedOption={selectedOption}
           setSelectedOption={setSelectedOption}
           setPriceDetails={setPriceDetails}
-          options={options.map((option) => ({
-            ...option,
-            label: t(`calendar.${option.labelKey}`),
-          }))}
+          options={translatedOptions}
         />
       </div>
 

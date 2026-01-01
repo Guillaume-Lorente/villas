@@ -75,7 +75,7 @@ export default function TilampTilampPage() {
         alt: "Salle de bain & wc indépendant commune aux chambres 'Tropical' et 'Caraïbes'",
       },
       {
-        src: "/chambre3tilamp2.jpeg",
+        src: "/chambre3Tilamp2.jpeg",
         alt: "Suite 'Rivage' climatisée à l'étage, avec lit Queen Size et lit simple",
       },
       {

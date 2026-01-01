@@ -11,7 +11,7 @@ export const metadata = {
         url: "/hero.jpg",
         width: 1200,
         height: 630,
-        alt: "Villa Tilamp-Tilamp avec piscine à Deshaies",
+        alt: "Villa Tilamp Tilamp avec piscine à Deshaies",
       },
     ],
   },
