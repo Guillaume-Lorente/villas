@@ -3,6 +3,10 @@ export const metadata = {
     "Villa Akamapa – Location de villa à Deshaies, Guadeloupe | Villas Grande Anse",
   description:
     "Découvrez la Villa Akamapa à Deshaies en Guadeloupe : 2 chambres, grande piscine, terrasse ombragée. À 200m de la plage de Grande Anse. Parfaite pour des vacances en famille ou entre amis.",
+  alternates: {
+    canonical: "/villas/akamapa",
+  },
+
   keywords: [
     "location villa Deshaies",
     "villa Akamapa Guadeloupe",

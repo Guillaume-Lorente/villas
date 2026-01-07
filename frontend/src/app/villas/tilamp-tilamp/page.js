@@ -3,6 +3,9 @@ export const metadata = {
     "Villa Tilamp-Tilamp – Location de villa à Deshaies, Guadeloupe | Villas Grande Anse",
   description:
     "La villa Tilamp-Tilamp, au style colonial rare en Guadeloupe, vous accueille à Deshaies. Terrasse en L, piscine, 4 chambres, proche de la plage de Grande Anse. Jusqu’à 11 personnes.",
+  alternates: {
+    canonical: "/villas/tilamp-tilamp",
+  },
   keywords: [
     "location villa Deshaies",
     "villa Tilamp-Tilamp Guadeloupe",

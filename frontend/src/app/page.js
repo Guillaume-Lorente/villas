@@ -2,6 +2,9 @@ export const metadata = {
   title: "Location de villas à Deshaies | Villas Grande Anse en Guadeloupe",
   description:
     "Location de villas avec piscine privée à Deshaies (Guadeloupe) à 200m de la plage de Grande Anse. Découvrez nos hébergements haut de gamme : Tilamp Tilamp, Akamapa et Iguana.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
     title: "Location de villas à Deshaies | Villas Grande Anse",
     description:

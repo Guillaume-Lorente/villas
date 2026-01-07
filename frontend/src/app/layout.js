@@ -6,9 +6,6 @@ import { Toaster } from "react-hot-toast";
 
 export const metadata = {
   metadataBase: new URL("https://www.villas-grande-anse.com"),
-  alternates: {
-    canonical: "/",
-  },
   icons: { icon: "/favicon.ico" },
 };
 

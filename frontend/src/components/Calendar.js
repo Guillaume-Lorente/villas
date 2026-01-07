@@ -350,10 +350,14 @@ export default function Calendar({ villaId, villaName }) {
       )}
 
       <div className="mt-6">
-        <label className="block text-xs font-semibold mb-2 text-[#eeb868]">
+        <label
+          id="romm-select-labal"
+          className="block text-xs font-semibold mb-2 text-[#eeb868]"
+        >
           {t("calendar.roomLabel")}
         </label>
         <RoomSelect
+          ariaLabelledBy="room-select-label"
           selectedOption={selectedOption}
           setSelectedOption={setSelectedOption}
           setPriceDetails={setPriceDetails}

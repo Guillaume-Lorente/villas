@@ -3,6 +3,9 @@ export const metadata = {
     "Villa Iguana – Location de villa à Deshaies en Guadeloupe | Villas Grande Anse",
   description:
     "Découvrez la Villa Iguana, au bord de la rivière Ziotte à Deshaies. En pleine nature, cette villa avec piscine à débordement peut accueillir jusqu'à 8 personnes. Calme et détente garantis.",
+  alternates: {
+    canonical: "/villas/iguana",
+  },
   keywords: [
     "location villa Deshaies",
     "villa Iguana Guadeloupe",

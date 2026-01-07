@@ -9,6 +9,7 @@ export default function RoomSelectClient({
 }) {
   return (
     <Select
+      aria-labelledby={ariaLabelledBy}
       options={options.map((opt) => ({
         label: opt.label,
         value: opt.label,
