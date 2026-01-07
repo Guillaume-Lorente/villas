@@ -25,7 +25,7 @@ export default function BlogListClient({ posts }) {
   return (
     <>
       {/* Hero section avec image en fond */}
-      <section className="relative h-[600px] md:h-[700px]">
+      <section className="relative h-[600px] md:h-[700px] flex items-center justify-center">
         <Image
           src="/blog-hero.webp"
           alt="Blog sur la Guadeloupe et la Côte sous le Vent"
