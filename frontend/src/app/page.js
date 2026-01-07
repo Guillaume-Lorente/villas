@@ -8,7 +8,7 @@ export const metadata = {
       "Louez une villa à Deshaies (Guadeloupe) tout confort, proche de la plage de Grande Anse. Vue mer, piscine, calme tropical et charme créole.",
     images: [
       {
-        url: "/hero.jpg",
+        url: "/hero.webp",
         width: 1200,
         height: 630,
         alt: "Villa Tilamp Tilamp avec piscine à Deshaies",
