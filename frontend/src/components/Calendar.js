@@ -357,7 +357,6 @@ export default function Calendar({ villaId, villaName }) {
           {t("calendar.roomLabel")}
         </label>
         <RoomSelect
-          ariaLabelledBy="room-select-label"
           selectedOption={selectedOption}
           setSelectedOption={setSelectedOption}
           setPriceDetails={setPriceDetails}

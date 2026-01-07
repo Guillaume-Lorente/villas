@@ -70,7 +70,6 @@ export default function VillaGallery({ images }) {
                 className="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
                 loading="lazy"
                 decoding="async"
-                fetchpriority="low"
               />
 
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#223e50]/90 text-[#eeb868] text-sm px-4 py-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition duration-300">
