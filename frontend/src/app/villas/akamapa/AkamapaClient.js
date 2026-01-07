@@ -24,6 +24,7 @@ import PromoBanner from "@/components/PromoBanner";
 import MobileReservationModal from "@/components/MobileReservationModal";
 import { useLanguage } from "@/context/LanguageContext";
 import StructuredData from "@/components/StructuredData";
+import Image from "next/image";
 
 export default function AkamapaPage() {
   const villa = {
@@ -31,7 +32,7 @@ export default function AkamapaPage() {
     description: `Akamapa que l'on peut traduire par «la case à maman et à papa »... Les nombreux atouts de cette villa typiquement guadeloupéenne de plain-pied avec sa piscine au centre vous séduiront. Elle bénéficie d'un cadre idéal, d'une grande piscine, d'une grande terrasse en L, et d'un carbet pour le farniente à l'ombre. Laisser vous emporter par la sérénité des lieux dans un écrin de verdure.`,
     images: [
       {
-        src: "/akamapa.jpeg",
+        src: "/akamapa.webp",
         alt: "Vue aérienne de la villa Akamapa et sa piscine privée",
       },
       {
@@ -110,6 +111,8 @@ export default function AkamapaPage() {
           src="/icons/piscine.png"
           alt="Piscine"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "pool",
@@ -121,6 +124,8 @@ export default function AkamapaPage() {
           src="/icons/plage.png"
           alt="Plage"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "beach",
@@ -133,6 +138,8 @@ export default function AkamapaPage() {
           src="/icons/moustiquaire.png"
           alt="Moustiquaire"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "net",
@@ -147,6 +154,8 @@ export default function AkamapaPage() {
           src="/icons/jeux.png"
           alt="Jeux de societe"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "games",
@@ -157,6 +166,8 @@ export default function AkamapaPage() {
           src="/icons/commerce.png"
           alt="Commerce de proximite"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "shops",
@@ -190,11 +201,19 @@ export default function AkamapaPage() {
       )}
 
       {/* Hero */}
-      <section
-        className="relative h-[700px] bg-cover bg-center"
-        style={{ backgroundImage: `url('${villa.images[1].src}')` }}
-      >
+      <section className="relative h-[700px]">
+        <Image
+          src={villa.images[1].src}
+          alt={villa.images[1].alt}
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
+        />
+
         <div className="absolute inset-0 bg-black/40" />
+
         <div className="relative z-10 flex items-end justify-center md:justify-start h-full px-4 pb-8">
           <div className="bg-white/10 backdrop-blur-md border border-white/30 p-6 rounded-xl max-w-2xl text-center md:text-left shadow-lg">
             <h1 className="text-[#eeb868] text-4xl font-bold mb-4">
@@ -292,7 +311,10 @@ export default function AkamapaPage() {
         className="hidden md:block max-w-4xl mx-auto px-4 pb-16 text-sm text-white/80"
         aria-labelledby="akamapa-seo-desc"
       >
-        <summary className="cursor-pointer text-[#eeb868] font-semibold mb-2">
+        <summary
+          id="akamapa-seo-desc"
+          className="cursor-pointer text-[#eeb868] font-semibold mb-2"
+        >
           En savoir plus sur la location de la villa Akamapa à Deshaies
         </summary>
         <div className="mt-2 space-y-4">

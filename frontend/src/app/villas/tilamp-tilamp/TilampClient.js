@@ -24,6 +24,7 @@ import PromoBanner from "@/components/PromoBanner";
 import MobileReservationModal from "@/components/MobileReservationModal";
 import { useLanguage } from "@/context/LanguageContext";
 import StructuredData from "@/components/StructuredData";
+import Image from "next/image";
 
 export default function TilampTilampPage() {
   const villa = {
@@ -31,7 +32,7 @@ export default function TilampTilampPage() {
     description: `Tilamp Tilamp signifie prendre son temps. Cette villa est unique de part son style colonial très rare en Guadeloupe. Sa configuration exceptionnelle vous offre un espace de terrasses tout au tour de la villa qui est extrêmement bien ventilée. Alliant élégance et charme, elle peut accueillir jusqu'à 11 personnes. Dès votre arrivée, sa décoration particulièrement soignée vous séduira. Elle dispose d'une grande piscine, de nombreux espaces pour le farniente, en somme c'est le lieu idéal pour vous retrouver en famille ou entre amis, et passer des vacances inoubliables en Guadeloupe !`,
     images: [
       {
-        src: "/tilamp-tilamp.jpg",
+        src: "/tilamp-tilamp.webp",
         alt: "Villa Tilamp Tilamp et sa piscine privée",
       },
       {
@@ -134,6 +135,8 @@ export default function TilampTilampPage() {
           src="/icons/piscine.png"
           alt="Piscine"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "pool",
@@ -145,6 +148,8 @@ export default function TilampTilampPage() {
           src="/icons/plage.png"
           alt="Plage"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "beach",
@@ -157,6 +162,8 @@ export default function TilampTilampPage() {
           src="/icons/moustiquaire.png"
           alt="Moustiquaire"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "net",
@@ -171,6 +178,8 @@ export default function TilampTilampPage() {
           src="/icons/jeux.png"
           alt="Jeux de societe"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "games",
@@ -181,6 +190,8 @@ export default function TilampTilampPage() {
           src="/icons/commerce.png"
           alt="Commerce de proximite"
           className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
         />
       ),
       key: "shops",
@@ -214,11 +225,19 @@ export default function TilampTilampPage() {
       )}
 
       {/* Hero */}
-      <section
-        className="relative h-[700px] bg-cover bg-center"
-        style={{ backgroundImage: `url('${villa.images[1].src}')` }}
-      >
+      <section className="relative h-[700px]">
+        <Image
+          src={villa.images[0].src}
+          alt={villa.images[0].alt}
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
+        />
+
         <div className="absolute inset-0 bg-black/40" />
+
         <div className="relative z-10 flex items-end justify-center md:justify-start h-full px-4 pb-8">
           <div className="bg-white/10 backdrop-blur-md border border-white/30 p-6 rounded-xl max-w-2xl text-center md:text-left shadow-lg">
             <h1 className="text-[#eeb868] text-4xl font-bold mb-4">
@@ -314,9 +333,12 @@ export default function TilampTilampPage() {
 
       <details
         className="hidden md:block max-w-4xl mx-auto px-4 pb-16 text-sm text-white/80"
-        aria-labelledby="akamapa-seo-desc"
+        aria-labelledby="tilamp-seo-desc"
       >
-        <summary className="cursor-pointer text-[#eeb868] font-semibold mb-4">
+        <summary
+          id="tilamp-seo-desc"
+          className="cursor-pointer text-[#eeb868] font-semibold mb-4"
+        >
           À propos de la villa Tilamp‑Tilamp
         </summary>
         <div className="space-y-4 pt-2">

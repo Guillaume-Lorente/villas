@@ -12,15 +12,15 @@ import "yet-another-react-lightbox/styles.css";
 // Images avec descriptions (accessibilité)
 const images = [
   {
-    src: "/grande-anse.jpg",
+    src: "/grande-anse.webp",
     alt: "Plage de Grande Anse",
   },
   {
-    src: "/tortues.jpeg",
+    src: "/tortues.webp",
     alt: "Tortues marines nageant dans l'eau claire de Guadeloupe",
   },
   {
-    src: "/Jardin-botanique.jpg",
+    src: "/Jardin-botanique.webp",
     alt: "Vue colorée du Jardin Botanique de Deshaies",
   },
   {
@@ -28,7 +28,7 @@ const images = [
     alt: "Perroquet tropical au Jardin Botanique de Deshaies",
   },
   {
-    src: "/paddle.jpg",
+    src: "/paddle.webp",
     alt: "Personne faisant du paddle à la plage de Grande Anse",
   },
 ];

@@ -8,15 +8,16 @@ import { useEffect, useState } from "react";
 import PromoBanner from "../components/PromoBanner";
 import { useLanguage } from "../context/LanguageContext";
 import StructuredData from "../components/StructuredData";
+import Image from "next/image";
 
 const villas = [
-  { slug: "akamapa", name: "Villa Akamapa", image: "/akamapa.jpeg" },
+  { slug: "akamapa", name: "Villa Akamapa", image: "/akamapa.webp" },
   {
     slug: "tilamp-tilamp",
     name: "Villa Tilamp Tilamp",
-    image: "/tilamp-tilamp.jpg",
+    image: "/tilamp-tilamp.webp",
   },
-  { slug: "iguana", name: "Villa Iguana", image: "/iguana.jpeg" },
+  { slug: "iguana", name: "Villa Iguana", image: "/iguana.webp" },
 ];
 
 export default function HomePage() {
@@ -49,7 +50,10 @@ export default function HomePage() {
   }, []);
 
   return (
-    <main className="bg-[#223e50] text-white pt-24">
+    <main
+      className="bg-[#223e50] text-white pt-24"
+      aria-label="Page d'accueil - Location de villas à Deshaies"
+    >
       <StructuredData />
 
       {/* Promo Banner */}
@@ -58,10 +62,18 @@ export default function HomePage() {
       )}
 
       {/* Hero */}
-      <section
-        className="relative w-full h-[600px] md:h-[600px] lg:h-[650px] bg-cover bg-center"
-        style={{ backgroundImage: "url('/hero.jpg')" }}
-      >
+      <section className="relative w-full h-[600px] md:h-[600px] lg:h-[650px]">
+        <Image
+          src="/hero.webp"
+          alt="Location de villas à Deshaies en Guadeloupe, proche de la plage de Grande Anse"
+          fill
+          sizes="100vw"
+          className="object-cover"
+          priority
+          fetchPriority="high"
+        />
+
+        {/* Le voile noir + le texte au-dessus */}
         <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
           <FadeUp>
             <div className="text-center px-4 max-w-3xl">
@@ -93,10 +105,17 @@ export default function HomePage() {
                 href={`/villas/${villa.slug}`}
                 className="group block rounded-xl overflow-hidden bg-white shadow-lg transition-transform duration-300 hover:scale-105"
               >
-                <div
-                  className="h-64 bg-center bg-cover transition-transform duration-300 group-hover:scale-110"
-                  style={{ backgroundImage: `url('${villa.image}')` }}
-                />
+                <div className="relative h-64 overflow-hidden">
+                  <Image
+                    src={villa.image}
+                    alt={`Villa ${villa.name} à Deshaies en Guadeloupe`}
+                    fill
+                    sizes="(max-width: 768px) 100vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-110"
+                    loading="lazy"
+                    fetchPriority="low"
+                  />
+                </div>
                 <div className="p-4">
                   <h3 className="text-xl font-bold text-[#eeb868]">
                     {villa.name}

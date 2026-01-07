@@ -43,6 +43,7 @@ export default function VillaGallery({ images }) {
         }}
         modules={[Navigation]}
         className="rounded-xl"
+        watchSlidesProgress={true}
         onSlideChange={(swiper) => setIndex(swiper.realIndex)}
       >
         {images.map((img, i) => (
@@ -67,7 +68,11 @@ export default function VillaGallery({ images }) {
                 src={img.src}
                 alt={img.alt}
                 className="w-full h-full object-cover rounded-xl transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+                decoding="async"
+                fetchpriority="low"
               />
+
               <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-[#223e50]/90 text-[#eeb868] text-sm px-4 py-2 rounded-full shadow-md opacity-0 group-hover:opacity-100 transition duration-300">
                 Cliquer pour ouvrir la galerie de photos
               </div>
@@ -125,7 +130,10 @@ export default function VillaGallery({ images }) {
                 src={slide.src}
                 alt={slide.description}
                 className="max-h-[80vh] object-contain rounded-lg shadow-xl"
+                loading="lazy"
+                decoding="async"
               />
+
               <div className="absolute bottom-0 w-full bg-[#223e50]/80 text-[#eeb868] text-sm text-center py-4 px-6 font-medium">
                 {slide.description}
               </div>

@@ -62,6 +62,8 @@ export default function Header() {
                 alt="Logo Villas Grande Anse"
                 width={150}
                 height={50}
+                priority={false}
+                fetchPriority="low"
               />
             </Link>
           </div>
