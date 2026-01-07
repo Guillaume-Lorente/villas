@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function BlogListClient({ posts }) {
   const categories = ["Tout", ...new Set(posts.map((p) => p.category))];
@@ -24,10 +25,16 @@ export default function BlogListClient({ posts }) {
   return (
     <>
       {/* Hero section avec image en fond */}
-      <section
-        className="h-[600px] md:h-[700px] bg-cover bg-center relative flex items-center justify-center"
-        style={{ backgroundImage: "url('/blog-hero.jpg')" }}
-      >
+      <section className="relative h-[600px] md:h-[700px]">
+        <Image
+          src="/blog-hero.webp"
+          alt="Blog sur la Guadeloupe et la Côte sous le Vent"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
+        />
         <div className="absolute inset-0 bg-black/40" />
         <div className="relative z-10 text-center px-4">
           <h1 className="text-4xl md:text-5xl font-bold text-[#eeb868] drop-shadow">
@@ -41,11 +48,20 @@ export default function BlogListClient({ posts }) {
       </section>
 
       {/* Contenu blog sous image */}
-      <main id="blog-top" className="bg-[#223e50] text-white py-12 px-4">
+      <main
+        id="blog-top"
+        className="bg-[#223e50] text-white py-12 px-4"
+        aria-label="Liste des articles du blog"
+      >
         {/* Filtres par catégorie */}
-        <div className="flex flex-wrap justify-center gap-4 mb-10">
+        <div
+          className="flex flex-wrap justify-center gap-4 mb-10"
+          role="group"
+          aria-label="Filtrer les articles par catégorie"
+        >
           {categories.map((cat) => (
             <button
+              aria-pressed={selectedCategory === cat}
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-5 py-2 rounded-full font-semibold border transition duration-300 ${
@@ -75,6 +91,8 @@ export default function BlogListClient({ posts }) {
                       : `${process.env.NEXT_PUBLIC_API_BASE_URL}${post.image}`
                   }
                   alt={post.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-48 object-cover"
                 />
               )}
