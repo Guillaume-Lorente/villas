@@ -21,7 +21,12 @@
     "villasTitle": "Nos villas en location à Deshaies",
     "discoverTitle": "Découvrez la Guadeloupe depuis Deshaies",
     "discoverDescription": "Nos villas « Grande Anse » sont au cœur même de la « Côte sous le Vent », appelée aussi la Côte Caraïbes, qui est une région à part de la Guadeloupe où se situent les plus belles plages dans un rayon de 15 kilomètres : La Perle, Gadet, Leroux, Tillet, Petite Anse, Cluny et bien sûr Grande Anse. C'est la destination Nature par excellence entre mer & montagne. Venez découvrir les bassins et cascades en rivière, les plages et les sources chaudes, vous trouverez ici votre bonheur. Havre de paix, la côte sous le vent n'a pas connu l'urbanisation et l'industrialisation de la Guadeloupe. Elle saura vous séduire car elle demeure très authentique et abrite de très nombreuses activités.",
-    "blogButton": "Explorer le blog"
+    "blogButton": "Explorer le blog",
+    "cardSeo": {
+      "akamapa": "Location de villa à Deshaies avec piscine privée, idéale pour des vacances en famille.",
+      "tilamp-tilamp": "Grande villa en location à Deshaies avec piscine privée, parfaite pour familles nombreuses et groupes.",
+      "iguana": "Location de villa nature à Deshaies, au calme, avec piscine privée et environnement tropical."
+    }
   },
 
   "map": {
@@ -150,6 +155,7 @@
     "bathrooms": "2 salles de bain",
     "parking": "Parking privé"
   },
+  "contextLinkText": "Si vous recherchez davantage d’espace pour un séjour en groupe, découvrez également la",
   "galleryTitle": "Votre séjour en images",
   "equipmentTitle": "Équipements",
   "equipments": {
@@ -191,8 +197,27 @@
     "Lits faits à l’arrivée",
     "Lit et chaise bébé sur demande à la réservation"
   ],
-  "availabilityTitle": "Disponibilités & Réservation"
+  "availabilityTitle": "Disponibilités & Réservation",
+
+  "otherVillasTitle": "Découvrir nos autres villas à Deshaies",
+    "otherVillas": {
+      "tilampTitle": "Villa Tilamp Tilamp",
+      "tilampText": "Grande villa à Deshaies avec piscine, idéale pour familles et groupes.",
+      "iguanaTitle": "Villa Iguana",
+      "iguanaText": "Villa nature à Deshaies, au calme, avec piscine et cadre tropical."
+    },
+    "homeLinkText": "Découvrez l’ensemble de nos locations de villas à Deshaies pour trouver l’hébergement idéal en Guadeloupe."
 },
+
+"common": {
+    "discoverMore": "Découvrir"
+  },
+
+  "links": {
+    "tilamp": "Villa Tilamp Tilamp",
+    "homeDeshaies": "Accueil",
+    "iguana": "Villa Iguana"
+  },
 
 "tilamp": {
   "name": "Villa Tilamp Tilamp",
@@ -203,6 +228,8 @@
     "bathrooms": "3 salles de bain",
     "parking": "Parking privé"
   },
+  "contextLinkText": "Si vous recherchez davantage de nature et de calme, découvrez également la",
+  "homeLinkText": "Si vous recherchez une autre location de villa à Deshaies, découvrez également l’ensemble de nos hébergements de charme en Guadeloupe.",
   "galleryTitle": "Votre séjour en images",
   "equipmentTitle": "Équipements",
   "equipments": {
@@ -245,7 +272,15 @@
     "Lits faits à l’arrivée",
     "Lit et chaise bébé sur demande à la réservation"
   ],
-  "availabilityTitle": "Disponibilités & Réservation"
+  "availabilityTitle": "Disponibilités & Réservation",
+
+  "otherVillasTitle": "Découvrir nos autres villas à Deshaies",
+    "otherVillas": {
+      "akamapaTitle": "Villa Akamapa",
+      "akamapaText": "Villa créole à Deshaies avec piscine privée, proche de la plage de Grande Anse.",
+      "iguanaTitle": "Villa Iguana",
+      "iguanaText": "Villa nature à Deshaies, au calme, avec piscine et cadre tropical."
+    }
 },
 
 "iguana": {
@@ -257,6 +292,8 @@
     "bathrooms": "3 salles de bain",
     "parking": "Parking privé"
   },
+  "contextLinkText": "Si vous recherchez davantage d’espace pour un séjour en groupe, découvrez également la",
+  "homeLinkText": "Pour découvrir d’autres locations de villas à Deshaies, idéales pour un séjour nature et détente en Guadeloupe, consultez notre sélection complète.",
   "galleryTitle": "Votre séjour en images",
   "equipmentTitle": "Équipements",
   "equipments": {
@@ -299,7 +336,15 @@
     "Lits faits à l’arrivée",
     "Lit et chaise bébé sur demande à la réservation"
   ],
-  "availabilityTitle": "Disponibilités & Réservation"
+  "availabilityTitle": "Disponibilités & Réservation",
+
+  "otherVillasTitle": "Découvrir nos autres villas à Deshaies",
+    "otherVillas": {
+      "akamapaTitle": "Villa Akamapa",
+      "akamapaText": "Villa créole à Deshaies avec piscine privée, proche de la plage de Grande Anse.",
+      "tilampTitle": "Villa Tilamp Tilamp",
+      "tilampText": "Grande villa à Deshaies avec piscine, idéale pour familles et groupes."
+    }
 },
 
 "reservation": {

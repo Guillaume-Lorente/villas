@@ -25,6 +25,7 @@ import MobileReservationModal from "@/components/MobileReservationModal";
 import { useLanguage } from "@/context/LanguageContext";
 import StructuredData from "@/components/StructuredData";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function TilampTilampPage() {
   const villa = {
@@ -298,6 +299,16 @@ export default function TilampTilampPage() {
               {t("tilamp.descriptionTitle")}
             </h2>
             <p>{t("tilamp.descriptionText")}</p>
+            <p className="mt-4 text-white/90 text-sm leading-relaxed">
+              {t("tilamp.contextLinkText")}{" "}
+              <Link
+                href="/villas/iguana"
+                className="text-[#eeb868] underline hover:no-underline"
+              >
+                {t("links.iguana")}
+              </Link>
+              .
+            </p>
             <ul className="list-disc list-inside space-y-2 text-white/90 text-sm mt-4">
               {t("tilamp.features", { returnObjects: true }).map((item, i) => (
                 <li key={i}>{item}</li>
@@ -330,6 +341,78 @@ export default function TilampTilampPage() {
         </div>
       </section>
       <MobileReservationModal villaId={2} villaName={villa.name} />
+
+      {/* Autres villas */}
+      <section
+        className="max-w-6xl mx-auto px-4 pb-16"
+        aria-label={t("tilamp.otherVillasTitle")}
+      >
+        <h2 className="text-2xl font-bold text-[#eeb868] mb-6 text-center">
+          {t("tilamp.otherVillasTitle")}
+        </h2>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Akamapa */}
+          <Link
+            href="/villas/akamapa"
+            className="group rounded-xl overflow-hidden bg-white/10 backdrop-blur-md border border-white/10 hover:scale-[1.01] transition-transform duration-300 shadow-lg flex flex-col"
+            aria-label={t("tilamp.otherVillas.akamapaText")}
+          >
+            <div className="relative h-48">
+              <Image
+                src="/akamapa.webp"
+                alt="Villa Akamapa à Deshaies"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
+                fetchPriority="low"
+              />
+            </div>
+            <div className="p-5">
+              <h3 className="text-xl font-bold text-[#eeb868] mb-2">
+                {t("tilamp.otherVillas.akamapaTitle")}
+              </h3>
+              <p className="text-sm text-white/80 leading-relaxed">
+                {t("tilamp.otherVillas.akamapaText")}
+              </p>
+              <span className="mt-3 inline-block text-sm font-semibold text-[#eeb868] group-hover:underline">
+                {t("common.discoverMore")} →
+              </span>
+            </div>
+          </Link>
+
+          {/* Iguana */}
+          <Link
+            href="/villas/iguana"
+            className="group rounded-xl overflow-hidden bg-white/10 backdrop-blur-md border border-white/10 hover:scale-[1.01] transition-transform duration-300 shadow-lg flex flex-col"
+            aria-label={t("tilamp.otherVillas.iguanaText")}
+          >
+            <div className="relative h-48">
+              <Image
+                src="/iguana.webp"
+                alt="Villa Iguana à Deshaies"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+                loading="lazy"
+                fetchPriority="low"
+              />
+            </div>
+            <div className="p-5">
+              <h3 className="text-xl font-bold text-[#eeb868] mb-2">
+                {t("tilamp.otherVillas.iguanaTitle")}
+              </h3>
+              <p className="text-sm text-white/80 leading-relaxed">
+                {t("tilamp.otherVillas.iguanaText")}
+              </p>
+              <span className="mt-3 inline-block text-sm font-semibold text-[#eeb868] group-hover:underline">
+                {t("common.discoverMore")} →
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
 
       <details
         className="hidden md:block max-w-4xl mx-auto px-4 pb-16 text-sm text-white/80"
@@ -366,6 +449,15 @@ export default function TilampTilampPage() {
             Profitez de votre séjour pour découvrir les trésors de la Côte sous
             le Vent et vivez une expérience inoubliable de location saisonnière
             en Guadeloupe.
+          </p>
+          <p className="text-white/90">
+            {t("tilamp.homeLinkText").replace(t("links.homeDeshaies"), "")}{" "}
+            <Link
+              href="/"
+              className="text-[#eeb868] underline hover:no-underline"
+            >
+              {t("links.homeDeshaies")}
+            </Link>
           </p>
         </div>
       </details>

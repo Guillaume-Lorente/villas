@@ -116,10 +116,16 @@ export default function HomePage() {
                     fetchPriority="low"
                   />
                 </div>
-                <div className="p-4">
+
+                <div className="p-4 space-y-1">
                   <h3 className="text-xl font-bold text-[#eeb868]">
                     {villa.name}
                   </h3>
+
+                  {/* TEXTE SEO DISCRET */}
+                  <p className="text-sm text-[#223e50]/80 leading-snug">
+                    {t(`home.cardSeo.${villa.slug}`)}
+                  </p>
                 </div>
               </Link>
             </FadeUp>

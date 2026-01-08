@@ -1,8 +1,8 @@
 export const metadata = {
   title:
-    "Villa Iguana – Location de villa à Deshaies en Guadeloupe | Villas Grande Anse",
+    "Location villa à Deshaies – Villa Iguana, piscine & nature en Guadeloupe",
   description:
-    "Découvrez la Villa Iguana, au bord de la rivière Ziotte à Deshaies. En pleine nature, cette villa avec piscine à débordement peut accueillir jusqu'à 8 personnes. Calme et détente garantis.",
+    "Louez la Villa Iguana à Deshaies (Guadeloupe) : villa au calme en pleine nature, piscine à débordement, terrasses spacieuses et capacité jusqu’à 8 personnes. Idéale pour un séjour paisible et dépaysant.",
   alternates: {
     canonical: "/villas/iguana",
   },
@@ -21,7 +21,7 @@ export const metadata = {
     title: "Villa Iguana – Location de villa à Deshaies en Guadeloupe",
     description:
       "Une villa paisible nichée dans la nature, en bord de rivière à Deshaies. Jusqu’à 8 personnes, 2 terrasses, piscine à débordement, proche de Grande Anse.",
-    url: "https://villasgrandeanse.com/villas/iguana", // ← adapte à ton domaine
+    url: "https://villasgrandeanse.com/villas/iguana",
     images: [
       {
         url: "/iguana.jpg",

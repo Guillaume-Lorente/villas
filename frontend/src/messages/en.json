@@ -21,7 +21,12 @@
     "villasTitle": "Our villas",
     "discoverTitle": "Discover the Côte sous le vent",
     "discoverDescription": "Our 'Grande Anse' villas lie at the heart of the Côte sous le Vent, also known as the Caribbean Coast, a special region of Guadeloupe featuring the most beautiful beaches within 15 km: La Perle, Gadet, Leroux, Tillet, Petite Anse, Cluny, and of course, Grande Anse. It is the ultimate Nature destination between sea and mountains. Discover natural pools, waterfalls, hot springs, and the most beautiful beaches. This peaceful haven, untouched by urbanization and industry, is authentic and full of activities to enjoy.",
-    "blogButton": "Explore the blog (FR)"
+    "blogButton": "Explore the blog (FR)",
+    "cardSeo": {
+      "akamapa": "Villa rental in Deshaies with private pool, perfect for family holidays.",
+      "tilamp-tilamp": "Large villa rental in Deshaies, ideal for families and groups.",
+      "iguana": "Nature villa rental in Deshaies, quiet setting with private pool."
+    }
   },
 
   "map": {
@@ -144,7 +149,8 @@
   "akamapa": {
   "name": "Villa Akamapa",
   "description": "Akamapa, which can be translated as \"mom and dad’s home\"... You'll fall in love with the many assets of this traditional one-story Guadeloupean villa, centered around its pool. It offers an ideal setting, a large swimming pool, an L-shaped terrace, and a shaded gazebo for relaxation. Let yourself be carried away by the serenity of this green haven.",
-   "info": {
+  "contextLinkText": "If you are looking for more space for a group stay, discover", 
+  "info": {
     "capacity": "2/6 guests",
     "bedrooms": "2 bedrooms",
     "bathrooms": "2 bathrooms",
@@ -191,8 +197,25 @@
     "Beds made upon arrival",
     "Baby bed and chair upon request when booking"
   ],
-  "availabilityTitle": "Availability & Booking"
+  "availabilityTitle": "Availability & Booking",
+
+  "otherVillasTitle": "Discover our other villas in Deshaies",
+    "otherVillas": {
+      "tilampTitle": "Villa Tilamp Tilamp",
+      "tilampText": "Large villa in Deshaies with private pool, perfect for families and groups.",
+      "iguanaTitle": "Villa Iguana",
+      "iguanaText": "Nature villa in Deshaies, peaceful setting with pool and tropical surroundings."
+    }
 },
+
+"common": {
+    "discoverMore": "Discover"
+  },
+
+  "links": {
+    "tilamp": "Tilamp Tilamp villa",
+    "iguana": "Iguana villa"
+  },
 
 "tilamp": {
   "name": "Villa Tilamp-Tilamp",
@@ -203,6 +226,7 @@
     "bathrooms": "3 bathrooms",
     "parking": "Private parking"
   },
+  "contextLinkText": "If you are looking for more nature and tranquility, also discover the",
   "galleryTitle": "Your stay in pictures",
   "equipmentTitle": "Amenities",
   "equipments": {
@@ -245,7 +269,15 @@
     "Beds made upon arrival",
     "Baby bed and chair upon request when booking"
   ],
-  "availabilityTitle": "Availability & Booking"
+  "availabilityTitle": "Availability & Booking",
+
+  "otherVillasTitle": "Discover our other villas in Deshaies",
+    "otherVillas": {
+      "akamapaTitle": "Villa Akamapa",
+      "akamapaText": "Charming Creole villa in Deshaies with private pool, near Grande Anse beach.",
+      "iguanaTitle": "Villa Iguana",
+      "iguanaText": "Nature villa in Deshaies, peaceful setting with pool and tropical surroundings."
+    }
 },
 
 "iguana": {
@@ -257,6 +289,7 @@
     "bathrooms": "3 bathrooms",
     "parking": "Private parking"
   },
+  "contextLinkText": "If you are looking for more space for a group stay, discover",
   "galleryTitle": "Your stay in pictures",
   "equipmentTitle": "Amenities",
   "equipments": {
@@ -299,7 +332,15 @@
     "Beds made upon arrival",
     "Baby bed and chair upon request when booking"
   ],
-  "availabilityTitle": "Availability & Booking"
+  "availabilityTitle": "Availability & Booking",
+
+  "otherVillasTitle": "Discover our other villas in Deshaies",
+    "otherVillas": {
+      "akamapaTitle": "Villa Akamapa",
+      "akamapaText": "Charming Creole villa in Deshaies with private pool, near Grande Anse beach.",
+      "tilampTitle": "Villa Tilamp Tilamp",
+      "tilampText": "Large villa in Deshaies with private pool, perfect for families and groups."
+    }
 },
 
 "reservation": {
