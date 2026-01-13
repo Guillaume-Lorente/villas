@@ -1,6 +1,5 @@
 export const metadata = {
-  title:
-    "Location villa à Deshaies, Guadeloupe – Villas de charme près de Grande Anse",
+  title: "Location de villas à Deshaies, Guadeloupe | Villas Grande Anse",
   description:
     "Découvrez nos villas de charme à Deshaies (Guadeloupe) : piscines privées, plage de Grande Anse à deux pas, confort haut de gamme et réservation directe. Vacances tropicales inoubliables.",
   alternates: {
