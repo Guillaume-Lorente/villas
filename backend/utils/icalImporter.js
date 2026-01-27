@@ -15,7 +15,7 @@ const villaICalSources = [
   {
     villaId: 3,
     name: "Iguana",
-    url: "https://www.antillesexception.com/exvapi/getplanning/513eb64bfb193347896c6df6ecfdba7d07f21e2f2fb9da2f60a6e8",
+    url: "https://www.antillesexception.com/exvapi/getplanning/a445c0e4ae11f7915c174701b083d4acb6e99353",
   },
 ];
 
@@ -93,7 +93,7 @@ async function syncReservations(villaId) {
           `${prefix} Événement invalide (end <= start) ignoré:`,
           e.summary,
           startDate,
-          endDate
+          endDate,
         );
         continue;
       }
@@ -110,7 +110,7 @@ async function syncReservations(villaId) {
                       end_date   = EXCLUDED.end_date,
                       guest_name = EXCLUDED.guest_name
         `,
-        [villaId, startDate, endDate, guestName, uid]
+        [villaId, startDate, endDate, guestName, uid],
       );
 
       log(prefix, `↔️  Sync: ${startDate} → ${endDate} (${guestName})`);
@@ -125,7 +125,7 @@ async function syncReservations(villaId) {
         AND uid IS NOT NULL
         AND uid <> ALL($2::text[])
       `,
-      [villaId, Array.from(seenUIDs)]
+      [villaId, Array.from(seenUIDs)],
     );
 
     await pool.query("COMMIT");
