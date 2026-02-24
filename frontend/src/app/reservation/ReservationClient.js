@@ -143,6 +143,17 @@ export default function ReservationPage() {
         currency: "EUR",
       });
 
+      // ✅ Event GA4
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "generate_lead", {
+          villa_name: villaName,
+          start_date: formattedStart,
+          end_date: formattedEnd,
+          value: price ? parseFloat(price) : undefined,
+          currency: "EUR",
+        });
+      }
+
       setToast({
         message: "✅ Demande envoyée avec succès !",
         type: "success",
