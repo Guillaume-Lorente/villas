@@ -1,12 +1,11 @@
 "use client";
 
-import { usePathname, useSearchParams } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useRef } from "react";
 import { pageview } from "../lib/fpixel";
 
 export default function MetaPixelPageView() {
   const pathname = usePathname();
-  const searchParams = useSearchParams();
   const firstLoad = useRef(true);
 
   useEffect(() => {
@@ -15,7 +14,7 @@ export default function MetaPixelPageView() {
       return; // évite le double PageView au chargement initial
     }
     pageview();
-  }, [pathname, searchParams]);
+  }, [pathname]);
 
   return null;
 }
