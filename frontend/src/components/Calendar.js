@@ -23,6 +23,7 @@ import dynamic from "next/dynamic";
 import { cache } from "react";
 import { fr } from "date-fns/locale";
 import { useLanguage } from "@/context/LanguageContext";
+import { event as fbEvent } from "@/lib/fpixel";
 
 const RoomSelect = dynamic(() => import("./RoomSelectClient"), {
   ssr: false,
@@ -118,7 +119,7 @@ export default function Calendar({ villaId, villaName }) {
       try {
         const res = await fetch(
           `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/reservations/villa/${villaId}`,
-          { cache: "no-store" }
+          { cache: "no-store" },
         );
         const data = await res.json();
 
@@ -183,11 +184,11 @@ export default function Calendar({ villaId, villaName }) {
     } else {
       if (isAfter(normalized, startDate)) {
         const rangeHasReserved = reservedDates.some((reserved) =>
-          isWithinInterval(reserved, { start: startDate, end: normalized })
+          isWithinInterval(reserved, { start: startDate, end: normalized }),
         );
         if (rangeHasReserved) {
           setErrorMessage(
-            "Cette plage inclut des dates déjà réservées. Veuillez choisir une autre période."
+            "Cette plage inclut des dates déjà réservées. Veuillez choisir une autre période.",
           );
           return;
         }
@@ -237,7 +238,7 @@ export default function Calendar({ villaId, villaName }) {
               room_count: selectedOption.room_count,
               includes_sofa_bed: selectedOption.includes_sofa_bed,
             }),
-          }
+          },
         );
         const data = await res.json();
         if (data.error) {
@@ -312,12 +313,12 @@ export default function Calendar({ villaId, villaName }) {
                 disabled
                   ? "text-gray-400 line-through cursor-not-allowed"
                   : isSelectedStart || isSelectedEnd
-                  ? "bg-[#eeb868] text-[#223e50] font-bold"
-                  : inRange
-                  ? "bg-[#eeb868]/80"
-                  : isToday
-                  ? "border border-[#eeb868] text-[#eeb868]"
-                  : "hover:bg-[#eeb868]/20"
+                    ? "bg-[#eeb868] text-[#223e50] font-bold"
+                    : inRange
+                      ? "bg-[#eeb868]/80"
+                      : isToday
+                        ? "border border-[#eeb868] text-[#eeb868]"
+                        : "hover:bg-[#eeb868]/20"
               }`}
             >
               {format(dayItem, "d")}
@@ -405,9 +406,25 @@ export default function Calendar({ villaId, villaName }) {
             }`}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={(e) => {
+              e.preventDefault();
+              const url = e.currentTarget.href;
+
+              fbEvent("InitiateCheckout", {
+                content_category: "Villa",
+                content_ids: [String(villaId)],
+                content_type: "product",
+                value: Number(priceDetails.totalAfterDiscount),
+                currency: "EUR",
+              });
+
+              setTimeout(() => {
+                window.open(url, "_blank", "noopener,noreferrer");
+              }, 150);
+            }}
             aria-label={`Réserver du ${format(
               startDate,
-              "dd/MM/yyyy"
+              "dd/MM/yyyy",
             )} au ${format(endDate, "dd/MM/yyyy")} pour ${
               selectedOption.label
             }`}

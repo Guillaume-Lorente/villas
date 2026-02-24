@@ -26,6 +26,7 @@ import { useLanguage } from "@/context/LanguageContext";
 import StructuredData from "@/components/StructuredData";
 import Image from "next/image";
 import Link from "next/link";
+import { event as fbEvent } from "@/lib/fpixel";
 
 export default function IguanaPage() {
   const villa = {
@@ -238,7 +239,7 @@ export default function IguanaPage() {
     const fetchPromo = async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`,
         );
         const data = await res.json();
         setPromoConfig(data);
@@ -249,6 +250,14 @@ export default function IguanaPage() {
 
     fetchPromo();
   }, []);
+
+  fbEvent("ViewContent", {
+    content_name: "Iguana",
+    content_category: "Villa",
+    content_ids: ["iguana"],
+    content_type: "product",
+    currency: "EUR",
+  });
 
   return (
     <main className="bg-[#223e50] text-white pt-24">
