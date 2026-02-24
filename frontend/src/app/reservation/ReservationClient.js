@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { format } from "date-fns";
 import Script from "next/script";
 import { useLanguage } from "@/context/LanguageContext";
+import { event as fbEvent } from "@/lib/fpixel";
 
 // ✅ Toast Component
 function Toast({ message, type, onClose }) {
@@ -58,7 +59,7 @@ export default function ReservationPage() {
   const guests = roomOptionsByVilla[villaId]?.find(
     (opt) =>
       opt.room_count.toString() === rooms &&
-      opt.includes_sofa_bed.toString() === sofa
+      opt.includes_sofa_bed.toString() === sofa,
   )?.max_guests;
 
   useEffect(() => {
@@ -66,7 +67,7 @@ export default function ReservationPage() {
       if (!villaId) return;
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/villas/${villaId}`
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/villas/${villaId}`,
         );
         const data = await res.json();
         setVillaName(data.name || "");
@@ -126,13 +127,22 @@ export default function ReservationPage() {
           message,
           token: recaptchaToken,
         }),
-      }
+      },
     );
 
     grecaptcha.reset();
     setRecaptchaToken("");
 
     if (res.ok) {
+      // ✅ Meta Pixel: conversion (demande envoyée)
+      fbEvent("Lead", {
+        content_category: "Villa",
+        content_ids: [String(villaId)],
+        content_type: "product",
+        value: price ? Number(price) : undefined,
+        currency: "EUR",
+      });
+
       setToast({
         message: "✅ Demande envoyée avec succès !",
         type: "success",
