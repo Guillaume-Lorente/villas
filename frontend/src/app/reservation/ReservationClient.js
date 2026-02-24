@@ -143,9 +143,10 @@ export default function ReservationPage() {
         currency: "EUR",
       });
 
-      // ✅ Event GA4
-      if (typeof window !== "undefined" && window.gtag) {
-        window.gtag("event", "generate_lead", {
+      // ✅ Event GA4 via GTM
+      if (typeof window !== "undefined" && window.dataLayer) {
+        window.dataLayer.push({
+          event: "generate_lead",
           villa_name: villaName,
           start_date: formattedStart,
           end_date: formattedEnd,
