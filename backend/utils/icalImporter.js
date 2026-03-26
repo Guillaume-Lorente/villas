@@ -15,7 +15,7 @@ const villaICalSources = [
   {
     villaId: 3,
     name: "Iguana",
-    url: "https://www.antillesexception.com/exvapi/getplanning/4c4ac711f06712f687d1540c2a3aa99e6cce230824d23f84c2e2d4",
+    url: "https://www.antillesexception.com/exvapi/getplanning/a445c0e4ae11f7915c174701b083d4acb6e99353",
   },
 ];
 
