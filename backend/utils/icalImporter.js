@@ -15,7 +15,7 @@ const villaICalSources = [
   {
     villaId: 3,
     name: "Iguana",
-    url: "https://www.antillesexception.com/exvapi/getplanning/4c4ac711f06712f687d1540c2a3aa99e6cce230824d23f84c2e2d4",
+    url: "https://le-hamac.com/calendrier/calendrier499.ics",
   },
 ];
 
