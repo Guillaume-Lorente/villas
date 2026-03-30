@@ -5,17 +5,24 @@ const villaICalSources = [
   {
     villaId: 1,
     name: "Akamapa",
-    url: "https://www.antillesexception.com/exvapi/getplanning/327114416bcb7a383bd5beff5154972aeeb7e5",
+    urls: [
+      "https://www.antillesexception.com/exvapi/getplanning/327114416bcb7a383bd5beff5154972aeeb7e5",
+    ],
   },
   {
     villaId: 2,
     name: "Tilamp-Tilamp",
-    url: "https://www.antillesexception.com/exvapi/getplanning/c03b54dc435f577ae440a51d3138e43d5b7864",
+    urls: [
+      "https://www.antillesexception.com/exvapi/getplanning/c03b54dc435f577ae440a51d3138e43d5b7864",
+    ],
   },
   {
     villaId: 3,
     name: "Iguana",
-    url: "https://le-hamac.com/calendrier/calendrier499.ics",
+    urls: [
+      "https://le-hamac.com/calendrier/calendrier499.ics",
+      "https://ton-deuxieme-lien-ical.ics",
+    ],
   },
 ];
 
@@ -47,26 +54,31 @@ async function syncReservations(villaId) {
   const villa = villaICalSources.find((v) => v.villaId === villaId);
   if (!villa) throw new Error(`Villa inconnue pour cet ID: ${villaId}`);
 
-  const { url, name } = villa;
+  const { urls, name } = villa;
   const prefix = `📥 [villa:${villaId} ${name}]`;
 
   log(prefix, `Début de synchronisation`);
-  let data;
-  try {
-    data = await ical.async.fromURL(url);
-  } catch (e) {
-    console.error(`${prefix} Échec de récupération iCal:`, e);
-    throw e;
-  }
-
-  const events = Object.values(data).filter((e) => e.type === "VEVENT");
-  log(prefix, `${events.length} événement(s) trouvé(s) dans le .ics`);
 
   const seenUIDs = new Set();
+  const allEvents = [];
+
+  for (const url of urls) {
+    let data;
+    try {
+      data = await ical.async.fromURL(url);
+    } catch (e) {
+      console.error(`${prefix} Échec de récupération iCal (${url}):`, e);
+      continue;
+    }
+
+    const events = Object.values(data).filter((e) => e.type === "VEVENT");
+    log(prefix, `${events.length} événement(s) trouvé(s) dans le .ics ${url}`);
+    allEvents.push(...events);
+  }
 
   await pool.query("BEGIN");
   try {
-    for (const e of events) {
+    for (const e of allEvents) {
       // Ignore annulations explicites
       if (e.status && String(e.status).toUpperCase() === "CANCELLED") {
         continue;
@@ -116,7 +128,7 @@ async function syncReservations(villaId) {
       log(prefix, `↔️  Sync: ${startDate} → ${endDate} (${guestName})`);
     }
 
-    // Nettoyage: supprime les réservations iCal non présentes dans le .ics courant
+    // Nettoyage: supprime les réservations iCal non présentes dans les .ics courants
     await pool.query(
       `
       DELETE FROM reservations
