@@ -26,7 +26,7 @@ router.post("/", async (req, res) => {
   try {
     const recaptchaRes = await fetch(
       `https://www.google.com/recaptcha/api/siteverify?secret=${process.env.RECAPTCHA_SECRET_KEY}&response=${token}`,
-      { method: "POST" }
+      { method: "POST" },
     );
 
     const recaptchaData = await recaptchaRes.json();
@@ -47,6 +47,7 @@ router.post("/", async (req, res) => {
     const mailToOwner = {
       from: `"Villas Grande Anse" <${process.env.SMTP_USER}>`,
       to: "villasgrandeanse@hotmail.com",
+      replyTo: `"${nom}" <${email}>`,
       subject: `Demande de réservation - ${villaName}`,
       html: `
         <h2>Nouvelle demande de réservation</h2>
@@ -63,7 +64,7 @@ router.post("/", async (req, res) => {
           message
             ? `<p><strong>Message :</strong><br>${message.replace(
                 /\n/g,
-                "<br>"
+                "<br>",
               )}</p>`
             : ""
         }
@@ -92,7 +93,7 @@ router.post("/", async (req, res) => {
           message
             ? `<p><strong>Message transmis :</strong><br>${message.replace(
                 /\n/g,
-                "<br>"
+                "<br>",
               )}</p>`
             : ""
         }

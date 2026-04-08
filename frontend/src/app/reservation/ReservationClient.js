@@ -10,17 +10,19 @@ import { event as fbEvent } from "@/lib/fpixel";
 // ✅ Toast Component
 function Toast({ message, type, onClose }) {
   return (
-    <div
-      className={`fixed top-6 left-1/2 transform -translate-x-1/2 z-[9999] px-6 py-3 rounded-xl shadow-md text-white text-sm font-semibold transition-all duration-300
-        ${type === "success" ? "bg-green-600" : "bg-red-600"}`}
-    >
-      {message}
-      <button
-        onClick={onClose}
-        className="ml-4 text-white font-bold hover:underline"
+    <div className="fixed inset-0 flex items-center justify-center z-[9999] px-4 pointer-events-none">
+      <div
+        className={`pointer-events-auto px-8 py-5 rounded-2xl shadow-2xl text-white text-lg font-bold transition-all duration-300 max-w-xl w-full text-center flex items-center justify-center gap-4
+          ${type === "success" ? "bg-green-600" : "bg-red-600"}`}
       >
-        ✕
-      </button>
+        <span>{message}</span>
+        <button
+          onClick={onClose}
+          className="text-white font-bold hover:underline shrink-0"
+        >
+          ✕
+        </button>
+      </div>
     </div>
   );
 }
@@ -30,6 +32,7 @@ export default function ReservationPage() {
   const [villaName, setVillaName] = useState("");
   const [recaptchaToken, setRecaptchaToken] = useState("");
   const [toast, setToast] = useState(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const roomOptionsByVilla = {
     1: [
@@ -97,10 +100,14 @@ export default function ReservationPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    if (isSubmitting) return;
+
     if (!recaptchaToken) {
       setToast({ message: "Veuillez valider le reCAPTCHA.", type: "error" });
       return;
     }
+
+    setIsSubmitting(true);
 
     const form = new FormData(e.target);
     const nom = form.get("Nom");
@@ -155,6 +162,8 @@ export default function ReservationPage() {
         });
       }
 
+      e.target.reset();
+
       setToast({
         message: "✅ Demande envoyée avec succès !",
         type: "success",
@@ -165,6 +174,8 @@ export default function ReservationPage() {
         type: "error",
       });
     }
+
+    setIsSubmitting(false);
   };
 
   const { t } = useLanguage();
@@ -265,10 +276,15 @@ export default function ReservationPage() {
 
           <button
             type="submit"
+            disabled={isSubmitting}
             aria-label={t("reservation.submit")}
-            className="w-full bg-[#eeb868] text-[#223e50] font-bold py-2 rounded hover:bg-[#c6943d] transition"
+            className={`w-full font-bold py-2 rounded transition ${
+              isSubmitting
+                ? "bg-gray-400 text-white cursor-not-allowed"
+                : "bg-[#eeb868] text-[#223e50] hover:bg-[#c6943d]"
+            }`}
           >
-            {t("reservation.submit")}
+            {isSubmitting ? "Envoi en cours..." : t("reservation.submit")}
           </button>
 
           <p>{t("reservation.disclaimer")}</p>
