@@ -174,6 +174,18 @@ export default function AkamapaPage() {
       ),
       key: "shops",
     },
+    {
+      icon: (
+        <img
+          src="/icons/cafe.png"
+          alt="Machine à café Nespresso"
+          className="w-6 h-6 object-contain"
+          loading="lazy"
+          decoding="async"
+        />
+      ),
+      key: "coffeeMachine",
+    },
   ];
 
   const { t } = useLanguage();
