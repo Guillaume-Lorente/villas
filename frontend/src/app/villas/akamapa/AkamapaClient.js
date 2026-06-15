@@ -23,7 +23,6 @@ import Calendar from "@/components/Calendar";
 import PromoBanner from "@/components/PromoBanner";
 import MobileReservationModal from "@/components/MobileReservationModal";
 import { useLanguage } from "@/context/LanguageContext";
-import StructuredData from "@/components/StructuredData";
 import Image from "next/image";
 import Link from "next/link";
 import { event as fbEvent } from "@/lib/fpixel";
@@ -219,7 +218,6 @@ export default function AkamapaPage() {
 
   return (
     <main className="bg-[#223e50] text-white pt-24">
-      <StructuredData />
       {promoConfig?.villas?.[1]?.active && (
         <PromoBanner message={promoConfig.villas[1].message || ""} />
       )}

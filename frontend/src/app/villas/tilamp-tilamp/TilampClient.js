@@ -23,7 +23,6 @@ import Calendar from "@/components/Calendar";
 import PromoBanner from "@/components/PromoBanner";
 import MobileReservationModal from "@/components/MobileReservationModal";
 import { useLanguage } from "@/context/LanguageContext";
-import StructuredData from "@/components/StructuredData";
 import Image from "next/image";
 import Link from "next/link";
 import { event as fbEvent } from "@/lib/fpixel";
@@ -241,7 +240,6 @@ export default function TilampTilampPage() {
 
   return (
     <main className="bg-[#223e50] text-white pt-24">
-      <StructuredData />
       {promoConfig?.villas?.[2]?.active && (
         <PromoBanner message={promoConfig.villas[2].message || ""} />
       )}

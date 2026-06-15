@@ -1,3 +1,7 @@
+import { SITE_URL, villaJsonLd, breadcrumbJsonLd } from "../../../lib/site";
+import JsonLd from "../../../components/JsonLd";
+import IguanaPage from "./IguanaClient";
+
 export const metadata = {
   title:
     "Location villa à Deshaies – Villa Iguana, piscine & nature en Guadeloupe",
@@ -21,10 +25,10 @@ export const metadata = {
     title: "Villa Iguana – Location de villa à Deshaies en Guadeloupe",
     description:
       "Une villa paisible nichée dans la nature, en bord de rivière à Deshaies. Jusqu’à 8 personnes, 2 terrasses, piscine à débordement, proche de Grande Anse.",
-    url: "https://villasgrandeanse.com/villas/iguana",
+    url: `${SITE_URL}/villas/iguana`,
     images: [
       {
-        url: "/iguana.jpg",
+        url: "/iguana.webp",
         width: 1200,
         height: 630,
         alt: "Vue de la piscine à débordement de la Villa Iguana",
@@ -34,8 +38,19 @@ export const metadata = {
   },
 };
 
-import IguanaPage from "./IguanaClient";
-
 export default function Page() {
-  return <IguanaPage />;
+  return (
+    <>
+      <JsonLd
+        data={[
+          villaJsonLd("iguana"),
+          breadcrumbJsonLd([
+            { name: "Accueil", path: "/" },
+            { name: "Villa Iguana", path: "/villas/iguana" },
+          ]),
+        ]}
+      />
+      <IguanaPage />
+    </>
+  );
 }

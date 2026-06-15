@@ -1,13 +1,15 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { SITE_URL, SITE_NAME, breadcrumbJsonLd } from "../../../lib/site";
+import JsonLd from "../../../components/JsonLd";
 
 export async function generateMetadata({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   if (!slug) return {};
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/${slug}`,
-    { cache: "no-store" }
+    { next: { revalidate: 3600 } }
   );
 
   if (!res.ok) return {};
@@ -19,9 +21,9 @@ export async function generateMetadata({ params }) {
     post.image = `${process.env.NEXT_PUBLIC_API_BASE_URL}${post.image}`;
   }
 
-  const pageUrl = `https://villas-grande-anse.com/blog/${slug}`;
+  const pageUrl = `${SITE_URL}/blog/${slug}`;
   const defaultImage = {
-    url: "https://villas-grande-anse.com/hero.jpg",
+    url: `${SITE_URL}/hero.webp`,
     width: 1200,
     height: 630,
     alt: "Vue de Guadeloupe – Villas Grande Anse",
@@ -31,7 +33,7 @@ export async function generateMetadata({ params }) {
     title: post.title,
     description: post.excerpt || post.title,
     alternates: {
-      canonical: pageUrl,
+      canonical: `/blog/${slug}`,
     },
     openGraph: {
       title: post.title,
@@ -52,12 +54,12 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function BlogArticlePage({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   if (!slug) return notFound();
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/${slug}`,
-    { cache: "no-store" }
+    { next: { revalidate: 3600 } }
   );
 
   if (!res.ok) return notFound();
@@ -70,7 +72,7 @@ export default async function BlogArticlePage({ params }) {
 
   const resAll = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
-    { cache: "no-store" }
+    { next: { revalidate: 3600 } }
   );
 
   const allPosts = resAll.ok ? await resAll.json() : [];
@@ -87,10 +89,39 @@ export default async function BlogArticlePage({ params }) {
     }
   });
 
-  const pageUrl = `https://villas-grande-anse.com/blog/${slug}`;
+  const pageUrl = `${SITE_URL}/blog/${slug}`;
+
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.excerpt || post.title,
+    image: post.image ? [post.image] : [`${SITE_URL}/hero.webp`],
+    datePublished: post.date || undefined,
+    dateModified: post.date || undefined,
+    articleSection: post.category || undefined,
+    inLanguage: "fr-FR",
+    mainEntityOfPage: { "@type": "WebPage", "@id": pageUrl },
+    author: { "@type": "Organization", name: SITE_NAME, url: `${SITE_URL}/` },
+    publisher: {
+      "@type": "Organization",
+      name: SITE_NAME,
+      logo: { "@type": "ImageObject", url: `${SITE_URL}/logo.png` },
+    },
+  };
 
   return (
     <main className="bg-[#223e50] text-white min-h-screen">
+      <JsonLd
+        data={[
+          articleJsonLd,
+          breadcrumbJsonLd([
+            { name: "Accueil", path: "/" },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${slug}` },
+          ]),
+        ]}
+      />
       {post.image && (
         <section
           className="h-[300px] md:h-[450px] bg-cover bg-center relative"

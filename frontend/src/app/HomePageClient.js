@@ -7,7 +7,6 @@ import FadeUp from "../components/FadeUp";
 import { useEffect, useState } from "react";
 import PromoBanner from "../components/PromoBanner";
 import { useLanguage } from "../context/LanguageContext";
-import StructuredData from "../components/StructuredData";
 import Image from "next/image";
 
 const villas = [
@@ -54,8 +53,6 @@ export default function HomePage() {
       className="bg-[#223e50] text-white pt-24"
       aria-label="Page d'accueil - Location de villas à Deshaies"
     >
-      <StructuredData />
-
       {/* Promo Banner */}
       {promoConfig?.homepage?.active && (
         <PromoBanner message={promoConfig.homepage.message} />

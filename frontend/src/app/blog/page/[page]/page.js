@@ -4,8 +4,22 @@ import BlogListClient from "../../blogListClient";
 
 const POSTS_PER_PAGE = 6;
 
+export async function generateMetadata({ params }) {
+  const { page } = await params;
+  const pageNum = parseInt(page || "1", 10);
+  return {
+    title: `Blog Guadeloupe – Page ${pageNum} | Villas Grande Anse`,
+    description:
+      "Articles, conseils et idées de sorties autour de Deshaies et de la Côte sous le Vent en Guadeloupe.",
+    alternates: {
+      canonical: `/blog/page/${pageNum}`,
+    },
+  };
+}
+
 export default async function BlogPaginatedPage({ params }) {
-  const page = parseInt(params.page || "1", 10);
+  const { page: pageParam } = await params;
+  const page = parseInt(pageParam || "1", 10);
 
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`, {
     cache: "no-store",
@@ -19,7 +33,7 @@ export default async function BlogPaginatedPage({ params }) {
   return (
     <main className="min-h-screen bg-[#223e50] text-white">
       {/* Hero Blog */}
-      <section className="bg-[url('/blog-hero.jpg')] bg-cover bg-center h-64 flex items-center justify-center">
+      <section className="bg-[url('/blog-hero.webp')] bg-cover bg-center h-64 flex items-center justify-center">
         <div className="bg-black/60 w-full h-full flex items-center justify-center">
           <h1 className="text-4xl md:text-5xl font-bold text-jaune text-center">
             Explorez la Côte sous le Vent

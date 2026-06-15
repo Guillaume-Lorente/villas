@@ -6,9 +6,40 @@ import Footer from "../components/Footer";
 import { Toaster } from "react-hot-toast";
 import MetaPixelPageView from "../components/MetaPixelPageView";
 
+import { SITE_URL, SITE_NAME, SAME_AS } from "../lib/site";
+
 export const metadata = {
-  metadataBase: new URL("https://www.villas-grande-anse.com"),
+  metadataBase: new URL(SITE_URL),
   icons: { icon: "/favicon.ico" },
+  applicationName: SITE_NAME,
+  openGraph: {
+    type: "website",
+    siteName: SITE_NAME,
+    locale: "fr_FR",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
+};
+
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: SITE_NAME,
+  url: `${SITE_URL}/`,
+  logo: `${SITE_URL}/logo.png`,
+  sameAs: SAME_AS,
 };
 
 export default function RootLayout({ children }) {
@@ -75,36 +106,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         </noscript>
         {/* End Meta Pixel (noscript) */}
 
-        {/* Schema.org : Website */}
-        <Script
-          id="schema-website"
+        {/* Schema.org : Organization (rendu serveur, visible au premier crawl) */}
+        <script
           type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "WebSite",
-              name: "Villas Grande Anse",
-              alternateName: "Villas Grande Anse – Deshaies",
-              url: "https://www.villas-grande-anse.com/",
-            }),
-          }}
-        />
-
-        {/* Schema.org : Organization */}
-        <Script
-          id="schema-organization"
-          type="application/ld+json"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Villas Grande Anse",
-              url: "https://www.villas-grande-anse.com/",
-              logo: "https://www.villas-grande-anse.com/logo.png",
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
         />
 
         <MetaPixelPageView />

@@ -4,10 +4,16 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 const POSTS_PER_PAGE = 6;
 
 export default async function BlogHomePage() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`, {
-    cache: "no-store",
-  });
-  const allPosts = await res.json();
+  let allPosts = [];
+  try {
+    const res = await fetch(
+      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
+      { next: { revalidate: 3600 } }
+    );
+    if (res.ok) allPosts = await res.json();
+  } catch {
+    allPosts = [];
+  }
 
   const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
   const currentPage = 1;

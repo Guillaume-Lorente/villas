@@ -1,3 +1,7 @@
+import { SITE_URL, villaJsonLd, breadcrumbJsonLd } from "../../../lib/site";
+import JsonLd from "../../../components/JsonLd";
+import AkamapaPage from "./AkamapaClient";
+
 export const metadata = {
   title:
     "Location villa à Deshaies – Villa Akamapa avec piscine proche Grande Anse",
@@ -22,10 +26,10 @@ export const metadata = {
     title: "Villa Akamapa – Location de villa à Deshaies, Guadeloupe",
     description:
       "Profitez de la Villa Akamapa, une location de vacances à Deshaies à 200m de la plage. Piscine, terrasse, jardin tropical. Idéale pour un séjour en famille en Guadeloupe.",
-    url: "https://villasgrandeanse.com/villas/akamapa",
+    url: `${SITE_URL}/villas/akamapa`,
     images: [
       {
-        url: "/akamapa.jpg",
+        url: "/akamapa.webp",
         width: 1200,
         height: 630,
         alt: "Vue aérienne de la Villa Akamapa avec piscine privée à Deshaies",
@@ -35,8 +39,19 @@ export const metadata = {
   },
 };
 
-import AkamapaPage from "./AkamapaClient";
-
 export default function Page() {
-  return <AkamapaPage />;
+  return (
+    <>
+      <JsonLd
+        data={[
+          villaJsonLd("akamapa"),
+          breadcrumbJsonLd([
+            { name: "Accueil", path: "/" },
+            { name: "Villa Akamapa", path: "/villas/akamapa" },
+          ]),
+        ]}
+      />
+      <AkamapaPage />
+    </>
+  );
 }
