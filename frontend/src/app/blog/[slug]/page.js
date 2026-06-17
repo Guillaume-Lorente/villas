@@ -108,10 +108,24 @@ export default async function BlogArticlePage({ params }) {
 
   const allPosts = resAll.ok ? await resAll.json() : [];
 
-  const related = allPosts
-    .filter((p) => p.slug !== slug)
-    .sort(() => 0.5 - Math.random())
-    .slice(0, 2);
+  // Suggestions « Lire aussi » déterministes (maillage interne stable pour le
+  // SEO) : priorité aux articles de la même catégorie, puis aux plus récents.
+  const byRecent = (a, b) => {
+    const da = a.date || "";
+    const db = b.date || "";
+    if (da !== db) return db.localeCompare(da);
+    return (a.slug || "").localeCompare(b.slug || "");
+  };
+
+  const candidates = allPosts.filter((p) => p.slug !== slug);
+  const sameCategory = candidates
+    .filter((p) => p.category && p.category === post.category)
+    .sort(byRecent);
+  const otherCategory = candidates
+    .filter((p) => !p.category || p.category !== post.category)
+    .sort(byRecent);
+
+  const related = [...sameCategory, ...otherCategory].slice(0, 2);
 
   // ✅ Fix chemin image pour les articles liés
   related.forEach((p) => {
