@@ -110,8 +110,20 @@ export default async function BlogArticlePage({ params }) {
     },
   };
 
+  let formattedDate = post.date || null;
+  if (post.date) {
+    const d = new Date(post.date);
+    if (!isNaN(d)) {
+      formattedDate = d.toLocaleDateString("fr-FR", {
+        day: "numeric",
+        month: "long",
+        year: "numeric",
+      });
+    }
+  }
+
   return (
-    <main className="bg-[#223e50] text-white min-h-screen">
+    <main className="bg-[#223e50] text-white min-h-screen pt-24 md:pt-28">
       <JsonLd
         data={[
           articleJsonLd,
@@ -122,29 +134,53 @@ export default async function BlogArticlePage({ params }) {
           ]),
         ]}
       />
-      {post.image && (
-        <section
-          className="h-[300px] md:h-[450px] bg-cover bg-center relative"
-          style={{ backgroundImage: `url('${post.image}')` }}
-        >
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center px-4">
-            <h1 className="text-3xl md:text-5xl font-bold text-center text-[#eeb868] max-w-4xl">
-              {post.title}
-            </h1>
+
+      <section className="max-w-3xl mx-auto px-4 pt-6 pb-2 text-center">
+        <h1 className="text-3xl md:text-5xl font-bold text-[#eeb868] leading-tight">
+          {post.title}
+        </h1>
+        <div className="mt-5 mx-auto w-16 h-[3px] bg-[#eeb868]/70 rounded-full"></div>
+      </section>
+
+      <section className="max-w-3xl mx-auto px-4 py-8 md:py-12">
+        <div className="flow-root bg-white/5 border border-white/10 rounded-2xl shadow-xl px-6 py-8 md:px-10 md:py-12">
+          {/* Méta : catégorie + date */}
+          <div className="flex flex-wrap items-center gap-3 mb-8 justify-center md:justify-start">
+            {post.category && (
+              <span className="inline-block bg-[#eeb868]/15 text-[#eeb868] px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider">
+                {post.category}
+              </span>
+            )}
+            {formattedDate && (
+              <span className="text-sm text-white/60">{formattedDate}</span>
+            )}
           </div>
-        </section>
-      )}
 
-      <section className="max-w-4xl mx-auto px-4 py-12">
-        <div className="text-sm text-white/70 mb-6 text-center md:text-left">
-          {post.category && <span>{post.category}</span>}
-          {post.date && <span> • {post.date}</span>}
+          {post.image && (
+            <img
+              src={post.image}
+              alt={post.title}
+              className="w-full mb-8 max-h-[300px] object-cover rounded-xl shadow-lg
+                md:float-left md:w-[42%] md:mr-8 md:mb-4 md:max-h-[380px]"
+            />
+          )}
+
+          <article
+            className="prose prose-invert prose-lg max-w-none
+              text-white/90 leading-relaxed
+              prose-headings:text-[#eeb868] prose-headings:font-bold
+              prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
+              prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
+              prose-p:my-5
+              prose-a:text-[#eeb868] prose-a:font-medium prose-a:no-underline hover:prose-a:underline
+              prose-strong:text-white
+              prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8
+              prose-ul:my-5 prose-li:marker:text-[#eeb868]
+              prose-blockquote:border-l-4 prose-blockquote:border-[#eeb868] prose-blockquote:bg-white/5 prose-blockquote:rounded-r-lg prose-blockquote:py-1 prose-blockquote:px-5 prose-blockquote:not-italic prose-blockquote:text-white/80
+              max-md:[&>p:first-of-type]:first-letter:float-left max-md:[&>p:first-of-type]:first-letter:text-6xl max-md:[&>p:first-of-type]:first-letter:font-bold max-md:[&>p:first-of-type]:first-letter:text-[#eeb868] max-md:[&>p:first-of-type]:first-letter:mr-3 max-md:[&>p:first-of-type]:first-letter:mt-1 max-md:[&>p:first-of-type]:first-letter:leading-none"
+            dangerouslySetInnerHTML={{ __html: post.content }}
+          />
         </div>
-
-        <article
-          className="prose prose-invert max-w-none text-white prose-img:rounded-lg prose-img:shadow-lg prose-a:text-[#eeb868] prose-a:underline"
-          dangerouslySetInnerHTML={{ __html: post.content }}
-        />
       </section>
 
       {/* Partage */}
