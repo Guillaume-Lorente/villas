@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { resizeAndConvertImage } from "@/utils/image";
+import MarkdownEditor from "@/components/MarkdownEditor";
 
 export default function CreateArticle() {
   const router = useRouter();
@@ -38,6 +39,11 @@ export default function CreateArticle() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!body || !body.trim()) {
+      alert("Le contenu de l'article est vide.");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("title", title);
@@ -133,13 +139,9 @@ export default function CreateArticle() {
 
         <div>
           <label className="block text-[#eeb868] mb-1">Contenu</label>
-          <textarea
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            rows={6}
-            required
-            className="w-full px-4 py-2 rounded bg-white text-[#223e50] border border-gray-300 resize-none"
-          ></textarea>
+          <div className="rounded overflow-hidden">
+            <MarkdownEditor initialValue="" onChange={setBody} />
+          </div>
         </div>
 
         <div>

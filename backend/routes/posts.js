@@ -89,7 +89,14 @@ router.put("/:slug", upload.single("image"), (req, res) => {
     return res.status(404).json({ error: "Fichier non trouvé" });
   }
 
+  // Conserver l'image actuelle par défaut : on lit le frontmatter existant
+  // et on ne remplace l'image que si une nouvelle est réellement envoyée.
   let imagePath = req.body.image || "";
+  if (!imagePath) {
+    const existingContent = fs.readFileSync(filePath, "utf8");
+    const { data } = matter(existingContent);
+    imagePath = data.image || "";
+  }
   if (req.file) {
     const ext = path.extname(req.file.originalname);
     const filename = `${slug}${ext}`;

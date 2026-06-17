@@ -8,7 +8,7 @@ export default async function BlogHomePage() {
   try {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
-      { next: { revalidate: 3600 } }
+      { cache: "no-store" }
     );
     if (res.ok) allPosts = await res.json();
   } catch {

@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { resizeAndConvertImage } from "@/utils/image";
 import { useParams } from "next/navigation";
+import MarkdownEditor from "@/components/MarkdownEditor";
 
 const API_BASE = process.env.NEXT_PUBLIC_API_BASE_URL;
 
@@ -18,6 +19,7 @@ export default function EditArticle() {
   const [body, setBody] = useState("");
   const [image, setImage] = useState(null);
   const [existingImage, setExistingImage] = useState("");
+  const [loaded, setLoaded] = useState(false);
 
   const fileInputRef = useRef();
 
@@ -30,8 +32,9 @@ export default function EditArticle() {
         setTitle(data.title);
         setCategory(data.category);
         setDate(data.date);
-        setBody(data.content);
+        setBody(data.content || "");
         setExistingImage(data.image);
+        setLoaded(true);
       });
   }, [slug]);
 
@@ -58,6 +61,11 @@ export default function EditArticle() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!body || !body.trim()) {
+      alert("Le contenu de l'article est vide.");
+      return;
+    }
 
     const formData = new FormData();
     formData.append("title", title);
@@ -132,13 +140,15 @@ export default function EditArticle() {
 
         <div>
           <label className="block text-[#eeb868] mb-1">Contenu</label>
-          <textarea
-            value={body}
-            onChange={(e) => setBody(e.target.value)}
-            rows={6}
-            required
-            className="w-full px-4 py-2 rounded bg-white text-[#223e50] border border-gray-300 resize-none"
-          ></textarea>
+          <div className="rounded overflow-hidden">
+            {loaded ? (
+              <MarkdownEditor initialValue={body} onChange={setBody} />
+            ) : (
+              <p className="text-white/60 bg-white/5 rounded p-4">
+                Chargement de l’éditeur…
+              </p>
+            )}
+          </div>
         </div>
 
         <div>
@@ -174,6 +184,10 @@ export default function EditArticle() {
               </p>
             )}
           </div>
+          <p className="text-xs text-white/50 mt-2">
+            La photo actuelle est conservée. Cliquez dessus pour la remplacer
+            (facultatif).
+          </p>
         </div>
 
         <div className="text-center">

@@ -1,5 +1,8 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import { remark } from "remark";
+import gfm from "remark-gfm";
+import html from "remark-html";
 import { SITE_URL, SITE_NAME, breadcrumbJsonLd } from "../../../lib/site";
 import JsonLd from "../../../components/JsonLd";
 
@@ -9,7 +12,7 @@ export async function generateMetadata({ params }) {
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/${slug}`,
-    { next: { revalidate: 3600 } }
+    { cache: "no-store" },
   );
 
   if (!res.ok) return {};
@@ -59,7 +62,7 @@ export default async function BlogArticlePage({ params }) {
 
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts/${slug}`,
-    { next: { revalidate: 3600 } }
+    { cache: "no-store" },
   );
 
   if (!res.ok) return notFound();
@@ -70,9 +73,33 @@ export default async function BlogArticlePage({ params }) {
     post.image = `${process.env.NEXT_PUBLIC_API_BASE_URL}${post.image}`;
   }
 
+  // ✅ Conversion markdown -> HTML : rend les liens cliquables et crawlables
+  // par Google, et produit de vraies balises (<p>, <h2>, <ul>, <a>...) que la
+  // typographie « prose » peut styler.
+  const contentHtml = post.content
+    ? (await remark().use(gfm).use(html).process(post.content))
+        .toString()
+        // Traitement des liens :
+        // - internes (/..., #..., mailto:) : inchangés (même onglet)
+        // - externes : ouverture dans un nouvel onglet (le lecteur ne quitte
+        //   pas le site) + ajout automatique de https:// si la rédactrice a
+        //   oublié le protocole (ex. www.exemple.com).
+        .replace(/<a href="([^"]+)"/g, (match, href) => {
+          if (
+            href.startsWith("/") ||
+            href.startsWith("#") ||
+            href.startsWith("mailto:")
+          ) {
+            return `<a href="${href}"`;
+          }
+          const url = /^https?:\/\//i.test(href) ? href : `https://${href}`;
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer"`;
+        })
+    : "";
+
   const resAll = await fetch(
     `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
-    { next: { revalidate: 3600 } }
+    { cache: "no-store" },
   );
 
   const allPosts = resAll.ok ? await resAll.json() : [];
@@ -135,14 +162,14 @@ export default async function BlogArticlePage({ params }) {
         ]}
       />
 
-      <section className="max-w-3xl mx-auto px-4 pt-6 pb-2 text-center">
+      <section className="max-w-7xl mx-auto px-4 pt-6 pb-2 text-center">
         <h1 className="text-3xl md:text-5xl font-bold text-[#eeb868] leading-tight">
           {post.title}
         </h1>
         <div className="mt-5 mx-auto w-16 h-[3px] bg-[#eeb868]/70 rounded-full"></div>
       </section>
 
-      <section className="max-w-3xl mx-auto px-4 py-8 md:py-12">
+      <section className="max-w-7xl mx-auto px-4 py-8 md:py-12">
         <div className="flow-root bg-white/5 border border-white/10 rounded-2xl shadow-xl px-6 py-8 md:px-10 md:py-12">
           {/* Méta : catégorie + date */}
           <div className="flex flex-wrap items-center gap-3 mb-8 justify-center md:justify-start">
@@ -161,7 +188,7 @@ export default async function BlogArticlePage({ params }) {
               src={post.image}
               alt={post.title}
               className="w-full mb-8 max-h-[300px] object-cover rounded-xl shadow-lg
-                md:float-left md:w-[42%] md:mr-8 md:mb-4 md:max-h-[380px]"
+                md:float-left md:w-[60%] md:mr-8 md:mb-4 md:max-h-[480px]"
             />
           )}
 
@@ -172,13 +199,13 @@ export default async function BlogArticlePage({ params }) {
               prose-h2:text-2xl prose-h2:mt-10 prose-h2:mb-4
               prose-h3:text-xl prose-h3:mt-8 prose-h3:mb-3
               prose-p:my-5
-              prose-a:text-[#eeb868] prose-a:font-medium prose-a:no-underline hover:prose-a:underline
+              prose-a:text-[#eeb868] prose-a:font-medium prose-a:underline prose-a:underline-offset-2 hover:prose-a:text-[#f5cd8a]
               prose-strong:text-white
               prose-img:rounded-xl prose-img:shadow-lg prose-img:my-8
               prose-ul:my-5 prose-li:marker:text-[#eeb868]
               prose-blockquote:border-l-4 prose-blockquote:border-[#eeb868] prose-blockquote:bg-white/5 prose-blockquote:rounded-r-lg prose-blockquote:py-1 prose-blockquote:px-5 prose-blockquote:not-italic prose-blockquote:text-white/80
               max-md:[&>p:first-of-type]:first-letter:float-left max-md:[&>p:first-of-type]:first-letter:text-6xl max-md:[&>p:first-of-type]:first-letter:font-bold max-md:[&>p:first-of-type]:first-letter:text-[#eeb868] max-md:[&>p:first-of-type]:first-letter:mr-3 max-md:[&>p:first-of-type]:first-letter:mt-1 max-md:[&>p:first-of-type]:first-letter:leading-none"
-            dangerouslySetInnerHTML={{ __html: post.content }}
+            dangerouslySetInnerHTML={{ __html: contentHtml }}
           />
         </div>
       </section>
@@ -207,7 +234,7 @@ export default async function BlogArticlePage({ params }) {
           </a>
           <a
             href={`mailto:?subject=${encodeURIComponent(
-              post.title
+              post.title,
             )}&body=Je vous recommande cet article : ${pageUrl}`}
             className="bg-[#eeb868] px-4 py-2 rounded text-[#223e50] hover:bg-[#dca248]"
           >

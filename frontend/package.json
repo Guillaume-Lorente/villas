@@ -11,6 +11,7 @@
   "dependencies": {
     "@headlessui/react": "^2.2.5",
     "@tailwindcss/typography": "^0.5.16",
+    "@toast-ui/editor": "^3.2.2",
     "date-fns": "^4.1.0",
     "framer-motion": "^12.22.0",
     "gray-matter": "^4.0.3",
@@ -26,6 +27,7 @@
     "react-leaflet": "^5.0.0",
     "react-select": "^5.10.2",
     "remark": "^15.0.1",
+    "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "swiper": "^11.2.8",
     "yet-another-react-lightbox": "^3.23.3"
