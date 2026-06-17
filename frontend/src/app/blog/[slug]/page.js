@@ -85,15 +85,19 @@ export default async function BlogArticlePage({ params }) {
         //   pas le site) + ajout automatique de https:// si la rédactrice a
         //   oublié le protocole (ex. www.exemple.com).
         .replace(/<a href="([^"]+)"/g, (match, href) => {
+          // Couleur du site appliquée en ligne pour garantir l'affichage jaune
+          // (évite que le thème « prose-invert » ne l'écrase).
+          const style =
+            'style="color:#eeb868;text-decoration:underline;text-underline-offset:2px"';
           if (
             href.startsWith("/") ||
             href.startsWith("#") ||
             href.startsWith("mailto:")
           ) {
-            return `<a href="${href}"`;
+            return `<a href="${href}" ${style}`;
           }
           const url = /^https?:\/\//i.test(href) ? href : `https://${href}`;
-          return `<a href="${url}" target="_blank" rel="noopener noreferrer"`;
+          return `<a href="${url}" target="_blank" rel="noopener noreferrer" ${style}`;
         })
     : "";
 
