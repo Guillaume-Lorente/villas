@@ -1,91 +1,44 @@
 import BlogListClient from "./blogListClient";
-import { ChevronLeft, ChevronRight } from "lucide-react";
-
-const POSTS_PER_PAGE = 6;
+import Image from "next/image";
 
 export default async function BlogHomePage() {
   let allPosts = [];
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
-      { cache: "no-store" }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`, {
+      cache: "no-store",
+    });
     if (res.ok) allPosts = await res.json();
   } catch {
     allPosts = [];
   }
 
-  const totalPages = Math.ceil(allPosts.length / POSTS_PER_PAGE);
-  const currentPage = 1;
-  const paginated = allPosts.slice(0, POSTS_PER_PAGE);
-
-  const generatePages = () => {
-    const pages = [];
-    if (totalPages <= 5) {
-      for (let i = 1; i <= totalPages; i++) pages.push(i);
-    } else {
-      pages.push(1);
-      if (currentPage > 3) pages.push("...");
-      const start = Math.max(2, currentPage - 1);
-      const end = Math.min(totalPages - 1, currentPage + 1);
-      for (let i = start; i <= end; i++) pages.push(i);
-      if (currentPage < totalPages - 2) pages.push("...");
-      pages.push(totalPages);
-    }
-    return pages;
-  };
-
-  const pages = generatePages();
-
   return (
     <div className="bg-[#223e50] text-white pb-16">
-      <BlogListClient posts={paginated} />
+      {/* Hero photo — uniquement sur la 1re page du blog */}
+      <section className="relative h-[600px] md:h-[700px] flex items-center justify-center">
+        <Image
+          src="/blog-hero.webp"
+          alt="Blog sur la Guadeloupe et la Côte sous le Vent"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-black/40" />
+        <div className="relative z-10 text-center px-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#eeb868] drop-shadow">
+            Le blog des Caraïbes
+          </h1>
+          <p className="text-white/90 mt-4 max-w-xl mx-auto text-base md:text-lg">
+            Bons plans, récits, plages et cuisine locale pour des vacances
+            inoubliables.
+          </p>
+        </div>
+      </section>
 
-      {/* Pagination */}
-      <div className="flex justify-center items-center flex-wrap gap-2 mt-16 text-sm">
-        {/* ← Précédent (invisible en page 1) */}
-        {currentPage > 1 && (
-          <a
-            href={currentPage === 2 ? "/blog" : `/blog/page/${currentPage - 1}`}
-            className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold bg-white text-[#223e50] border border-[#eeb868] hover:bg-[#eeb868] hover:text-[#223e50] transition duration-300 transform hover:scale-105 hover:shadow-md"
-          >
-            <ChevronLeft className="w-4 h-4" />
-            Précédent
-          </a>
-        )}
-
-        {/* Numéros */}
-        {pages.map((p, i) =>
-          p === "..." ? (
-            <span key={`ellipsis-${i}`} className="px-2 text-[#eeb868]">
-              ...
-            </span>
-          ) : (
-            <a
-              key={p}
-              href={p === 1 ? "/blog" : `/blog/page/${p}`}
-              className={`px-5 py-2 rounded-full font-semibold border transition duration-300 transform hover:scale-105 hover:shadow-md ${
-                p === currentPage
-                  ? "bg-[#eeb868] text-[#223e50] border-[#eeb868]"
-                  : "bg-white text-[#223e50] border-[#eeb868] hover:bg-[#eeb868] hover:text-[#223e50]"
-              }`}
-            >
-              {p}
-            </a>
-          )
-        )}
-
-        {/* → Suivant */}
-        {currentPage < totalPages && (
-          <a
-            href={`/blog/page/${currentPage + 1}`}
-            className="flex items-center gap-2 px-4 py-2 rounded-full font-semibold bg-white text-[#223e50] border border-[#eeb868] hover:bg-[#eeb868] hover:text-[#223e50] transition duration-300 transform hover:scale-105 hover:shadow-md"
-          >
-            Suivant
-            <ChevronRight className="w-4 h-4" />
-          </a>
-        )}
-      </div>
+      {/* Filtre + pagination gérés côté client sur l'ensemble des articles */}
+      <BlogListClient posts={allPosts} />
     </div>
   );
 }
