@@ -2,14 +2,18 @@
 
 import { createPortal } from "react-dom";
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import { X } from "lucide-react";
 import Image from "next/image";
-import { useLanguage } from "../context/LanguageContext";
+import { Link } from "@/i18n/navigation";
 
-export default function MobileMenuPortal({ isOpen, onClose, links }) {
+export default function MobileMenuPortal({
+  isOpen,
+  onClose,
+  links,
+  locale,
+  onSwitchLocale,
+}) {
   const [mounted, setMounted] = useState(false);
-  const { setLocale } = useLanguage();
 
   useEffect(() => setMounted(true), []);
 
@@ -76,7 +80,14 @@ export default function MobileMenuPortal({ isOpen, onClose, links }) {
 
         {/* Drapeaux de langue */}
         <div className="flex justify-center space-x-4 mb-4">
-          <button onClick={() => setLocale("fr")} aria-label="Langue française">
+          <button
+            onClick={() => {
+              onSwitchLocale("fr");
+              onClose();
+            }}
+            aria-label="Langue française"
+            className={locale === "fr" ? "ring-2 ring-[#f3a94b] rounded" : ""}
+          >
             <Image
               src="/icons/drapeau-fr.png"
               alt="FR"
@@ -84,7 +95,14 @@ export default function MobileMenuPortal({ isOpen, onClose, links }) {
               height={20}
             />
           </button>
-          <button onClick={() => setLocale("en")} aria-label="Langue anglaise">
+          <button
+            onClick={() => {
+              onSwitchLocale("en");
+              onClose();
+            }}
+            aria-label="Langue anglaise"
+            className={locale === "en" ? "ring-2 ring-[#f3a94b] rounded" : ""}
+          >
             <Image
               src="/icons/drapeau-en.png"
               alt="EN"

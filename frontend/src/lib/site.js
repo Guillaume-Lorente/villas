@@ -117,3 +117,14 @@ export function breadcrumbJsonLd(items) {
     })),
   };
 }
+
+// Alternates SEO (canonical + hreflang) pour une page bilingue.
+// path : chemin relatif SANS préfixe de langue (ex. "/villas/akamapa", "/").
+export function localizedAlternates(locale, path) {
+  const fr = path;
+  const en = path === "/" ? "/en" : `/en${path}`;
+  return {
+    canonical: locale === "en" ? en : fr,
+    languages: { fr, en, "x-default": fr },
+  };
+}

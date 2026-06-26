@@ -1,26 +1,29 @@
 import { SITE_URL } from "../lib/site";
 
-// Render on each request so the sitemap always reflects the blog articles
-// currently published, even if the backend was unreachable at build time.
-// The /api/posts fetch is still cached (revalidate 1h) to avoid hammering it.
+// Rendu à chaque requête pour refléter les articles de blog publiés.
 export const dynamic = "force-dynamic";
 
-const STATIC_ROUTES = [
+// Pages commerciales : disponibles en français ET en anglais (hreflang).
+const BILINGUAL_ROUTES = [
   { path: "/", changefreq: "weekly", priority: 1.0 },
   { path: "/villas/akamapa", changefreq: "weekly", priority: 0.9 },
   { path: "/villas/iguana", changefreq: "weekly", priority: 0.9 },
   { path: "/villas/tilamp-tilamp", changefreq: "weekly", priority: 0.9 },
-  { path: "/blog", changefreq: "weekly", priority: 0.7 },
   { path: "/contact", changefreq: "monthly", priority: 0.6 },
   { path: "/infos-pratiques", changefreq: "monthly", priority: 0.6 },
 ];
 
+// Le blog n'existe qu'en français.
+const FR_ONLY_ROUTES = [{ path: "/blog", changefreq: "weekly", priority: 0.7 }];
+
+const frUrl = (path) => `${SITE_URL}${path}`;
+const enUrl = (path) => (path === "/" ? `${SITE_URL}/en` : `${SITE_URL}/en${path}`);
+
 async function getPosts() {
   try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`,
-      { next: { revalidate: 3600 } }
-    );
+    const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}/api/posts`, {
+      next: { revalidate: 3600 },
+    });
     if (!res.ok) return [];
     const posts = await res.json();
     return Array.isArray(posts) ? posts : [];
@@ -32,8 +35,28 @@ async function getPosts() {
 export default async function sitemap() {
   const now = new Date();
 
-  const staticEntries = STATIC_ROUTES.map((route) => ({
-    url: `${SITE_URL}${route.path}`,
+  // Pages bilingues : on déclare la version FR et la version EN, chacune
+  // avec les liens hreflang vers l'autre langue + x-default (FR).
+  const bilingualEntries = BILINGUAL_ROUTES.flatMap((route) => {
+    const languages = {
+      fr: frUrl(route.path),
+      en: enUrl(route.path),
+      "x-default": frUrl(route.path),
+    };
+    const shared = {
+      lastModified: now,
+      changeFrequency: route.changefreq,
+      priority: route.priority,
+      alternates: { languages },
+    };
+    return [
+      { url: frUrl(route.path), ...shared },
+      { url: enUrl(route.path), ...shared },
+    ];
+  });
+
+  const frOnlyEntries = FR_ONLY_ROUTES.map((route) => ({
+    url: frUrl(route.path),
     lastModified: now,
     changeFrequency: route.changefreq,
     priority: route.priority,
@@ -49,5 +72,5 @@ export default async function sitemap() {
       priority: 0.6,
     }));
 
-  return [...staticEntries, ...blogEntries];
+  return [...bilingualEntries, ...frOnlyEntries, ...blogEntries];
 }

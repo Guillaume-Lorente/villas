@@ -1,11 +1,12 @@
 "use client";
 
 import { Facebook, Instagram, Youtube } from "lucide-react";
-import { useLanguage } from "../context/LanguageContext";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
-  const { t } = useLanguage();
+  const t = useTranslations();
 
   return (
     <footer className="bg-black text-gray-300">
@@ -46,15 +47,15 @@ export default function Footer() {
         </div>
 
         <div className="flex space-x-4 mt-4 md:mt-0">
-          <a href="/mentions-legales" className="hover-jaune">
+          <Link href="/mentions-legales" className="hover-jaune">
             {t("footer.mentions")}
-          </a>
-          <a href="/contact" className="hover-jaune">
+          </Link>
+          <Link href="/contact" className="hover-jaune">
             {t("footer.contact")}
-          </a>
-          <a href="/cgv" className="hover-jaune">
+          </Link>
+          <Link href="/cgv" className="hover-jaune">
             {t("footer.cgv")}
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

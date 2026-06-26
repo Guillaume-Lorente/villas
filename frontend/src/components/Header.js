@@ -1,26 +1,33 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import { Menu } from "lucide-react";
+import { useTranslations, useLocale } from "next-intl";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import MobileMenuPortal from "./MobileMenuPortal";
-import { useLanguage } from "../context/LanguageContext";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const lastScroll = useRef(0);
-  const { locale, setLocale, t } = useLanguage();
 
+  const t = useTranslations("header");
+  const locale = useLocale();
+  const pathname = usePathname();
+  const router = useRouter();
+
+  const switchLocale = (next) => router.replace(pathname, { locale: next });
+
+  // Le blog est en français uniquement : on ne l'affiche pas en anglais.
   const links = [
-    { label: t("header.akamapa"), href: "/villas/akamapa" },
-    { label: t("header.tilamp"), href: "/villas/tilamp-tilamp" },
-    { label: t("header.iguana"), href: "/villas/iguana" },
-    { label: t("header.infos"), href: "/infos-pratiques" },
-    { label: t("header.blog"), href: "/blog" },
-    { label: t("header.contact"), href: "/contact" },
+    { label: t("akamapa"), href: "/villas/akamapa" },
+    { label: t("tilamp"), href: "/villas/tilamp-tilamp" },
+    { label: t("iguana"), href: "/villas/iguana" },
+    { label: t("infos"), href: "/infos-pratiques" },
+    ...(locale === "fr" ? [{ label: t("blog"), href: "/blog" }] : []),
+    { label: t("contact"), href: "/contact" },
   ];
 
   useEffect(() => {
@@ -86,8 +93,9 @@ export default function Header() {
             {/* Language switcher */}
             <div className="flex items-center space-x-2 ml-6">
               <button
-                onClick={() => setLocale("fr")}
+                onClick={() => switchLocale("fr")}
                 aria-label="Passer le site en français"
+                className={locale === "fr" ? "ring-2 ring-[#eeb868] rounded" : ""}
               >
                 <Image
                   src="/icons/drapeau-fr.png"
@@ -97,8 +105,9 @@ export default function Header() {
                 />
               </button>
               <button
-                onClick={() => setLocale("en")}
+                onClick={() => switchLocale("en")}
                 aria-label="Switch site to English"
+                className={locale === "en" ? "ring-2 ring-[#eeb868] rounded" : ""}
               >
                 <Image
                   src="/icons/drapeau-en.png"
@@ -127,6 +136,8 @@ export default function Header() {
         isOpen={menuOpen}
         onClose={() => setMenuOpen(false)}
         links={links}
+        locale={locale}
+        onSwitchLocale={switchLocale}
       />
     </>
   );

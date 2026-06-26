@@ -1,0 +1,148 @@
+"use client";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+
+export default function PromoAdminPage() {
+  const [config, setConfig] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => {
+    const fetchConfig = async () => {
+      try {
+        const res = await fetch(
+          `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`,
+          { credentials: "include" }
+        );
+        const data = await res.json();
+        setConfig(data);
+      } catch (err) {
+        console.error("Erreur chargement promoConfig:", err);
+      }
+      setLoading(false);
+    };
+    fetchConfig();
+  }, []);
+
+  const handleHomepageChange = (field, value) => {
+    setConfig((prev) => ({
+      ...prev,
+      homepage: {
+        ...prev.homepage,
+        [field]: value,
+      },
+    }));
+  };
+
+  const handleVillaChange = (villaId, field, value) => {
+    setConfig((prev) => ({
+      ...prev,
+      villas: {
+        ...prev.villas,
+        [villaId]: {
+          ...prev.villas[villaId],
+          [field]: value,
+        },
+      },
+    }));
+  };
+
+  const handleSave = async () => {
+    setSaving(true);
+    try {
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_BASE_URL}/api/promo`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(config),
+          credentials: "include",
+        }
+      );
+
+      if (res.ok) {
+        alert("✅ Bannières mises à jour !");
+      } else {
+        alert("❌ Une erreur est survenue.");
+      }
+    } catch (err) {
+      console.error("Erreur sauvegarde promoConfig:", err);
+      alert("❌ Une erreur est survenue.");
+    }
+    setSaving(false);
+  };
+
+  if (loading) return <p className="p-4 text-white">Chargement...</p>;
+
+  return (
+    <div className="max-w-2xl mx-auto pt-32 px-4 text-white">
+      <h1 className="text-3xl font-bold mb-6 text-[#eeb868]">
+        Gestion des bannières promo
+      </h1>
+
+      <div className="bg-white/10 p-6 rounded-lg space-y-4">
+        {/* Bannière accueil */}
+        <label className="flex items-center gap-2">
+          <input
+            type="checkbox"
+            checked={config.homepage?.active || false}
+            onChange={(e) =>
+              handleHomepageChange("active", e.target.checked)
+            }
+          />
+          Activer la bannière d’accueil
+        </label>
+        <textarea
+          className="w-full px-4 py-2 rounded text-[#eeb868]"
+          value={config.homepage?.message || ""}
+          onChange={(e) =>
+            handleHomepageChange("message", e.target.value)
+          }
+          placeholder="Texte de la bannière d’accueil"
+        />
+
+        {/* Bannières villas */}
+        {[1, 2, 3].map((id) => (
+          <div key={id} className="border-t border-white/30 pt-4">
+            <h2 className="font-bold text-[#eeb868] mb-2">Villa {id}</h2>
+            <label className="flex items-center gap-2 mb-2">
+              <input
+                type="checkbox"
+                checked={config.villas?.[id]?.active || false}
+                onChange={(e) =>
+                  handleVillaChange(id, "active", e.target.checked)
+                }
+              />
+              Activer la bannière
+            </label>
+            <textarea
+              className="w-full px-4 py-2 rounded text-[#eeb868]"
+              value={config.villas?.[id]?.message || ""}
+              onChange={(e) =>
+                handleVillaChange(id, "message", e.target.value)
+              }
+              placeholder={`Message promo pour Villa ${id}`}
+            />
+          </div>
+        ))}
+
+        <button
+          onClick={handleSave}
+          className="w-full bg-[#eeb868] text-[#223e50] font-bold py-2 rounded hover:bg-[#c6943d] transition"
+          disabled={saving}
+        >
+          {saving ? "Enregistrement..." : "Enregistrer les modifications"}
+        </button>
+      </div>
+
+      <div className="mt-10 text-center">
+        <Link
+          href="/admin"
+          className="inline-block bg-[#eeb868] text-[#223e50] px-4 py-2 rounded font-semibold shadow hover:bg-[#b97d28] transition"
+        >
+          Retour au dashboard
+        </Link>
+      </div>
+    </div>
+  );
+}

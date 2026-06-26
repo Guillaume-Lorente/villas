@@ -1,7 +1,7 @@
 "use client";
 
 import dynamic from "next/dynamic";
-import { useLanguage } from "../context/LanguageContext";
+import { useTranslations } from "next-intl";
 
 // Dynamically import Map component with SSR disabled
 const Map = dynamic(() => import("./Map"), {
@@ -9,7 +9,7 @@ const Map = dynamic(() => import("./Map"), {
 });
 
 export default function MapSection() {
-  const { t } = useLanguage();
+  const t = useTranslations();
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-12">

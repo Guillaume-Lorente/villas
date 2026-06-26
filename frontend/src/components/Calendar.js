@@ -22,7 +22,8 @@ import Select from "react-select";
 import dynamic from "next/dynamic";
 import { cache } from "react";
 import { fr } from "date-fns/locale";
-import { useLanguage } from "@/context/LanguageContext";
+import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 import { event as fbEvent } from "@/lib/fpixel";
 
 const RoomSelect = dynamic(() => import("./RoomSelectClient"), {
@@ -104,7 +105,7 @@ export default function Calendar({ villaId, villaName }) {
   };
 
   const options = roomOptionsByVilla[villaId] || [];
-  const { t } = useLanguage();
+  const t = useTranslations();
 
   /* ✅ OPTIONS MÉMORISÉES */
   const translatedOptions = useMemo(() => {
@@ -339,12 +340,12 @@ export default function Calendar({ villaId, villaName }) {
         <div className="mt-4 text-xs text-center text-red-500 font-medium">
           <p>
             {t("calendar.errorMessage")}{" "}
-            <a
+            <Link
               href="/contact"
               className="underline text-[#eeb868] hover:text-[#c6943d] transition"
             >
               {t("calendar.contactLink")}
-            </a>
+            </Link>
             .
           </p>
         </div>
