@@ -167,44 +167,25 @@ export default function HomePage() {
           </div>
         </FadeUp>
       </section>
-      <details
-        aria-label="Informations détaillées sur les villas à Deshaies"
-        className="hidden md:block max-w-4xl mx-auto px-4 pb-16 text-sm text-white/80"
+      {/* Contenu SEO visible (toutes tailles d'écran) et localisé */}
+      <section
+        aria-label="Informations sur la location de villas à Deshaies"
+        className="max-w-4xl mx-auto px-4 py-16 text-white/85"
       >
-        <summary className="cursor-pointer text-[#eeb868] font-semibold">
-          En savoir plus sur la location de villas à Deshaies
-        </summary>
-        <div className="mt-3 space-y-3">
-          <p>
-            Situées à seulement 200 mètres de la célèbre{" "}
-            <strong>plage de Grande Anse</strong>, nos villas de charme vous
-            offrent une expérience unique au cœur de <strong>Deshaies</strong>,
-            sur la côte ouest de la <strong>Basse-Terre</strong> en Guadeloupe.
-          </p>
-          <p>
-            Que vous recherchiez une{" "}
-            <strong>location de villa avec piscine</strong>, un hébergement
-            proche de la plage ou un lieu calme en pleine nature tropicale, les{" "}
-            <strong>Villas Grande Anse</strong> sont le choix idéal pour vos
-            vacances. Nos hébergements sont entièrement équipés, ventilés
-            naturellement et décorés avec goût, dans un style alliant confort
-            moderne et authenticité créole.
-          </p>
-          <p>
-            En séjournant dans nos villas, vous êtes à proximité des plus beaux
-            sites de la Guadeloupe : <strong>réserve Cousteau</strong>,{" "}
-            <strong>jardin botanique de Deshaies</strong>,{" "}
-            <strong>plage de la Perle</strong>, cascades, sentiers de randonnée
-            et marchés locaux.
-          </p>
-          <p>
-            Réservez dès maintenant votre{" "}
-            <strong>villa de vacances à Deshaies</strong> et vivez un séjour
-            inoubliable en Guadeloupe, entre mer turquoise, nature luxuriante et
-            accueil chaleureux.
-          </p>
-        </div>
-      </details>
+        <FadeUp>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#eeb868] mb-6 text-center">
+            {t("home.about.title")}
+          </h2>
+        </FadeUp>
+        <FadeUp delay={0.1}>
+          <div className="space-y-4 leading-relaxed">
+            <p>{t("home.about.p1")}</p>
+            <p>{t("home.about.p2")}</p>
+            <p>{t("home.about.p3")}</p>
+            <p>{t("home.about.p4")}</p>
+          </div>
+        </FadeUp>
+      </section>
     </main>
   );
 }
