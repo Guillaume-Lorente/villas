@@ -31,6 +31,39 @@
       "p2": "Whether you are looking for a villa rental with a private pool, accommodation near the beach or a quiet spot surrounded by tropical nature, Villas Grande Anse are the ideal choice for your holiday. Our villas are fully equipped, naturally ventilated and tastefully decorated, blending modern comfort with authentic Creole charm.",
       "p3": "Staying in our villas puts you close to Guadeloupe's most beautiful sites: the Cousteau Reserve, the Deshaies Botanical Garden, La Perle beach, waterfalls, hiking trails and local markets.",
       "p4": "Book your holiday villa in Deshaies now and enjoy an unforgettable stay in Guadeloupe, between turquoise sea, lush nature and a warm welcome."
+    },
+    "faq": {
+      "title": "Frequently asked questions",
+      "items": [
+        {
+          "q": "Where are Villas Grande Anse located?",
+          "a": "Our villas are in Deshaies, on the leeward coast of Guadeloupe (Basse-Terre), set within a 3,000 m² landscaped property, just 200 metres from Grande Anse beach."
+        },
+        {
+          "q": "Do the villas have a private pool?",
+          "a": "Yes, each of our three villas (Akamapa, Iguana and Tilamp Tilamp) has its own private pool."
+        },
+        {
+          "q": "How many guests can each villa accommodate?",
+          "a": "Villa Akamapa sleeps up to 6 guests, Villa Iguana up to 8 guests and Villa Tilamp Tilamp up to 11 guests."
+        },
+        {
+          "q": "How far is Grande Anse beach?",
+          "a": "The large sandy beach of Grande Anse is about 200 metres from the villas, just a few minutes' walk away."
+        },
+        {
+          "q": "What amenities are included in the villas?",
+          "a": "Each villa offers Wi-Fi, air conditioning, a fully equipped kitchen, private parking and a tropical garden."
+        },
+        {
+          "q": "Can I book directly, without going through a platform?",
+          "a": "Yes, you can book directly with us through the website, with no platform fees. We reply personally to help organise your stay."
+        },
+        {
+          "q": "Do I need a car to stay in Deshaies?",
+          "a": "A car is strongly recommended to reach the villas and explore Guadeloupe (beaches, hikes, natural sites), as getting around the island is mostly done by car."
+        }
+      ]
     }
   },
   "map": {

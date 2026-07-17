@@ -1,4 +1,4 @@
-import { setRequestLocale } from "next-intl/server";
+import { setRequestLocale, getTranslations } from "next-intl/server";
 import {
   SITE_URL,
   SITE_NAME,
@@ -49,6 +49,17 @@ export default async function Page({ params }) {
   setRequestLocale(locale);
   const fr = locale === "fr";
 
+  const tFaq = await getTranslations({ locale, namespace: "home.faq" });
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: tFaq.raw("items").map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  };
+
   const lodgingJsonLd = {
     "@context": "https://schema.org",
     "@type": "LodgingBusiness",
@@ -83,7 +94,7 @@ export default async function Page({ params }) {
 
   return (
     <>
-      <JsonLd data={[lodgingJsonLd, websiteJsonLd]} />
+      <JsonLd data={[lodgingJsonLd, websiteJsonLd, faqJsonLd]} />
       <HomePage />
     </>
   );

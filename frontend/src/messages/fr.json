@@ -31,6 +31,39 @@
       "p2": "Que vous recherchiez une location de villa avec piscine, un hébergement proche de la plage ou un lieu calme en pleine nature tropicale, les Villas Grande Anse sont le choix idéal pour vos vacances. Nos hébergements sont entièrement équipés, ventilés naturellement et décorés avec goût, dans un style alliant confort moderne et authenticité créole.",
       "p3": "En séjournant dans nos villas, vous êtes à proximité des plus beaux sites de la Guadeloupe : réserve Cousteau, jardin botanique de Deshaies, plage de la Perle, cascades, sentiers de randonnée et marchés locaux.",
       "p4": "Réservez dès maintenant votre villa de vacances à Deshaies et vivez un séjour inoubliable en Guadeloupe, entre mer turquoise, nature luxuriante et accueil chaleureux."
+    },
+    "faq": {
+      "title": "Questions fréquentes",
+      "items": [
+        {
+          "q": "Où se situent les Villas Grande Anse ?",
+          "a": "Nos villas se trouvent à Deshaies, sur la Côte sous le Vent en Guadeloupe (Basse-Terre), au sein d'une propriété arborée de 3000 m², à seulement 200 mètres de la plage de Grande Anse."
+        },
+        {
+          "q": "Les villas ont-elles une piscine privée ?",
+          "a": "Oui, chacune de nos trois villas (Akamapa, Iguana et Tilamp Tilamp) dispose de sa propre piscine privée."
+        },
+        {
+          "q": "Combien de personnes peut-on accueillir dans chaque villa ?",
+          "a": "La Villa Akamapa accueille jusqu'à 6 personnes, la Villa Iguana jusqu'à 8 personnes et la Villa Tilamp Tilamp jusqu'à 11 personnes."
+        },
+        {
+          "q": "À quelle distance se trouve la plage de Grande Anse ?",
+          "a": "La grande plage de sable de Grande Anse est à environ 200 mètres des villas, accessible en quelques minutes à pied."
+        },
+        {
+          "q": "Quels équipements sont inclus dans les villas ?",
+          "a": "Chaque villa dispose du Wi-Fi, de la climatisation, d'une cuisine entièrement équipée, d'un parking privé et d'un jardin tropical."
+        },
+        {
+          "q": "Peut-on réserver en direct, sans passer par une plateforme ?",
+          "a": "Oui, vous pouvez réserver directement avec nous via le site, sans frais de plateforme. Nous vous répondons personnellement pour organiser votre séjour."
+        },
+        {
+          "q": "Faut-il une voiture pour séjourner à Deshaies ?",
+          "a": "Une voiture est vivement recommandée pour rejoindre les villas et explorer la Guadeloupe (plages, randonnées, sites naturels), les déplacements se faisant surtout en voiture sur l'île."
+        }
+      ]
     }
   },
   "map": {

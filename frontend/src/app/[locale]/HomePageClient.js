@@ -186,6 +186,30 @@ export default function HomePage() {
           </div>
         </FadeUp>
       </section>
+
+      {/* FAQ */}
+      <section
+        aria-label="Questions fréquentes sur la location de villas à Deshaies"
+        className="max-w-4xl mx-auto px-4 pb-20"
+      >
+        <FadeUp>
+          <h2 className="text-3xl sm:text-4xl font-bold text-[#eeb868] mb-8 text-center">
+            {t("home.faq.title")}
+          </h2>
+        </FadeUp>
+        <div className="space-y-4">
+          {t.raw("home.faq.items").map((item, i) => (
+            <FadeUp key={i} delay={i * 0.05}>
+              <div className="bg-white/5 border border-white/10 rounded-xl p-5">
+                <h3 className="text-lg font-semibold text-[#eeb868] mb-2">
+                  {item.q}
+                </h3>
+                <p className="text-white/85 leading-relaxed">{item.a}</p>
+              </div>
+            </FadeUp>
+          ))}
+        </div>
+      </section>
     </main>
   );
 }
