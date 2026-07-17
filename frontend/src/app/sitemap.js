@@ -4,11 +4,33 @@ import { SITE_URL } from "../lib/site";
 export const dynamic = "force-dynamic";
 
 // Pages commerciales : disponibles en français ET en anglais (hreflang).
+// `images` : photo(s) principale(s) déclarée(s) à Google (aide à l'indexation
+// des images → vignettes dans les résultats de recherche).
 const BILINGUAL_ROUTES = [
-  { path: "/", changefreq: "weekly", priority: 1.0 },
-  { path: "/villas/akamapa", changefreq: "weekly", priority: 0.9 },
-  { path: "/villas/iguana", changefreq: "weekly", priority: 0.9 },
-  { path: "/villas/tilamp-tilamp", changefreq: "weekly", priority: 0.9 },
+  {
+    path: "/",
+    changefreq: "weekly",
+    priority: 1.0,
+    images: ["/hero.webp", "/akamapa.webp", "/iguana.webp", "/tilamp-tilamp.webp"],
+  },
+  {
+    path: "/villas/akamapa",
+    changefreq: "weekly",
+    priority: 0.9,
+    images: ["/akamapa.webp"],
+  },
+  {
+    path: "/villas/iguana",
+    changefreq: "weekly",
+    priority: 0.9,
+    images: ["/iguana.webp"],
+  },
+  {
+    path: "/villas/tilamp-tilamp",
+    changefreq: "weekly",
+    priority: 0.9,
+    images: ["/tilamp-tilamp.webp"],
+  },
   { path: "/contact", changefreq: "monthly", priority: 0.6 },
   { path: "/infos-pratiques", changefreq: "monthly", priority: 0.6 },
 ];
@@ -43,11 +65,13 @@ export default async function sitemap() {
       en: enUrl(route.path),
       "x-default": frUrl(route.path),
     };
+    const images = route.images?.map((img) => `${SITE_URL}${img}`);
     const shared = {
       lastModified: now,
       changeFrequency: route.changefreq,
       priority: route.priority,
       alternates: { languages },
+      ...(images ? { images } : {}),
     };
     return [
       { url: frUrl(route.path), ...shared },
@@ -63,14 +87,22 @@ export default async function sitemap() {
   }));
 
   const posts = await getPosts();
+  const apiBase = process.env.NEXT_PUBLIC_API_BASE_URL || "";
   const blogEntries = posts
     .filter((post) => post.slug)
-    .map((post) => ({
-      url: `${SITE_URL}/blog/${post.slug}`,
-      lastModified: post.date ? new Date(post.date) : now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    }));
+    .map((post) => {
+      const img =
+        post.image && !post.image.startsWith("http")
+          ? `${apiBase}${post.image}`
+          : post.image;
+      return {
+        url: `${SITE_URL}/blog/${post.slug}`,
+        lastModified: post.date ? new Date(post.date) : now,
+        changeFrequency: "monthly",
+        priority: 0.6,
+        ...(img ? { images: [img] } : {}),
+      };
+    });
 
   return [...bilingualEntries, ...frOnlyEntries, ...blogEntries];
 }
