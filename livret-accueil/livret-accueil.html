@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Livret d'accueil — Villas Grande Anse</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --navy:#223e50;
+    --navy-soft:#2d4a5e;
+    --gold:#eeb868;
+    --gold-deep:#c6943d;
+    --cream:#faf6ee;
+    --cream-card:#f3ecdd;
+    --ink:#223e50;
+    --muted:#5d6f7b;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  @page{size:A4;margin:0;}
+  body{
+    font-family:'Lato',Arial,sans-serif;
+    color:var(--ink);
+    background:#54636d;
+    line-height:1.6;
+    -webkit-print-color-adjust:exact;
+    print-color-adjust:exact;
+  }
+  .page{
+    position:relative;
+    width:210mm;
+    height:297mm;
+    margin:0 auto 8mm;
+    background:var(--cream);
+    padding:20mm 18mm 16mm;
+    overflow:hidden;
+    box-shadow:0 6px 30px rgba(0,0,0,.3);
+  }
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:600;color:var(--navy);line-height:1.15;}
+  p{font-weight:400;}
+  .eyebrow{font-family:'Lato',sans-serif;font-weight:700;letter-spacing:.28em;text-transform:uppercase;font-size:10.5px;color:var(--gold-deep);}
+  .rule{width:54px;height:3px;background:var(--gold);border:none;margin:14px 0;}
+  .rule.center{margin:14px auto;}
+
+  /* Section header */
+  .sec-head{display:flex;align-items:flex-end;gap:16px;margin-bottom:8px;}
+  .sec-num{font-family:'Playfair Display',serif;font-size:58px;font-weight:700;color:var(--gold);line-height:.8;}
+  .sec-title{font-size:30px;}
+  .lead{font-size:13.5px;color:var(--muted);max-width:62ch;margin:6px 0 18px;}
+
+  /* Two columns */
+  .cols{column-count:2;column-gap:14mm;}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:9mm 12mm;}
+  .grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8mm;}
+
+  .item h3{font-size:15px;margin-bottom:3px;}
+  .item h3 .dot{color:var(--gold);margin-right:7px;}
+  .item p{font-size:12px;color:var(--muted);line-height:1.5;}
+  .block{break-inside:avoid;margin-bottom:7mm;}
+
+  /* Encadré */
+  .callout{background:var(--cream-card);border-left:4px solid var(--gold);padding:13px 16px;margin:6mm 0;break-inside:avoid;}
+  .callout h4{font-size:14px;margin-bottom:6px;color:var(--navy);}
+  .callout ul{list-style:none;font-size:12px;color:var(--muted);}
+  .callout li{padding-left:16px;position:relative;margin-bottom:3px;}
+  .callout li::before{content:"";position:absolute;left:0;top:7px;width:6px;height:6px;background:var(--gold);border-radius:50%;}
+
+  .pull{font-family:'Playfair Display',serif;font-style:italic;font-size:16px;color:var(--navy);border-top:1px solid var(--gold);border-bottom:1px solid var(--gold);padding:12px 0;margin:6mm 0;text-align:center;}
+
+  /* Photo placeholder */
+  .photo{background:linear-gradient(135deg,#33536a,#223e50);color:#9fb6c4;display:flex;align-items:center;justify-content:center;font-size:11px;letter-spacing:.05em;border-radius:6px;text-align:center;padding:10px;}
+
+  /* Footer */
+  .foot{position:absolute;left:18mm;right:18mm;bottom:10mm;display:flex;justify-content:space-between;align-items:center;font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);border-top:1px solid rgba(34,62,80,.18);padding-top:6px;}
+  .foot .g{color:var(--gold-deep);font-weight:700;}
+
+  /* ---- COVER ---- */
+  .cover{background:var(--navy);color:#fff;padding:0;display:flex;flex-direction:column;}
+  .cover .frame{flex:1;margin:9mm;border:1.5px solid rgba(238,184,104,.5);padding:16mm 14mm;display:flex;flex-direction:column;}
+  .cover .brand{font-family:'Playfair Display',serif;font-style:italic;font-size:22px;color:var(--gold);letter-spacing:.02em;}
+  .cover .brand small{display:block;font-style:normal;font-family:'Lato',sans-serif;font-weight:700;letter-spacing:.3em;font-size:10px;color:#9fb6c4;text-transform:uppercase;margin-top:6px;}
+  .cover .big{font-family:'Playfair Display',serif;font-size:72px;font-weight:600;color:#fff;line-height:1;margin-top:auto;}
+  .cover .big span{color:var(--gold);}
+  .cover .sub{font-size:13px;color:#cdd9e0;max-width:46ch;margin-top:18px;line-height:1.7;}
+  .cover .meta{margin-top:26px;display:flex;gap:10px;align-items:center;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);}
+  .cover .meta .sep{width:5px;height:5px;background:var(--gold);border-radius:50%;}
+  .cover .contact{margin-top:auto;padding-top:20px;border-top:1px solid rgba(255,255,255,.15);font-size:11.5px;color:#cdd9e0;}
+  .cover .contact b{color:#fff;font-weight:700;}
+
+  /* tables (bonnes adresses) */
+  table{width:100%;border-collapse:collapse;font-size:11.5px;margin-top:6px;}
+  th{background:var(--navy);color:var(--gold);text-align:left;padding:7px 9px;font-family:'Lato';font-weight:700;font-size:10px;letter-spacing:.08em;text-transform:uppercase;}
+  td{padding:8px 9px;border-bottom:1px solid #e4dcc9;color:var(--ink);vertical-align:top;}
+  tr:nth-child(even) td{background:#f6efe1;}
+  .fill{color:#b9ad92;font-style:italic;}
+
+  .urg{display:grid;grid-template-columns:1fr 1fr;gap:7mm 10mm;margin-top:4mm;}
+  .urg .u{display:flex;align-items:center;gap:12px;background:var(--cream-card);padding:11px 14px;border-radius:6px;}
+  .urg .num{font-family:'Playfair Display',serif;font-size:28px;font-weight:700;color:var(--gold-deep);min-width:54px;}
+  .urg .lbl{font-size:12px;color:var(--navy);font-weight:700;}
+  .urg .lbl small{display:block;font-weight:400;color:var(--muted);font-size:11px;}
+
+  .check{list-style:none;font-size:12.5px;}
+  .check li{padding:7px 0 7px 26px;position:relative;border-bottom:1px solid #e8e0cf;color:var(--ink);}
+  .check li::before{content:"";position:absolute;left:0;top:9px;width:13px;height:13px;border:1.5px solid var(--gold-deep);border-radius:3px;}
+
+  @media print{
+    body{background:none;}
+    .page{margin:0;box-shadow:none;page-break-after:always;}
+    .page:last-child{page-break-after:auto;}
+    .screen-only{display:none;}
+  }
+  .screen-only{max-width:210mm;margin:14px auto;color:#dfe6ea;font-size:13px;text-align:center;font-family:'Lato',sans-serif;}
+  .screen-only b{color:var(--gold);}
+</style>
+</head>
+<body>
+
+<div class="screen-only">
+  Aperçu du livret — pour obtenir le PDF : <b>Imprimer</b> (Ctrl+P) → Destination <b>« Enregistrer au format PDF »</b> → Marges <b>« Aucune »</b> → cocher <b>« Graphiques d'arrière-plan »</b>.
+</div>
+
+<!-- ================= PAGE 1 — COUVERTURE ================= -->
+<section class="page cover">
+  <div class="frame">
+    <div class="brand">Villas Grande Anse<small>Deshaies · Guadeloupe</small></div>
+    <h1 class="big">Bien<span>venue</span></h1>
+    <p class="sub">Nous sommes heureux de vous accueillir à Deshaies, sur la Côte sous le Vent. Ce livret rassemble quelques informations utiles pour profiter pleinement de votre séjour : conseils pratiques, plages, activités et bonnes adresses.</p>
+    <div class="meta"><span>Livret d'accueil</span><span class="sep"></span><span>Votre séjour</span></div>
+    <div class="contact">
+      Un souci, une question pendant votre séjour ?<br />
+      <b>Contact sur place :</b> ____________________ &nbsp;·&nbsp; <b>Wi-Fi :</b> ____________________
+    </div>
+  </div>
+</section>
+
+<!-- ================= PAGE 2 — INFOS PRATIQUES ================= -->
+<section class="page">
+  <div class="eyebrow">Votre séjour</div>
+  <div class="sec-head">
+    <div class="sec-num">01</div>
+    <h2 class="sec-title">Infos pratiques</h2>
+  </div>
+  <hr class="rule" />
+  <p class="lead">Tout ce qu'il faut savoir au quotidien pour que votre séjour se déroule en toute simplicité.</p>
+
+  <div class="grid2">
+    <div class="item block"><h3><span class="dot">·</span>Wi-Fi</h3><p>Le code est affiché dans la cuisine (et en couverture de ce livret). Le réseau couvre l'ensemble de la villa.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Piscine</h3><p>Baignade sous votre responsabilité. Surveillez les enfants en permanence et évitez tout objet en verre aux abords.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Climatisation</h3><p>Pour son efficacité, fermez portes et fenêtres lorsqu'elle fonctionne, et éteignez-la en quittant les pièces.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Moustiques</h3><p>Fermez les ouvertures à la tombée du soir. Répulsif et diffuseurs sont vos meilleurs alliés en soirée.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Déchets</h3><p>Merci de trier et de sortir les poubelles les jours de collecte : ____________________.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Eau &amp; électricité</h3><p>Ressources précieuses sur l'île : un usage raisonnable est apprécié. De brèves coupures peuvent survenir.</p></div>
+  </div>
+
+  <div class="callout">
+    <h4>Les bons réflexes</h4>
+    <ul>
+      <li>Climatisation portes et fenêtres fermées.</li>
+      <li>Surveiller les enfants autour de la piscine, pas de verre à proximité.</li>
+      <li>Ne pas laisser de nourriture à l'extérieur.</li>
+      <li>Éteindre lumières et climatisation en quittant les pièces.</li>
+      <li>Nous prévenir en cas de souci technique : on s'en occupe.</li>
+    </ul>
+  </div>
+
+  <div class="foot"><span class="g">Villas Grande Anse</span><span>Deshaies · Guadeloupe</span><span>— 2 —</span></div>
+</section>
+
+<!-- ================= PAGE 3 — AUTOUR DE VOUS ================= -->
+<section class="page">
+  <div class="eyebrow">À deux pas</div>
+  <div class="sec-head">
+    <div class="sec-num">02</div>
+    <h2 class="sec-title">Autour de vous</h2>
+  </div>
+  <hr class="rule" />
+  <p class="lead">Deshaies, élu l'un des plus beaux villages de Guadeloupe : tout l'essentiel se trouve à quelques minutes.</p>
+
+  <div class="photo" style="height:46mm;margin-bottom:7mm;">Photo — Le bourg de Deshaies / la plage de Grande Anse</div>
+
+  <div class="grid2">
+    <div class="item block"><h3><span class="dot">·</span>Plage de Grande Anse</h3><p>La grande plage de sable doré, à quelques minutes de la villa. Idéale pour la baignade et les couchers de soleil.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Le bourg de Deshaies</h3><p>Restaurants, petites boutiques, port de pêche et ambiance créole authentique.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Commerces de proximité</h3><p>Supérette et boulangerie pour les courses du quotidien. (Adresses sur la feuille « Bonnes adresses ».)</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Distributeur &amp; pharmacie</h3><p>Disponibles dans le bourg. Pensez à anticiper le week-end et les horaires locaux.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Marché &amp; produits locaux</h3><p>Fruits, épices et spécialités à découvrir auprès des producteurs et au marché.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Restaurants du secteur</h3><p>Une jolie sélection vous attend dans le bourg et alentour (voir feuille séparée).</p></div>
+  </div>
+
+  <div class="callout">
+    <h4>Notre conseil pour le premier soir</h4>
+    <ul><li>Profitez du coucher de soleil à Grande Anse, puis dînez dans le bourg ou à proximité.</li></ul>
+  </div>
+
+  <div class="foot"><span class="g">Villas Grande Anse</span><span>Deshaies · Guadeloupe</span><span>— 3 —</span></div>
+</section>
+
+<!-- ================= PAGE 4 — PLAGES & ACTIVITÉS ================= -->
+<section class="page">
+  <div class="eyebrow">À voir, à faire</div>
+  <div class="sec-head">
+    <div class="sec-num">03</div>
+    <h2 class="sec-title">Plages &amp; activités</h2>
+  </div>
+  <hr class="rule" />
+  <p class="lead">Une sélection pour goûter au meilleur de la Côte sous le Vent, sans courir partout.</p>
+
+  <h3 style="font-size:16px;margin-bottom:6px;">Les plus belles plages</h3>
+  <div class="grid2">
+    <div class="item block"><h3><span class="dot">·</span>Grande Anse</h3><p>La plus grande du secteur. Baignade, farniente, couchers de soleil. Baignade selon la mer.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>La Perle</h3><p>Sauvage et spectaculaire. Superbe pour la balade ; prudence aux courants par mer formée.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Leroux</h3><p>Discrète et ombragée, parfaite pour une pause au calme en famille.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Petite Anse</h3><p>Crique conviviale, agréable pour la baignade et la détente.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Cluny</h3><p>Belle plage de la côte, idéale pour une journée nature.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Snorkeling</h3><p>Masque et tuba pour observer poissons et coraux près des pointes rocheuses.</p></div>
+  </div>
+
+  <h3 style="font-size:16px;margin:6mm 0 6px;">Activités &amp; découvertes</h3>
+  <div class="grid3">
+    <div class="item"><p><b style="color:var(--navy)">Jardin Botanique</b><br />de Deshaies</p></div>
+    <div class="item"><p><b style="color:var(--navy)">Réserve Cousteau</b><br />plongée &amp; snorkeling</p></div>
+    <div class="item"><p><b style="color:var(--navy)">Cascades &amp; rivières</b><br />fraîcheur tropicale</p></div>
+    <div class="item"><p><b style="color:var(--navy)">Route de la Traversée</b><br />cœur de la forêt</p></div>
+    <div class="item"><p><b style="color:var(--navy)">Randonnées</b><br />littoral &amp; montagne</p></div>
+    <div class="item"><p><b style="color:var(--navy)">La Soufrière</b><br />le volcan</p></div>
+    <div class="item"><p><b style="color:var(--navy)">Sorties bateau</b><br />mangrove &amp; îlets</p></div>
+    <div class="item"><p><b style="color:var(--navy)">Marchés locaux</b><br />épices &amp; saveurs</p></div>
+    <div class="item"><p><b style="color:var(--navy)">Plongée</b><br />les fonds caribéens</p></div>
+  </div>
+
+  <div class="foot"><span class="g">Villas Grande Anse</span><span>Deshaies · Guadeloupe</span><span>— 4 —</span></div>
+</section>
+
+<!-- ================= PAGE 5 — CONSEILS GUADELOUPE ================= -->
+<section class="page">
+  <div class="eyebrow">Bon à savoir</div>
+  <div class="sec-head">
+    <div class="sec-num">04</div>
+    <h2 class="sec-title">Conseils Guadeloupe</h2>
+  </div>
+  <hr class="rule" />
+  <p class="lead">Quelques repères pour profiter sereinement de l'île, surtout lors d'un premier séjour.</p>
+
+  <div class="grid2">
+    <div class="item block"><h3><span class="dot">·</span>Soleil &amp; hydratation</h3><p>Le soleil est fort, même par temps couvert. Hydratez-vous et protégez-vous, surtout les enfants.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Baignade &amp; courants</h3><p>Renseignez-vous sur l'état de la mer. Certaines plages exposées présentent des courants.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Routes &amp; trajets</h3><p>Les distances sont courtes mais les routes sinueuses : comptez plus de temps que prévu.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Pluie tropicale</h3><p>Brève et passagère le plus souvent. Elle laisse vite place au soleil : pas d'inquiétude.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Horaires locaux</h3><p>Commerces et restaurants ont des horaires variables. Mieux vaut anticiper, surtout le dimanche.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Sargasses</h3><p>Selon les périodes, des algues peuvent toucher certaines plages. D'autres restent épargnées.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Faune &amp; nature</h3><p>Respectez la nature et la faune locale. Observez sans nourrir ni déranger les animaux.</p></div>
+    <div class="item block"><h3><span class="dot">·</span>Coupures éventuelles</h3><p>De brèves coupures d'eau ou d'électricité peuvent arriver : rien d'anormal sur l'île.</p></div>
+  </div>
+
+  <p class="pull">« Le soleil est fort, même par temps couvert. Pensez à vous hydrater régulièrement et à vous protéger, surtout avec les enfants. »</p>
+
+  <div class="foot"><span class="g">Villas Grande Anse</span><span>Deshaies · Guadeloupe</span><span>— 5 —</span></div>
+</section>
+
+<!-- ================= PAGE 6 — DÉPART & URGENCES ================= -->
+<section class="page">
+  <div class="eyebrow">En pratique</div>
+  <div class="sec-head">
+    <div class="sec-num">05</div>
+    <h2 class="sec-title">Départ &amp; urgences</h2>
+  </div>
+  <hr class="rule" />
+
+  <h3 style="font-size:16px;margin-bottom:4px;">Avant votre départ</h3>
+  <ul class="check">
+    <li>Vider le réfrigérateur</li>
+    <li>Sortir les poubelles</li>
+    <li>Laisser la vaisselle propre</li>
+    <li>Éteindre climatisation, lumières et ventilateurs</li>
+    <li>Fermer portes et fenêtres</li>
+    <li>Vérifier vos effets personnels</li>
+    <li>Remettre les clés selon les consignes données</li>
+  </ul>
+
+  <h3 style="font-size:16px;margin:7mm 0 4px;">Numéros d'urgence</h3>
+  <div class="urg">
+    <div class="u"><div class="num">112</div><div class="lbl">Urgences européennes<small>numéro unique</small></div></div>
+    <div class="u"><div class="num">15</div><div class="lbl">SAMU<small>urgences médicales</small></div></div>
+    <div class="u"><div class="num">18</div><div class="lbl">Pompiers<small>secours</small></div></div>
+    <div class="u"><div class="num">17</div><div class="lbl">Gendarmerie<small>police</small></div></div>
+  </div>
+
+  <div class="callout" style="margin-top:6mm;">
+    <h4>À garder sous la main</h4>
+    <ul>
+      <li>Contact sur place : ____________________</li>
+      <li>Pharmacie la plus proche : ____________________</li>
+      <li>Médecin : ____________________</li>
+      <li>Hôpital / clinique : ____________________</li>
+    </ul>
+  </div>
+
+  <div class="foot"><span class="g">Villas Grande Anse</span><span>Merci de votre visite — à bientôt !</span><span>— 6 —</span></div>
+</section>
+
+<!-- ================= FEUILLE VOLANTE — BONNES ADRESSES ================= -->
+<section class="page">
+  <div class="eyebrow">Feuille à jour le ____ / ____ / ______</div>
+  <div class="sec-head">
+    <div class="sec-num" style="font-size:46px;">★</div>
+    <h2 class="sec-title">Bonnes adresses</h2>
+  </div>
+  <hr class="rule" />
+  <p class="lead">Nos coups de cœur et adresses utiles autour de Deshaies. Feuille mise à jour régulièrement.</p>
+
+  <h3 style="font-size:15px;margin-bottom:2px;">Où manger</h3>
+  <table>
+    <thead><tr><th style="width:18%">Catégorie</th><th style="width:24%">Nom</th><th style="width:34%">Adresse / téléphone</th><th>Notre conseil</th></tr></thead>
+    <tbody>
+      <tr><td>Restaurant</td><td class="fill">à compléter</td><td class="fill">…</td><td>Réserver le soir</td></tr>
+      <tr><td>Snack / plage</td><td class="fill">à compléter</td><td class="fill">…</td><td>Pratique après la plage</td></tr>
+      <tr><td>Cuisine créole</td><td class="fill">à compléter</td><td class="fill">…</td><td>Pour les spécialités</td></tr>
+      <tr><td>Pizzeria</td><td class="fill">à compléter</td><td class="fill">…</td><td>Sympa en famille</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:15px;margin:6mm 0 2px;">Courses</h3>
+  <table>
+    <thead><tr><th style="width:30%">Type</th><th style="width:40%">Adresse</th><th>Horaires / conseil</th></tr></thead>
+    <tbody>
+      <tr><td>Supérette / supermarché</td><td class="fill">à compléter</td><td class="fill">…</td></tr>
+      <tr><td>Boulangerie</td><td class="fill">à compléter</td><td class="fill">…</td></tr>
+      <tr><td>Fruits &amp; légumes / marché</td><td class="fill">à compléter</td><td class="fill">…</td></tr>
+      <tr><td>Poissonnerie</td><td class="fill">à compléter</td><td class="fill">…</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-size:15px;margin:6mm 0 2px;">Services utiles</h3>
+  <table>
+    <thead><tr><th style="width:30%">Service</th><th style="width:40%">Adresse</th><th>Téléphone</th></tr></thead>
+    <tbody>
+      <tr><td>Pharmacie</td><td class="fill">à compléter</td><td class="fill">…</td></tr>
+      <tr><td>Médecin</td><td class="fill">à compléter</td><td class="fill">…</td></tr>
+      <tr><td>Station-service</td><td class="fill">à compléter</td><td class="fill">…</td></tr>
+      <tr><td>Distributeur (DAB)</td><td class="fill">à compléter</td><td class="fill">…</td></tr>
+      <tr><td>Taxi</td><td class="fill">à compléter</td><td class="fill">…</td></tr>
+    </tbody>
+  </table>
+
+  <div class="foot"><span class="g">Villas Grande Anse</span><span>Bonnes adresses · Deshaies</span><span>Feuille volante</span></div>
+</section>
+
+</body>
+</html>

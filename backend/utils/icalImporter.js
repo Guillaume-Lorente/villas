@@ -7,6 +7,7 @@ const villaICalSources = [
     name: "Akamapa",
     urls: [
       "https://www.antillesexception.com/exvapi/getplanning/327114416bcb7a383bd5beff5154972aeeb7e5",
+      "https://le-hamac.com/calendrier/calendrier301.ics",
     ],
   },
   {
@@ -14,6 +15,7 @@ const villaICalSources = [
     name: "Tilamp-Tilamp",
     urls: [
       "https://www.antillesexception.com/exvapi/getplanning/c03b54dc435f577ae440a51d3138e43d5b7864",
+      "https://le-hamac.com/calendrier/calendrier116.ics",
     ],
   },
   {
