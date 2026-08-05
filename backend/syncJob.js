@@ -2,8 +2,8 @@ const cron = require("node-cron");
 const { syncReservations } = require("./utils/icalImporter");
 
 function startICalSyncJob() {
-  // ⏰ Tous les jours à 00:00 et 12:00
-  cron.schedule("0 0,12 * * *", async () => {
+  // ⏰ Toutes les 2 heures
+  cron.schedule("0 */2 * * *", async () => {
     console.log("🔁 [CRON] Début de la synchronisation iCal...");
 
     const villaIds = [1, 2, 3];
