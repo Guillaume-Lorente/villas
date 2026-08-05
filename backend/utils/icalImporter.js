@@ -8,6 +8,7 @@ const villaICalSources = [
     urls: [
       "https://www.antillesexception.com/exvapi/getplanning/327114416bcb7a383bd5beff5154972aeeb7e5",
       "https://le-hamac.com/calendrier/calendrier301.ics",
+      "https://ical.booking.com/v1/export?t=6b17115d-5b3b-4343-9cd9-f90db96db0ef",
     ],
   },
   {
@@ -16,6 +17,7 @@ const villaICalSources = [
     urls: [
       "https://www.antillesexception.com/exvapi/getplanning/c03b54dc435f577ae440a51d3138e43d5b7864",
       "https://le-hamac.com/calendrier/calendrier116.ics",
+      "https://ical.booking.com/v1/export?t=5da7830e-befd-48c3-a99d-a418eb80987c",
     ],
   },
   {
