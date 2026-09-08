@@ -122,8 +122,8 @@ export default function AdminCalendar({ villaId }) {
                 if (reservation) {
                   setSelectedReservation(reservation);
                   setEditGuestName(reservation.guest_name);
-                  setEditStartDate(new Date(reservation.start_date));
-                  setEditEndDate(new Date(reservation.end_date));
+                  setEditStartDate(parseISO(reservation.start_date));
+                  setEditEndDate(parseISO(reservation.end_date));
                 } else {
                   setSelectedStart(dayItem);
                   setSelectedEnd(null);
@@ -158,7 +158,7 @@ export default function AdminCalendar({ villaId }) {
               type="date"
               className="w-full border px-2 py-1 rounded"
               value={format(selectedStart, "yyyy-MM-dd")}
-              onChange={(e) => setSelectedStart(new Date(e.target.value))}
+              onChange={(e) => setSelectedStart(parseISO(e.target.value))}
             />
           </div>
 
@@ -168,7 +168,7 @@ export default function AdminCalendar({ villaId }) {
               type="date"
               className="w-full border px-2 py-1 rounded"
               value={selectedEnd ? format(selectedEnd, "yyyy-MM-dd") : ""}
-              onChange={(e) => setSelectedEnd(new Date(e.target.value))}
+              onChange={(e) => setSelectedEnd(parseISO(e.target.value))}
             />
           </div>
 
@@ -253,22 +253,22 @@ export default function AdminCalendar({ villaId }) {
                     type="date"
                     className="border rounded px-2 py-1 text-sm"
                     value={format(editStartDate, "yyyy-MM-dd")}
-                    onChange={(e) => setEditStartDate(new Date(e.target.value))}
+                    onChange={(e) => setEditStartDate(parseISO(e.target.value))}
                   />
                   {" → "}
                   <input
                     type="date"
                     className="border rounded px-2 py-1 text-sm"
                     value={format(editEndDate, "yyyy-MM-dd")}
-                    onChange={(e) => setEditEndDate(new Date(e.target.value))}
+                    onChange={(e) => setEditEndDate(parseISO(e.target.value))}
                   />
                 </>
               ) : (
                 `${format(
-                  new Date(selectedReservation.start_date),
+                  parseISO(selectedReservation.start_date),
                   "dd/MM/yyyy"
                 )} → ${format(
-                  new Date(selectedReservation.end_date),
+                  parseISO(selectedReservation.end_date),
                   "dd/MM/yyyy"
                 )}`
               )}
